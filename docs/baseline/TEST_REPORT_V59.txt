@@ -1,0 +1,37 @@
+ICCHY V59 TEST REPORT
+Generated: 2026-08-02 22:11 JST
+
+RESULT
+- Browser checks: 77/77 passed
+- Browser page errors: 0
+- JavaScript syntax: passed (2 script blocks, Node.js --check)
+- HTML parse / required structure: passed
+
+VIEWPORTS
+- 320 x 568: small smartphone
+- 360 x 640: small smartphone
+- 390 x 844: standard smartphone
+- 1440 x 900: PC
+
+CHECKED
+- Normal-size home has no vertical scroll
+- Four home choices are all visible
+- No horizontal overflow on the home screen
+- Entrance animation is 0.16 seconds with zero delay
+- Hover state moves the selected home item 3px
+- Pressed state uses translateY(1px) and scale(0.995)
+- Insurance route renders and moves keyboard focus to its heading
+- Details elements open with the Enter key
+- Keyboard focus ring is visible on interactive controls
+- Modal has dialog semantics, Escape close, focus return and focus trapping
+- Large-text mode has no horizontal overflow on home, mobile, yutai, insurance and deals routes
+- PC content column expands to 720px
+- Detail text was rendered at 18px / 31.32px line height in the normal setting
+
+NOTES
+- External company-logo requests were intentionally blocked during the offline browser test. The site itself produced no JavaScript page errors.
+- The original uploaded HTML was not modified.
+
+SHA-256
+- Original: fd2870747fd7a8c24c911a118fdd7f19248800ca5de1f7640f0fceaa68b77da2
+- Improved index.html: 36888da3ac4ab1779b6b0abd4387dc47b9c4445d30755dfaa4044e7221dafbb0
