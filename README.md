@@ -23,6 +23,7 @@
 .
 ├─ index.html                 サイト本体
 ├─ assets/comic/              詳細画面で遅延表示するWebP画像
+├─ assets/articles/           記事用の画像
 ├─ docs/baseline/             改善前のV59説明・検証記録
 ├─ CHANGELOG.md               今回の変更記録
 └─ TEST_REPORT.md             現在の検証結果
@@ -37,10 +38,11 @@
 - Open Graph、X、JSON-LDの基本情報を追加
 - キーボード利用者向けの「本文へ移動」を追加
 - JavaScript無効時の案内を追加
+- スマホ詳細画面から読める、月100GB利用の実体験記事を追加
 
 トップの見出し、4択の文言、順番、無スクロール方針は変更していません。
 
 ## 公開について
 
-この作業フォルダからGitHubへのpush、GitHub Pagesの有効化、Netlifyへのデプロイはまだ行っていません。
+このリポジトリの `main` ブランチは、GitHub Pagesの [イッチー](https://dokechi.github.io/icchy1/#home) として公開します。
 

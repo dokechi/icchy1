@@ -4947,6 +4947,212 @@ body{
   color:#465049;
 }
 
+.article-feature{
+  display:grid;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--page-accent) 28%,var(--line));
+  border-radius:var(--radius-card);
+  background:var(--surface-raised);
+  color:inherit;
+  text-decoration:none;
+  box-shadow:0 12px 30px rgb(30 58 47 / .08);
+}
+
+.article-feature:focus-visible{
+  outline:3px solid color-mix(in srgb,var(--page-accent) 35%,transparent);
+  outline-offset:3px;
+}
+
+.article-feature-image{
+  aspect-ratio:12 / 5;
+  overflow:hidden;
+  background:var(--page-accent-soft);
+}
+
+.article-feature-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.article-feature-copy{
+  padding:18px;
+}
+
+.article-feature-kicker,
+.article-eyebrow{
+  margin:0 0 6px;
+  color:var(--page-accent);
+  font-size:var(--type-label);
+  font-weight:900;
+  letter-spacing:.04em;
+}
+
+.article-feature h2{
+  margin:0;
+  font-size:var(--type-section);
+  line-height:var(--leading-title);
+  letter-spacing:-.025em;
+}
+
+.article-feature p:not(.article-feature-kicker){
+  margin:8px 0 0;
+  color:#4b555f;
+  line-height:var(--leading-support);
+}
+
+.article-feature-action{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:12px;
+  color:var(--page-accent);
+  font-weight:900;
+}
+
+.mobile-article-page{
+  gap:0;
+}
+
+.article-header{
+  padding:8px 0 20px;
+}
+
+.article-header h1{
+  margin:0;
+  font-size:clamp(34px,9vw,46px);
+  line-height:1.18;
+  letter-spacing:-.055em;
+}
+
+.article-description{
+  margin:14px 0 0;
+  color:#424b55;
+  line-height:var(--leading-body);
+}
+
+.article-meta{
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:var(--type-support);
+  line-height:1.6;
+}
+
+.article-thumbnail{
+  margin:0 calc(var(--side) * -1);
+  background:var(--page-accent-soft);
+}
+
+.article-thumbnail img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.article-body{
+  display:grid;
+}
+
+.article-lead{
+  margin:0;
+  padding:24px 0;
+  border-bottom:1px solid var(--line);
+  font-size:var(--type-body);
+  font-weight:700;
+  line-height:var(--leading-body);
+}
+
+.article-section{
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.article-section h2{
+  margin:0;
+  font-size:var(--type-section);
+  line-height:var(--leading-title);
+  letter-spacing:-.035em;
+}
+
+.article-section p{
+  margin:12px 0 0;
+  line-height:var(--leading-body);
+}
+
+.article-section ul{
+  margin:14px 0 0;
+  padding-left:1.3em;
+}
+
+.article-section li{
+  margin:7px 0;
+  line-height:var(--leading-body);
+}
+
+.article-note{
+  margin-top:18px;
+  padding:14px 16px;
+  border-left:4px solid var(--page-accent);
+  background:var(--page-accent-soft);
+  line-height:var(--leading-support);
+}
+
+.article-links{
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+
+.article-links a{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-control);
+  background:#fff;
+  color:var(--page-accent);
+  font-weight:850;
+  line-height:1.45;
+  text-decoration:none;
+}
+
+.article-links a::after{
+  content:"↗";
+  flex:none;
+}
+
+.article-next{
+  padding:24px 0 4px;
+}
+
+.article-next p{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:var(--type-support);
+}
+
+.article-next-nav{
+  display:grid;
+  gap:10px;
+}
+
+.article-next-nav a{
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-control);
+  color:var(--ink);
+  font-weight:850;
+  line-height:1.45;
+  text-decoration:none;
+}
+
 .yutai-path{
   display:grid;
   grid-template-columns:1fr 20px 1fr 20px 1fr;
@@ -6422,6 +6628,10 @@ const routeMeta={
     title:"スマホ代を下げる｜イッチー",
     description:"20GB以上使う人向けに、スマホ料金を短く比べて確認できます。"
   },
+  "mobile-100gb":{
+    title:"毎月100GB以上使う私が楽天モバイルを続ける理由｜イッチー",
+    description:"楽天モバイルを月100GB以上使う筆者が、PCやテレビへの接続、通信速度、契約前に見るべき電波について実体験を整理します。"
+  },
   insurance:{
     title:"保険を考える｜イッチー",
     description:"保険を月額だけで見ず、足りない金額と優先順位から考えます。"
@@ -6438,11 +6648,11 @@ const routeMeta={
 
 function page(){
   const p=location.hash.slice(1);
-  return ["home","mobile","yutai","insurance","insurance-compare","deals"].includes(p)?p:"home";
+  return ["home","mobile","mobile-100gb","yutai","insurance","insurance-compare","deals"].includes(p)?p:"home";
 }
 function render(){
   const p=page();
-  const routeClass=p==="insurance-compare"?"insurance":p;
+  const routeClass=p==="insurance-compare"?"insurance":p==="mobile-100gb"?"mobile":p;
   const meta=routeMeta[p]||routeMeta.home;
   document.title=meta.title;
   pageDescription?.setAttribute("content",meta.description);
@@ -6451,6 +6661,7 @@ function render(){
   document.body.className=`route-${routeClass}${p==="home"?" home lock":""}`;
   if(p==="home")renderHome();
   if(p==="mobile")renderMobile();
+  if(p==="mobile-100gb")renderMobile100gb();
   if(p==="yutai")renderYutai();
   if(p==="insurance")renderInsurance();
   if(p==="insurance-compare")renderInsurance();
@@ -6553,6 +6764,18 @@ function renderMobile(){
         <h1>ギガを、<br>かなり使う。</h1>
         <p>PCやテレビにもつなぐ。100GBを超える月もある。そんな使い方には、楽天が一番合っていた。</p>
       </section>
+
+      <a class="article-feature" href="#mobile-100gb" aria-label="記事：毎月100GB以上使う私が楽天モバイルを続ける理由を読む">
+        <div class="article-feature-image">
+          <img src="assets/articles/rakuten-mobile-100gb.png" width="1536" height="640" alt="100GB超でも楽天モバイルを続ける理由。スマホからPCとテレビへ接続する図" decoding="async">
+        </div>
+        <div class="article-feature-copy">
+          <p class="article-feature-kicker">実体験を詳しく読む</p>
+          <h2>毎月100GB以上使う私が、楽天モバイルを続ける理由</h2>
+          <p>PCやテレビにつなぐ使い方と、契約前に確認したい場所をまとめました。</p>
+          <span class="article-feature-action">記事を読む <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
 
       <section class="visual-section tethering-story">
         <div class="tether-diagram" role="img" aria-label="スマホからPCとテレビへインターネットをつなぐ図">
@@ -6660,6 +6883,100 @@ function renderMobile(){
   };
 
   updateMobileCompare();
+}
+
+function renderMobile100gb(){
+  app.innerHTML=`
+    <article class="page mobile-article-page">
+      <a class="back-link" href="#mobile">← スマホ料金ページに戻る</a>
+
+      <header class="article-header">
+        <p class="article-eyebrow">100GB利用の実体験</p>
+        <h1>毎月100GB以上使う私が楽天モバイルを続ける理由</h1>
+        <p class="article-description">PCやテレビもスマホにつなぐ私が、通信速度の実感と、契約前に確認したい電波の見方をまとめます。</p>
+        <p class="article-meta">書いた人：イッチー　｜　2026年8月6日</p>
+      </header>
+
+      <figure class="article-thumbnail">
+        <img src="assets/articles/rakuten-mobile-100gb.png" width="1536" height="640" alt="100GB超でも楽天モバイルを続ける理由。スマホからPCとテレビへ接続する図">
+      </figure>
+
+      <div class="article-body">
+        <p class="article-lead">スマホの通信量が、月100GBを超えることがあります。PCやテレビもスマホにつないでいるからです。そんな使い方でも、動画や普段のネットでは遅さを感じませんでした。ただ、誰にでも楽天モバイルが合うとは思っていません。私の使い方と、契約前に見る場所を分けて書きます。</p>
+
+        <section class="article-section">
+          <h2>結論。普段いる場所で使えるなら候補になる</h2>
+          <p>私が楽天モバイルを使い続けている理由は、安さだけではありません。普段いる場所で使えているからです。</p>
+          <p>自宅でつながる。PCにもつなげる。テレビで動画を見ても困らない。私の場合は、この3つがそろいました。</p>
+          <p>楽天モバイル公式では、Rakuten最強プランをデータ無制限と案内しています。一方、混雑時などは速度を制御する場合があるとも書かれています。無制限という言葉だけで決めず、自分の生活圏で使えるかを見る方が確実です。</p>
+        </section>
+
+        <section class="article-section">
+          <h2>月100GBを超えるのは、PCとテレビにもつなぐから</h2>
+          <p>スマホだけで月100GBを使うわけではありません。スマホのテザリングを使い、PCとテレビもネットにつないでいます。</p>
+          <p>PCでは仕事やネットを見る。テレビではYouTubeを見る。自宅の固定回線に近い役割を、スマホにまとめています。</p>
+          <p>この使い方だと、通信量はすぐに増えます。20GBや30GBでは足りません。月100GBを超えることがあるのは、珍しい使い方をしているからではなく、複数の機器で毎日使っているからです。</p>
+        </section>
+
+        <section class="article-section">
+          <h2>動画と普段のネットでは、遅さを感じなかった</h2>
+          <p>私が使った範囲では、動画やネットで遅さを感じませんでした。PCでページを見る。テレビで動画を流す。普段の使い方では困らなかったので、そのまま使っています。</p>
+          <p>これは、私が普段いる場所での話です。同じ市内でも建物や時間帯が違えば、結果は変わります。私の体験を、そのまま全員の答えにはできません。</p>
+          <p>通信会社を選ぶときは、利用者の感想と公式情報を分けて見ます。公式ページではプランの条件を確認する。利用者の話からは、自分と近い使い方かどうかを見る。この2つを混ぜない方が判断しやすくなります。</p>
+        </section>
+
+        <section class="article-section">
+          <h2>料金より先に、自宅と職場の電波を見る</h2>
+          <p>どれだけ料金が合っていても、普段いる場所でつながらなければ使い続けられません。先に見るのは、次の場所です。</p>
+          <ul>
+            <li>自宅の中</li>
+            <li>職場や作業場所</li>
+            <li>通勤や移動で通る道</li>
+            <li>よく行く店や施設</li>
+          </ul>
+          <p>楽天モバイル公式には通信エリアの確認ページがあります。まず地図を見る。そのうえで、建物の中や普段使う時間帯でも問題がないかを確かめます。</p>
+          <p>私の場合は、普段の生活で困りませんでした。だから、料金比較だけで別の会社へ移る理由がありませんでした。</p>
+        </section>
+
+        <section class="article-section">
+          <h2>楽天一本にしない方がいい使い方もある</h2>
+          <p>対戦ゲームでは、短い遅れが勝敗に関わります。オンライン会議や仕事で、一度の切断も困る人もいます。そういう使い方なら、私と同じ結果でも楽天一本にしない方が安心です。</p>
+          <p>動画が見られればよい人と、通信が一瞬も途切れてはいけない人では、必要な回線が違います。月に何GB使うかだけでなく、切れたときに何が困るかまで考えます。</p>
+          <p>スマホをWi-Fi代わりにすると配線や契約をまとめやすくなります。その代わり、スマホ側に不具合が起きたときは、PCもテレビも同時に使えなくなります。一本化するなら、この弱点も残ります。</p>
+        </section>
+
+        <section class="article-section">
+          <h2>料金とキャンペーンは、申し込む日に確認する</h2>
+          <p>携帯料金やキャンペーンは変わります。年齢、家族の人数、通話方法でも負担額が変わります。この記事では、申込時の金額を固定して書きません。</p>
+          <p>確認するのは、楽天モバイル公式の料金ページです。データ量ごとの料金、割引条件、通話の対象外、速度制御の注意書きまで読みます。キャンペーンを使う場合は、申込前のエントリーが必要かも確認します。</p>
+          <p>私が楽天モバイルを続けているのは、普段の使い方に合っているからです。料金表だけを見て選んだわけではありません。</p>
+          <div class="article-note">料金・キャンペーン・対応端末は変更されることがあります。申込時点の公式情報を確認してください。</div>
+        </section>
+
+        <section class="article-section">
+          <h2>まとめ。安さより、普段いる場所で使えるか</h2>
+          <p>月100GBを超える私でも、楽天モバイルを使い続けています。PCとテレビにつなぎ、動画や普段のネットで困らなかったからです。</p>
+          <p>見る順番は、料金より電波。次に、自分の使い方で通信が切れたら何が困るか。最後に、当日の公式料金と条件です。</p>
+        </section>
+
+        <section class="article-section" aria-labelledby="officialLinksTitle">
+          <h2 id="officialLinksTitle">公式の確認先</h2>
+          <div class="article-links">
+            <a href="https://network.mobile.rakuten.co.jp/fee/saikyo-plan/" target="_blank" rel="noopener noreferrer">Rakuten最強プランの料金・注意事項</a>
+            <a href="https://network.mobile.rakuten.co.jp/area/" target="_blank" rel="noopener noreferrer">楽天モバイルの通信エリア</a>
+          </div>
+        </section>
+      </div>
+
+      <footer class="article-next">
+        <p>ほかの支払いも見直す</p>
+        <nav class="article-next-nav" aria-label="関連記事">
+          <a href="#insurance">保険を月額だけで決めない考え方</a>
+          <a href="#yutai">1株優待の条件と注意点</a>
+        </nav>
+        <a class="back-link" href="#mobile">← スマホ料金ページに戻る</a>
+      </footer>
+    </article>`;
 }
 
 function updateMobileCompare(){
