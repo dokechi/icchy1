@@ -1,6 +1,6 @@
 name: Implement insurance consultation link
 
-"on":
+on:
   push:
     branches:
       - agent/insurance-consultation-page
@@ -18,40 +18,21 @@ jobs:
         with:
           ref: agent/insurance-consultation-page
 
-      - name: Replace direct affiliate link with the guide page
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
+      - name: Patch the insurance CTA
+        run: python3 tools/patch_insurance_consultation.py
 
-          path = Path("index.html")
-          text = path.read_text(encoding="utf-8")
-          old = '''        <a class="action-panel compare-panel" href="${INSURANCE_URL}" target="_blank" rel="nofollow sponsored noopener">
-          <span>STEP 2</span>
-          <strong>2〜3社の見積もりを出してもらう（PR）</strong>
-          <small>契約義務なし／その日に決めなくていい</small>
-          <b>↗</b>
-        </a>'''
-          new = '''        <a class="action-panel compare-panel" href="./insurance-consultation/">
-          <span>STEP 2</span>
-          <strong>無料相談を使う前に知っておくこと</strong>
-          <small>営業の調査力は使う／その場では契約しない</small>
-          <b>›</b>
-        </a>'''
-          if text.count(old) != 1:
-              raise SystemExit(f"Expected one matching CTA, found {text.count(old)}")
-          path.write_text(text.replace(old, new), encoding="utf-8")
-          PY
-
-      - name: Validate and commit
-        shell: bash
+      - name: Validate
         run: |
           test -f insurance-consultation/index.html
           grep -q '無料相談を使う前に知っておくこと' index.html
           grep -q '営業の調査力は使う。判断は渡さない。' insurance-consultation/index.html
+
+      - name: Commit the implementation
+        run: |
           rm .github/workflows/implement-insurance-consultation.yml
+          rm tools/patch_insurance_consultation.py
           git config user.name "OpenAI Codex"
           git config user.email "codex@openai.com"
-          git add index.html .github/workflows/implement-insurance-consultation.yml
+          git add index.html .github/workflows/implement-insurance-consultation.yml tools/patch_insurance_consultation.py
           git commit -m "Route insurance readers through consultation guide"
           git push origin HEAD:agent/insurance-consultation-page
