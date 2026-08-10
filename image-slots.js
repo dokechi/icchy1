@@ -84,6 +84,13 @@
     doc.head.appendChild(style);
   }
 
+  function normalizeRakutenBase(doc) {
+    doc.documentElement.style.removeProperty("--paper");
+    doc.body.style.background = "#fff";
+    const site = doc.querySelector(".site");
+    if (site) site.style.background = "#fff";
+  }
+
   function makeSlot(doc, key, text) {
     const existing = doc.querySelector(`[data-image-slot="${key}"]`);
     if (existing) return existing;
@@ -121,6 +128,7 @@
       const route = (win.location.hash || "").slice(1) || frame.dataset.route || "";
       if (route !== "mobile" && route !== "mobile-100gb") return;
 
+      normalizeRakutenBase(doc);
       ensureStyle(doc);
 
       if (route === "mobile") {
