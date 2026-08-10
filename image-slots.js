@@ -2,45 +2,6 @@
   const frame = document.getElementById("detailFrame");
   if (!frame) return;
 
-  const MOBILE_SLOTS = [
-    {
-      key: "usage-100gb",
-      position: "after",
-      selector: ".mobile-story-hero",
-      text: "月100GB以上使っている楽天モバイルのデータ利用量画面"
-    },
-    {
-      key: "tethering-pc-tv",
-      position: "after",
-      selector: ".tethering-story",
-      text: "スマホからPCとテレビへテザリングしている実際の使い方が分かる画像"
-    },
-    {
-      key: "fit-or-not",
-      position: "before",
-      selector: ".reality-check",
-      text: "楽天モバイルが向いている人・向いていない人が一目で分かる画像"
-    },
-    {
-      key: "area-check",
-      position: "after",
-      selector: ".reality-check",
-      text: "楽天モバイルの通信エリアを確認している画面"
-    },
-    {
-      key: "three-step-price",
-      position: "before",
-      selector: ".mobile-compare-v2",
-      text: "楽天モバイルの3段階料金が一目で分かる画像"
-    },
-    {
-      key: "before-apply-check",
-      position: "before",
-      selector: ".decision-cta",
-      text: "楽天モバイル申込み前に確認する3項目の画像"
-    }
-  ];
-
   const ARTICLE_SLOTS = [
     {
       key: "tethering-setting",
@@ -72,7 +33,7 @@
         justify-content:center;
         border:2px dashed var(--page-accent,#f04e7a);
         border-radius:16px;
-        background:var(--page-accent-soft,#fff0f5);
+        background:#fff;
         color:var(--page-accent,#f04e7a);
         font-weight:900;
         line-height:1.6;
@@ -107,33 +68,6 @@
     doc.body.style.background = "#fff";
     const site = doc.querySelector(".site");
     if (site) site.style.background = "#fff";
-
-    let override = doc.getElementById("icchy-rakuten-pink-override");
-    if (!override) {
-      override = doc.createElement("style");
-      override.id = "icchy-rakuten-pink-override";
-      override.textContent = `
-        body.route-mobile,
-        body.route-mobile .site,
-        body.route-mobile main,
-        body.route-mobile .page{
-          --page-accent:#f04e7a !important;
-          --page-accent-soft:#fff0f5 !important;
-          --green:#f04e7a !important;
-          --green-soft:#fff0f5 !important;
-        }
-        body.route-mobile .article-feature-kicker,
-        body.route-mobile .article-feature-action,
-        body.route-mobile .section-kicker,
-        body.route-mobile .journal-label,
-        body.route-mobile .signal-conclusion b,
-        body.route-mobile .latency-note>span,
-        body.route-mobile .decision-cta>span{
-          color:#f04e7a !important;
-        }
-      `;
-      doc.head.appendChild(override);
-    }
   }
 
   function makeSlot(doc, key, text) {
@@ -146,15 +80,6 @@
     return slot;
   }
 
-  function placeBySelector(doc, spec) {
-    if (doc.querySelector(`[data-image-slot="${spec.key}"]`)) return;
-    const target = doc.querySelector(spec.selector);
-    if (!target) return;
-    const slot = makeSlot(doc, spec.key, spec.text);
-    if (spec.position === "before") target.before(slot);
-    else target.after(slot);
-  }
-
   function placeAfterHeadingSection(doc, spec) {
     if (doc.querySelector(`[data-image-slot="${spec.key}"]`)) return;
     const section = [...doc.querySelectorAll(".article-section")].find(node => {
@@ -165,7 +90,7 @@
     section.after(makeSlot(doc, spec.key, spec.text));
   }
 
-  function syncSlots() {
+  function syncArticleSlots() {
     try {
       const doc = frame.contentDocument;
       const win = frame.contentWindow;
@@ -174,22 +99,24 @@
       if (route !== "mobile" && route !== "mobile-100gb") return;
 
       forceRakutenTheme(doc);
-      ensureStyle(doc);
+      if (route !== "mobile-100gb") return;
 
-      if (route === "mobile") {
-        MOBILE_SLOTS.forEach(spec => placeBySelector(doc, spec));
-      } else {
-        ARTICLE_SLOTS.forEach(spec => placeAfterHeadingSection(doc, spec));
-      }
+      ensureStyle(doc);
+      ARTICLE_SLOTS.forEach(spec => placeAfterHeadingSection(doc, spec));
     } catch (error) {}
   }
 
   frame.addEventListener("load", () => {
-    syncSlots();
+    syncArticleSlots();
     try {
-      frame.contentWindow?.addEventListener("hashchange", () => requestAnimationFrame(syncSlots));
+      frame.contentWindow?.addEventListener("hashchange", () => requestAnimationFrame(syncArticleSlots));
     } catch (error) {}
   });
 
-  window.addEventListener("hashchange", () => requestAnimationFrame(syncSlots));
+  window.addEventListener("hashchange", () => requestAnimationFrame(syncArticleSlots));
+
+  const script = document.createElement("script");
+  script.src = "mobile-redesign.js";
+  script.onload = () => window.dispatchEvent(new Event("hashchange"));
+  document.head.appendChild(script);
 })();
