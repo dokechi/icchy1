@@ -54,6 +54,9 @@
     }
   ];
 
+  const PINK = "#f04e7a";
+  const PINK_SOFT = "#fff0f5";
+
   function ensureStyle(doc) {
     if (doc.getElementById("icchy-image-slot-style")) return;
     const style = doc.createElement("style");
@@ -84,11 +87,53 @@
     doc.head.appendChild(style);
   }
 
-  function normalizeRakutenBase(doc) {
+  function forceRakutenTheme(doc) {
+    const targets = [
+      doc.documentElement,
+      doc.body,
+      doc.querySelector(".site"),
+      doc.querySelector("main"),
+      doc.querySelector(".page")
+    ].filter(Boolean);
+
+    for (const target of targets) {
+      target.style.setProperty("--page-accent", PINK, "important");
+      target.style.setProperty("--page-accent-soft", PINK_SOFT, "important");
+      target.style.setProperty("--green", PINK, "important");
+      target.style.setProperty("--green-soft", PINK_SOFT, "important");
+    }
+
     doc.documentElement.style.removeProperty("--paper");
     doc.body.style.background = "#fff";
     const site = doc.querySelector(".site");
     if (site) site.style.background = "#fff";
+
+    let override = doc.getElementById("icchy-rakuten-pink-override");
+    if (!override) {
+      override = doc.createElement("style");
+      override.id = "icchy-rakuten-pink-override";
+      override.textContent = `
+        body.route-mobile,
+        body.route-mobile .site,
+        body.route-mobile main,
+        body.route-mobile .page{
+          --page-accent:#f04e7a !important;
+          --page-accent-soft:#fff0f5 !important;
+          --green:#f04e7a !important;
+          --green-soft:#fff0f5 !important;
+        }
+        body.route-mobile .article-feature-kicker,
+        body.route-mobile .article-feature-action,
+        body.route-mobile .section-kicker,
+        body.route-mobile .journal-label,
+        body.route-mobile .signal-conclusion b,
+        body.route-mobile .latency-note>span,
+        body.route-mobile .decision-cta>span{
+          color:#f04e7a !important;
+        }
+      `;
+      doc.head.appendChild(override);
+    }
   }
 
   function makeSlot(doc, key, text) {
@@ -128,7 +173,7 @@
       const route = (win.location.hash || "").slice(1) || frame.dataset.route || "";
       if (route !== "mobile" && route !== "mobile-100gb") return;
 
-      normalizeRakutenBase(doc);
+      forceRakutenTheme(doc);
       ensureStyle(doc);
 
       if (route === "mobile") {
