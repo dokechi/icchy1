@@ -15,108 +15,91 @@
     }
   ];
 
-  const PINK = "#f04e7a";
-  const PINK_SOFT = "#fff0f5";
+  function isStandaloneMobile(win) {
+    try { return /\/mobile\.html$/.test(win.location.pathname); }
+    catch (error) { return false; }
+  }
 
-  function ensureStyle(doc) {
-    if (doc.getElementById("icchy-image-slot-style")) return;
-    const style = doc.createElement("style");
-    style.id = "icchy-image-slot-style";
-    style.textContent = `
-      .icchy-image-slot{
-        width:100%;
-        min-height:116px;
-        margin:18px 0;
-        padding:22px 18px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        border:2px dashed var(--page-accent,#f04e7a);
-        border-radius:16px;
-        background:#fff;
-        color:var(--page-accent,#f04e7a);
-        font-weight:900;
-        line-height:1.6;
-        text-align:center;
-        letter-spacing:-.02em;
-      }
-      html.font-step-up .icchy-image-slot{
-        min-height:132px;
-        font-size:1.08em;
-      }
-    `;
+  function forcePink(doc) {
+    const targets=[doc.documentElement,doc.body,doc.querySelector('.site'),doc.querySelector('main'),doc.querySelector('.page')].filter(Boolean);
+    targets.forEach(target=>{
+      target.style.setProperty('--page-accent','#f04e7a','important');
+      target.style.setProperty('--page-accent-soft','#fff0f5','important');
+      target.style.setProperty('--green','#f04e7a','important');
+      target.style.setProperty('--green-soft','#fff0f5','important');
+    });
+    doc.body.style.background='#fff';
+  }
+
+  function ensureSlotStyle(doc){
+    if(doc.getElementById('icchy-image-slot-style'))return;
+    const style=doc.createElement('style');
+    style.id='icchy-image-slot-style';
+    style.textContent=`.icchy-image-slot{width:100%;min-height:116px;margin:18px 0;padding:22px 18px;display:flex;align-items:center;justify-content:center;border:2px dashed #f04e7a;border-radius:16px;background:#fff;color:#f04e7a;font-weight:900;line-height:1.6;text-align:center}.icchy-image-slot+*{margin-top:0}`;
     doc.head.appendChild(style);
   }
 
-  function forceRakutenTheme(doc) {
-    const targets = [
-      doc.documentElement,
-      doc.body,
-      doc.querySelector(".site"),
-      doc.querySelector("main"),
-      doc.querySelector(".page")
-    ].filter(Boolean);
-
-    for (const target of targets) {
-      target.style.setProperty("--page-accent", PINK, "important");
-      target.style.setProperty("--page-accent-soft", PINK_SOFT, "important");
-      target.style.setProperty("--green", PINK, "important");
-      target.style.setProperty("--green-soft", PINK_SOFT, "important");
-    }
-
-    doc.documentElement.style.removeProperty("--paper");
-    doc.body.style.background = "#fff";
-    const site = doc.querySelector(".site");
-    if (site) site.style.background = "#fff";
-  }
-
-  function makeSlot(doc, key, text) {
-    const existing = doc.querySelector(`[data-image-slot="${key}"]`);
-    if (existing) return existing;
-    const slot = doc.createElement("div");
-    slot.className = "icchy-image-slot";
-    slot.dataset.imageSlot = key;
-    slot.textContent = `【画像：${text}】`;
-    return slot;
-  }
-
-  function placeAfterHeadingSection(doc, spec) {
-    if (doc.querySelector(`[data-image-slot="${spec.key}"]`)) return;
-    const section = [...doc.querySelectorAll(".article-section")].find(node => {
-      const heading = node.querySelector("h2");
-      return heading && heading.textContent.trim() === spec.heading;
+  function addArticleSlots(doc){
+    ensureSlotStyle(doc);
+    ARTICLE_SLOTS.forEach(spec=>{
+      if(doc.querySelector(`[data-image-slot="${spec.key}"]`))return;
+      const section=[...doc.querySelectorAll('.article-section')].find(node=>node.querySelector('h2')?.textContent.trim()===spec.heading);
+      if(!section)return;
+      const slot=doc.createElement('div');
+      slot.className='icchy-image-slot';
+      slot.dataset.imageSlot=spec.key;
+      slot.textContent=`【画像：${spec.text}】`;
+      section.after(slot);
     });
-    if (!section) return;
-    section.after(makeSlot(doc, spec.key, spec.text));
   }
 
-  function syncArticleSlots() {
-    try {
-      const doc = frame.contentDocument;
-      const win = frame.contentWindow;
-      if (!doc || !win) return;
-      const route = (win.location.hash || "").slice(1) || frame.dataset.route || "";
-      if (route !== "mobile" && route !== "mobile-100gb") return;
-
-      forceRakutenTheme(doc);
-      if (route !== "mobile-100gb") return;
-
-      ensureStyle(doc);
-      ARTICLE_SLOTS.forEach(spec => placeAfterHeadingSection(doc, spec));
-    } catch (error) {}
+  function bindStandaloneLinks(doc){
+    if(doc.documentElement.dataset.icchyStandaloneBound)return;
+    doc.documentElement.dataset.icchyStandaloneBound='1';
+    doc.addEventListener('click',event=>{
+      const anchor=event.target.closest('a');
+      if(!anchor)return;
+      const href=anchor.getAttribute('href')||'';
+      if(href.includes('app.html#mobile-100gb')){
+        event.preventDefault();
+        window.location.hash='mobile-100gb';
+      }
+    },true);
   }
 
-  frame.addEventListener("load", () => {
-    syncArticleSlots();
-    try {
-      frame.contentWindow?.addEventListener("hashchange", () => requestAnimationFrame(syncArticleSlots));
-    } catch (error) {}
+  function sync(){
+    try{
+      const win=frame.contentWindow;
+      const doc=frame.contentDocument;
+      if(!win||!doc)return;
+      const outerRoute=location.hash.slice(1)||'home';
+      const innerRoute=(win.location.hash||'').slice(1);
+
+      if(outerRoute==='mobile'){
+        if(!isStandaloneMobile(win)){
+          frame.src='mobile.html';
+          return;
+        }
+        bindStandaloneLinks(doc);
+        return;
+      }
+
+      if(innerRoute==='mobile' && outerRoute!=='mobile'){
+        location.hash='mobile';
+        return;
+      }
+
+      if(innerRoute==='mobile-100gb' || outerRoute==='mobile-100gb'){
+        forcePink(doc);
+        addArticleSlots(doc);
+      }
+    }catch(error){}
+  }
+
+  frame.addEventListener('load',()=>{
+    sync();
+    try{frame.contentWindow?.addEventListener('hashchange',()=>requestAnimationFrame(sync));}catch(error){}
   });
-
-  window.addEventListener("hashchange", () => requestAnimationFrame(syncArticleSlots));
-
-  const script = document.createElement("script");
-  script.src = "mobile-redesign.js";
-  script.onload = () => window.dispatchEvent(new Event("hashchange"));
-  document.head.appendChild(script);
+  window.addEventListener('hashchange',()=>requestAnimationFrame(sync));
+  requestAnimationFrame(sync);
 })();
