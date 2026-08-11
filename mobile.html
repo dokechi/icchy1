@@ -10,12 +10,13 @@
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fff;color:var(--ink)}body{font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}main{width:min(680px,100%);margin:auto;padding:12px var(--side) 34px}h1,h2,h3,strong{font-weight:900;text-wrap:balance}p{margin:0;text-wrap:pretty}
 .hero{padding:8px 0 22px;border-bottom:1px solid var(--line)}.eyebrow,.kicker{color:var(--pink);font-size:13px;font-weight:900;letter-spacing:.06em}.eyebrow{margin:0 0 8px}.hero h1{margin:0;font-size:clamp(35px,9.5vw,50px);line-height:1.06;letter-spacing:-.065em;font-weight:950}.hero h1 em{color:var(--pink);font-style:normal}.lead{margin-top:14px;color:#3f4750;font-size:16px;line-height:1.75;font-weight:700}.subnote{margin-top:10px;color:var(--muted);font-size:12.5px;line-height:1.6}
 .section{padding:26px 0;border-bottom:1px solid var(--line)}.section h2{margin:4px 0 0;font-size:clamp(25px,6.8vw,32px);line-height:1.25;letter-spacing:-.045em}.section-head p{margin-top:8px;color:#4a535d;line-height:1.7}
-.price-toggle{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:16px}.price-toggle button{min-height:50px;border:1px solid #d7dce2;border-radius:12px;background:#fff;font-weight:900}.price-toggle button.on{border-color:var(--pink);background:var(--pink);color:#fff}.mode-explain{margin-top:9px;padding:10px 12px;border-left:4px solid var(--pink);background:#fff7f9;color:#3d454e;font-size:13.5px;line-height:1.6;font-weight:750}
-.price-table{margin-top:12px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff}.price-row{padding:13px 12px;border-top:1px solid #edf0f2}.price-row:first-child{border-top:0}.price-row.rakuten{background:var(--pink-soft)}.price-main{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:9px;align-items:center}.rank{width:28px;height:28px;display:grid;place-items:center;border-radius:999px;background:#f0f2f5;font-size:13px;font-weight:950}.rakuten .rank{background:var(--pink);color:#fff}.brand strong{display:block;line-height:1.3}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:12.5px;line-height:1.4}.price{white-space:nowrap;text-align:right;font-size:18px;font-weight:950}.rakuten .brand strong,.rakuten .price{color:var(--pink)}.condition{margin:9px 0 0 39px;padding-top:8px;border-top:1px dashed #dfe3e8;color:#525b65;font-size:12.5px;line-height:1.55}.condition b{color:#30373f}.condition .cost{display:block;margin-top:3px;color:#7a6268}.no-match{margin-top:10px;padding:11px 12px;border-radius:12px;background:var(--soft);color:#59626c;font-size:12.5px;line-height:1.6}.verdict{margin-top:13px;padding:14px;border:2px solid var(--pink);border-radius:13px;background:#fff;text-align:center}.verdict strong{display:block;color:var(--pink);font-size:20px;line-height:1.35}.verdict p{margin-top:5px;color:#49515a;font-size:13.5px;line-height:1.6}
+.compare-control{margin-top:17px}.control-label{display:block;margin:0 0 7px;font-size:13px;font-weight:900;color:#515b65}.segmented{display:grid;grid-template-columns:1fr 1fr;border:1px solid #d6dce2;border-radius:12px;overflow:hidden;background:#fff}.segmented button{min-height:48px;border:0;background:#fff;font-weight:900}.segmented button+button{border-left:1px solid #d6dce2}.segmented button.on{background:var(--pink);color:#fff}.mode-explain{margin-top:11px;padding:10px 12px;border-left:4px solid var(--pink);background:#fff7f9;color:#3d454e;font-size:13.5px;line-height:1.6;font-weight:750}
+.result-head{margin-top:17px;display:flex;align-items:end;justify-content:space-between;gap:10px}.result-head strong{font-size:18px}.result-head span{color:var(--muted);font-size:12.5px;text-align:right}.price-table{margin-top:8px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff}.price-row{padding:12px 11px;border-top:1px solid #edf0f2}.price-row:first-child{border-top:0}.price-row.rakuten{background:var(--pink-soft)}.price-main{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:9px;align-items:center}.rank{width:28px;height:28px;display:grid;place-items:center;border-radius:999px;background:#f0f2f5;font-size:13px;font-weight:950}.rakuten .rank{background:var(--pink);color:#fff}.brand strong{display:block;line-height:1.3}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:12.5px;line-height:1.4}.price{white-space:nowrap;text-align:right;font-size:18px;font-weight:950}.rakuten .brand strong,.rakuten .price{color:var(--pink)}
+.compare-truth{margin-top:10px;padding:12px 13px;border-radius:12px;background:var(--soft)}.compare-truth strong{display:block;line-height:1.45}.compare-truth p{margin-top:4px;color:#59626c;font-size:13px;line-height:1.55}.condition-details{margin-top:10px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.condition-details summary{padding:12px 13px;cursor:pointer;font-weight:900;list-style:none}.condition-details summary::-webkit-details-marker{display:none}.condition-details summary::after{content:"＋";float:right;color:var(--pink);font-weight:950}.condition-details[open] summary::after{content:"−"}.condition-list{border-top:1px solid var(--line)}.condition-item{padding:11px 13px;border-top:1px solid #edf0f2}.condition-item:first-child{border-top:0}.condition-item strong{display:block}.condition-item p{margin-top:3px;color:#59626c;font-size:12.5px;line-height:1.55}.condition-item.rakuten{background:var(--pink-soft)}.no-match{margin-top:10px;padding:11px 12px;border-radius:12px;background:var(--soft);color:#59626c;font-size:12.5px;line-height:1.6}
 .personal{padding:27px 18px;margin:0 calc(var(--side)*-1);background:#fff8fa;border-bottom:1px solid #f2d5de}.personal-inner{max-width:46rem;margin:auto}.personal h2{margin:4px 0 0;font-size:clamp(28px,7.5vw,36px);line-height:1.22;letter-spacing:-.05em}.personal h2 strong{color:var(--pink)}.personal p{margin-top:10px;color:#424b55;line-height:1.75}.image-slot{margin:18px 0;padding:24px 17px;min-height:120px;display:grid;place-items:center;border:2px dashed var(--pink);border-radius:15px;background:#fff;color:var(--pink);font-weight:900;line-height:1.6;text-align:center}.use-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.use-grid div{padding:13px;border:1px solid #e0e4e8;border-radius:12px;background:#fff}.use-grid strong{display:block}.use-grid small{display:block;margin-top:4px;color:#6b747e;line-height:1.4}
 .fit{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.fit article{padding:14px;border:1px solid #dfe3e8;border-radius:13px;background:#fff}.fit article.good{border-top:4px solid var(--pink)}.fit article.stop{border-top:4px solid #2f353c}.fit h3{margin:0;font-size:17px}.fit ul{margin:10px 0 0;padding:0;list-style:none}.fit li{margin:7px 0;color:#434c56;font-size:14px;line-height:1.5}.fit li::before{content:"・";font-weight:900}
 .actions{display:grid;gap:8px;margin-top:14px}.primary,.secondary{min-height:54px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-weight:950}.primary{background:var(--pink);color:#fff}.secondary{border:1px solid #d5dbe1;background:#fff}.adnote{margin-top:7px;color:#747d86;font-size:12px;line-height:1.5;text-align:center}.sources{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}.sources summary{cursor:pointer;font-weight:850;color:#59636e}.sources div{display:grid;gap:8px;margin-top:10px}.sources a{padding:10px 12px;border:1px solid var(--line);border-radius:10px;color:#4a535d;font-weight:750}.back{margin-top:18px;min-height:44px;display:flex;align-items:center;color:#59636e;font-weight:850}
-[hidden]{display:none!important}html.font-step-up body{font-size:17px}html.font-step-up .lead{font-size:18px}@media(max-width:390px){.fit{grid-template-columns:1fr}.hero h1{font-size:34px}.price{font-size:17px}.condition{margin-left:0}.use-grid{grid-template-columns:1fr 1fr}}
+html.font-step-up body{font-size:17px}html.font-step-up .lead{font-size:18px}@media(max-width:390px){.fit{grid-template-columns:1fr}.hero h1{font-size:34px}.price{font-size:17px}.condition-item p{font-size:12px}.use-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -23,49 +24,123 @@
 <header class="hero">
 <p class="eyebrow">スマホ料金を、ちゃんと比べた</p>
 <h1>ドコモ、au、ソフトバンク、<br>ahamo、LINEMO。<br>比べたら、<em>楽天だった。</em></h1>
-<p class="lead">私みたいに月100GBを超えて使うなら、どこが残るのか。Y!mobile・UQ mobileも確認した上で、100GB級を同じ土俵で比べました。</p>
-<p class="subnote">※povoはトッピング型で月額条件を一本化しにくいため、この比較から外しています。料金は2026年8月11日時点で各社公式を再確認。</p>
+<p class="lead">20GBくらいの人と、100GBを超えて使う人。さらに「割引なし」と「条件を全部そろえた場合」まで、同じ表で見られるようにしました。</p>
+<p class="subnote">※povoはトッピング型で月額条件を一本化しにくいため、この比較から外しています。料金は2026年8月11日時点の公式情報を基準に整理。</p>
 </header>
 
 <section class="section" id="priceSection">
-<div class="section-head"><span class="kicker">100GB級だけを見る</span><h2>料金を、割引前と値引き後で比べる。</h2><p>「大手は割引を入れれば安い」を含めて比較します。限定キャンペーンやポイント還元は月額料金と分けています。</p></div>
-<div class="price-toggle" role="tablist" aria-label="料金条件を切り替える">
-<button id="normalBtn" type="button" role="tab" aria-selected="false">割引なし</button>
-<button id="discountBtn" class="on" type="button" role="tab" aria-selected="true">値引き後</button>
+<div class="section-head"><span class="kicker">前の深い比較に戻した</span><h2>使う量と、割引条件。両方変えて比べる。</h2><p>安い数字だけを拾わず、「その値段にするために何が必要か」まで見ます。</p></div>
+
+<div class="compare-control">
+<span class="control-label">① どれくらい使う？</span>
+<div class="segmented" role="tablist" aria-label="データ使用量">
+<button id="band20" type="button" role="tab" aria-selected="false">20GB前後</button>
+<button id="band100" class="on" type="button" role="tab" aria-selected="true">100GB以上</button>
 </div>
-<div id="modeExplain" class="mode-explain">家族・光回線・カードなど、各社の主な継続割引をできるだけ入れた場合。別契約やカード年会費が必要なものは条件欄に残しています。</div>
-<div id="normalTable" class="price-table" hidden>
-<div class="price-row rakuten"><div class="price-main"><span class="rank">1</span><div class="brand"><strong>楽天モバイル</strong><small>Rakuten最強プラン・20GB超</small></div><b class="price">3,278円</b></div><div class="condition"><b>条件なし。</b>20GB超はギガ無制限。混雑時など速度制御の場合あり。</div></div>
-<div class="price-row"><div class="price-main"><span class="rank">2</span><div class="brand"><strong>ahamo</strong><small>大盛り・110GB</small></div><b class="price">4,950円</b></div><div class="condition">ahamo 30GB 2,970円＋大盛り80GB 1,980円。5分以内の国内通話込み。</div></div>
-<div class="price-row"><div class="price-main"><span class="rank">3</span><div class="brand"><strong>au</strong><small>使い放題MAX＋</small></div><b class="price">7,788円</b></div><div class="condition">割引前の月額。データ使い放題。テザリング等には利用上限あり。</div></div>
-<div class="price-row"><div class="price-main"><span class="rank">4</span><div class="brand"><strong>SoftBank</strong><small>テイガク無制限</small></div><b class="price">8,008円</b></div><div class="condition">割引前の月額。直近30日間で300GB超の場合は速度制御の案内あり。</div></div>
-<div class="price-row"><div class="price-main"><span class="rank">5</span><div class="brand"><strong>ドコモ</strong><small>ドコモ MAX・ギガ無制限</small></div><b class="price">8,448円</b></div><div class="condition">割引前の月額。大量通信時など通信制限の可能性あり。</div></div>
 </div>
-<div id="discountTable" class="price-table">
-<div class="price-row rakuten"><div class="price-main"><span class="rank">1</span><div class="brand"><strong>楽天モバイル</strong><small>Rakuten最強プラン</small></div><b class="price">3,168円</b></div><div class="condition"><b>最強家族割：−110円。</b>光回線・クレジットカードの指定なし。</div></div>
-<div class="price-row"><div class="price-main"><span class="rank">2</span><div class="brand"><strong>ahamo</strong><small>大盛り・110GB</small></div><b class="price">4,950円</b></div><div class="condition"><b>月額料金を下げる継続割引なし。</b>30GB＋大盛り80GBの合計110GB。</div></div>
-<div class="price-row"><div class="price-main"><span class="rank">3</span><div class="brand"><strong>SoftBank</strong><small>テイガク無制限</small></div><b class="price">5,148円</b></div><div class="condition"><b>新みんな家族割（3回線以上）−1,210円／おうち割 光セット −1,100円／PayPayカード ゴールド割 −550円。</b><span class="cost">※PayPayカード ゴールドは年会費11,000円。毎月200円相当のPayPayポイントはこの5,148円には入れていません。</span></div></div>
-<div class="price-row"><div class="price-main"><span class="rank">3</span><div class="brand"><strong>ドコモ</strong><small>ドコモ MAX・ギガ無制限</small></div><b class="price">5,148円</b></div><div class="condition"><b>みんなドコモ割3回線 −1,210円／長期利用20年以上 −220円／dカード GOLD等 −550円／ドコモ光・home 5G −1,210円／ドコモでんき −110円。</b><span class="cost">※最大3,300円引きの条件をそろえた場合。</span></div></div>
-<div class="price-row"><div class="price-main"><span class="rank">5</span><div class="brand"><strong>au</strong><small>使い放題MAX＋</small></div><b class="price">5,258円</b></div><div class="condition"><b>家族割プラス3人以上 −1,210円／auスマートバリュー −1,100円／au PAYカードお支払い割 −220円。</b><span class="cost">※auスマートバリューには対象の自宅インターネット契約などが必要。</span></div></div>
+
+<div class="compare-control">
+<span class="control-label">② 割引はどうする？</span>
+<div class="segmented" role="tablist" aria-label="割引条件">
+<button id="modeNormal" type="button" role="tab" aria-selected="false">割引なし</button>
+<button id="modeDiscount" class="on" type="button" role="tab" aria-selected="true">条件を全部そろえる</button>
 </div>
-<div class="no-match"><b>100GB級で同じ土俵に置かなかったもの：</b>LINEMO・Y!mobile・UQ mobile。今回の比較条件では100GB級の月額プランとして並べていません。</div>
-<div class="verdict"><strong>ここまで条件を入れても、楽天が残る。</strong><p>しかも楽天の値引き後は、家族グループに入るだけ。大手3社は光回線・家族回線・カードなど複数条件が重なります。</p></div>
+</div>
+
+<div id="modeExplain" class="mode-explain"></div>
+<div class="result-head"><strong id="resultTitle"></strong><span id="resultSub"></span></div>
+<div id="priceTable" class="price-table" aria-live="polite"></div>
+<div id="compareTruth" class="compare-truth"></div>
+<details id="conditionDetails" class="condition-details">
+<summary>この料金になる条件を見る</summary>
+<div id="conditionList" class="condition-list"></div>
+</details>
+<div id="noMatch" class="no-match"></div>
 </section>
 
 <section class="personal">
-<div class="personal-inner"><span class="kicker">だから私は楽天</span><h2>しかも、私は<strong>月100GBを超える。</strong></h2><p>スマホだけじゃなく、PCとテレビにもつないでいます。この使い方だと30GB比較ではなく、100GB級で見る方が自分の生活に合っています。</p><div class="image-slot">【画像：月100GB以上使っている楽天モバイルのデータ利用量画面】</div><div class="use-grid"><div><strong>PC</strong><small>仕事・ネットをテザリング</small></div><div><strong>テレビ</strong><small>YouTubeなどを接続</small></div></div><div class="image-slot">【画像：スマホからPCとテレビへ実際につないでいる画像】</div></div>
+<div class="personal-inner"><span class="kicker">だから私は楽天</span><h2>私は<strong>月100GBを超える。</strong></h2><p>スマホだけじゃなく、PCとテレビにもつないでいます。上の比較を100GB以上に切り替えると、私が楽天を選んだ理由がそのまま見えます。</p><div class="image-slot">【画像：月100GB以上使っている楽天モバイルのデータ利用量画面】</div><div class="use-grid"><div><strong>PC</strong><small>仕事・ネットをテザリング</small></div><div><strong>テレビ</strong><small>YouTubeなどを接続</small></div></div><div class="image-slot">【画像：スマホからPCとテレビへ実際につないでいる画像】</div></div>
 </section>
 
-<section class="section"><span class="kicker">ただし</span><h2>楽天なら誰でもいい、ではない。</h2><div class="fit"><article class="good"><h3>候補にしやすい</h3><ul><li>月100GB級まで使う</li><li>テザリングをよく使う</li><li>普段いる場所で楽天回線が入る</li></ul></article><article class="stop"><h3>一度待つ</h3><ul><li>仕事で一瞬の切断も困る</li><li>自宅・職場の電波が弱い</li><li>通信品質を料金より優先する</li></ul></article></div></section>
+<section class="section"><span class="kicker">ただし</span><h2>楽天なら誰でもいい、ではない。</h2><div class="fit"><article class="good"><h3>候補にしやすい</h3><ul><li>データをかなり使う</li><li>テザリングをよく使う</li><li>普段いる場所で楽天回線が入る</li></ul></article><article class="stop"><h3>一度待つ</h3><ul><li>仕事で一瞬の切断も困る</li><li>自宅・職場の電波が弱い</li><li>通信品質を料金より優先する</li></ul></article></div></section>
 
-<section class="section"><span class="kicker">最後に見る</span><h2>料金より先に、自宅と職場の電波。</h2><p class="section-head">ここがダメなら楽天にしない。それでいいです。</p><div class="image-slot">【画像：楽天モバイルの通信エリアを確認している画面】</div><div class="actions"><a class="secondary" href="https://network.mobile.rakuten.co.jp/area/" target="_blank" rel="noopener noreferrer">楽天の通信エリアを確認する ↗</a><a class="primary" href="https://r10.to/h5w1tz" target="_blank" rel="sponsored noopener noreferrer">楽天モバイルを見る ↗</a></div><p class="adnote">※広告リンクを含みます。料金・割引・キャンペーンは申込時点の公式情報を確認してください。</p></section>
+<section class="section"><span class="kicker">最後に見る</span><h2>料金の次は、自宅と職場の電波。</h2><p style="margin-top:8px;color:#4a535d">ここがダメなら楽天にしない。それでいいです。</p><div class="image-slot">【画像：楽天モバイルの通信エリアを確認している画面】</div><div class="actions"><a class="secondary" href="https://network.mobile.rakuten.co.jp/area/" target="_blank" rel="noopener noreferrer">楽天の通信エリアを確認する ↗</a><a class="primary" href="https://r10.to/h5w1tz" target="_blank" rel="sponsored noopener noreferrer">楽天モバイルを見る ↗</a></div><p class="adnote">※広告リンクを含みます。料金・割引・キャンペーンは申込時点の公式情報を確認してください。</p></section>
 
-<details class="sources"><summary>今回の料金を公式で確認する</summary><div><a href="https://network.mobile.rakuten.co.jp/fee/saikyo-plan/detail/" target="_blank" rel="noopener noreferrer">楽天モバイル：Rakuten最強プラン</a><a href="https://faq.ahamo.com/faq/show/937?category_id=43&site_domain=default" target="_blank" rel="noopener noreferrer">ahamo：大盛り110GB</a><a href="https://ssw.web.docomo.ne.jp/max/newplan/01/a/" target="_blank" rel="noopener noreferrer">ドコモ：ドコモ MAX</a><a href="https://www.au.com/mobile/charge/smartphone/plan/data-unlimited-plus/" target="_blank" rel="noopener noreferrer">au：使い放題MAX＋</a><a href="https://www.softbank.jp/mobile/price_plan/data/teigaku-museigen/" target="_blank" rel="noopener noreferrer">SoftBank：テイガク無制限</a></div></details>
+<details class="sources"><summary>今回の料金を公式で確認する</summary><div><a href="https://network.mobile.rakuten.co.jp/fee/saikyo-plan/detail/" target="_blank" rel="noopener noreferrer">楽天モバイル：Rakuten最強プラン</a><a href="https://www.linemo.jp/lp/0000/" target="_blank" rel="noopener noreferrer">LINEMO：ベストプランV</a><a href="https://ahamo.com/plan/index.html" target="_blank" rel="noopener noreferrer">ahamo：30GB / 大盛り110GB</a><a href="https://www.ymobile.jp/sp/price_info_2026/" target="_blank" rel="noopener noreferrer">Y!mobile：シンプル3</a><a href="https://shop.uqmobile.jp/shop/lp01/" target="_blank" rel="noopener noreferrer">UQ mobile：トクトクプラン2 / コミコミプランバリュー</a><a href="https://ssw.web.docomo.ne.jp/max/newplan/01/a/" target="_blank" rel="noopener noreferrer">ドコモ：ドコモ MAX</a><a href="https://www.au.com/mobile/charge/smartphone/plan/data-unlimited-plus/" target="_blank" rel="noopener noreferrer">au：使い放題MAX＋</a><a href="https://www.softbank.jp/mobile/price_plan/data/teigaku-museigen/" target="_blank" rel="noopener noreferrer">SoftBank：テイガク無制限</a></div></details>
 <a class="back" href="index.html#home" target="_top">← 最初に戻る</a>
 </main>
 <script>
-const normalBtn=document.getElementById('normalBtn');const discountBtn=document.getElementById('discountBtn');const normalTable=document.getElementById('normalTable');const discountTable=document.getElementById('discountTable');const modeExplain=document.getElementById('modeExplain');
-function setMode(mode){const discount=mode==='discount';normalBtn.classList.toggle('on',!discount);discountBtn.classList.toggle('on',discount);normalBtn.setAttribute('aria-selected',String(!discount));discountBtn.setAttribute('aria-selected',String(discount));normalTable.hidden=discount;discountTable.hidden=!discount;modeExplain.textContent=discount?'家族・光回線・カードなど、各社の主な継続割引をできるだけ入れた場合。別契約やカード年会費が必要なものは条件欄に残しています。':'家族割・光回線・カード割などを入れない、基本の月額料金。';}
-normalBtn.addEventListener('click',()=>setMode('normal'));discountBtn.addEventListener('click',()=>setMode('discount'));setMode('discount');
+const DATA={
+  normal:{
+    small:[
+      {name:'楽天モバイル',plan:'Rakuten最強プラン・20GBまで',price:'2,178円',rakuten:true,condition:'割引条件なし。3GB超〜20GBまでの通常料金。'},
+      {name:'LINEMO',plan:'ベストプランV・30GB',price:'2,970円',condition:'毎月の基本料金を下げるセット割なし。5分以内の国内通話定額込み。'},
+      {name:'ahamo',plan:'30GB',price:'2,970円',condition:'複雑な割引条件なし。5分以内の国内通話込み。'},
+      {name:'UQ mobile',plan:'コミコミプランバリュー・35GB',price:'3,828円',condition:'1回10分以内の国内通話などを含むコミコミ型。'},
+      {name:'UQ mobile',plan:'トクトクプラン2・30GB',price:'4,048円',condition:'自宅セット割・au PAYカード割を入れない基本料金。'},
+      {name:'Y!mobile',plan:'シンプル3 M・30GB',price:'4,378円',condition:'おうち割・PayPayカード割などを入れない基本料金。'}
+    ],
+    large:[
+      {name:'楽天モバイル',plan:'Rakuten最強プラン・20GB超',price:'3,278円',rakuten:true,condition:'割引条件なし。20GB超はギガ無制限。混雑時など速度制御の場合あり。'},
+      {name:'ahamo',plan:'大盛り・110GB',price:'4,950円',condition:'30GB 2,970円＋大盛り80GB 1,980円。'},
+      {name:'au',plan:'使い放題MAX＋',price:'7,788円',condition:'割引を入れない月額。テザリング等には利用上限あり。'},
+      {name:'SoftBank',plan:'テイガク無制限',price:'8,008円',condition:'割引を入れない月額。大量通信時は速度制御の案内あり。'},
+      {name:'ドコモ',plan:'ドコモ MAX',price:'8,448円',condition:'割引を入れないギガ無制限の月額。'}
+    ]
+  },
+  discount:{
+    small:[
+      {name:'Y!mobile',plan:'シンプル3 M・30GB',price:'1,958円',condition:'おうち割 光セット（A）−1,650円＋PayPayカード ゴールド割 −550円＋増額特典 −220円。PayPayカード ゴールドは年会費11,000円。',rank:1},
+      {name:'楽天モバイル',plan:'Rakuten最強プラン・20GBまで',price:'2,068円',rakuten:true,condition:'最強家族割 −110円。光回線・指定クレジットカードなし。',rank:2},
+      {name:'UQ mobile',plan:'トクトクプラン2・30GB',price:'2,728円',condition:'自宅セット割 −1,100円＋au PAYカードお支払い割 −220円。対象の自宅インターネット等が別途必要。',rank:3},
+      {name:'LINEMO',plan:'ベストプランV・30GB',price:'2,970円',condition:'毎月の基本料金を下げるセット割なし。',rank:4},
+      {name:'ahamo',plan:'30GB',price:'2,970円',condition:'月額料金を下げる継続割引なし。',rank:4},
+      {name:'UQ mobile',plan:'コミコミプランバリュー・35GB',price:'3,828円',condition:'基本料金に通話などを含むため、この比較では追加のセット割を入れていない。',rank:6}
+    ],
+    large:[
+      {name:'楽天モバイル',plan:'Rakuten最強プラン・20GB超',price:'3,168円',rakuten:true,condition:'最強家族割 −110円。光回線・指定クレジットカードなし。',rank:1},
+      {name:'ahamo',plan:'大盛り・110GB',price:'4,950円',condition:'月額料金を下げる継続割引なし。',rank:2},
+      {name:'SoftBank',plan:'テイガク無制限',price:'5,148円',condition:'新みんな家族割（3回線以上）−1,210円＋おうち割 光セット −1,100円＋PayPayカード ゴールド割 −550円。PayPayカード ゴールド年会費11,000円。',rank:3},
+      {name:'ドコモ',plan:'ドコモ MAX',price:'5,148円',condition:'みんなドコモ割3回線 −1,210円＋長期利用20年以上 −220円＋dカード GOLD等 −550円＋ドコモ光/home 5G −1,210円＋ドコモでんき −110円。最大3,300円引きの条件をそろえた場合。',rank:3},
+      {name:'au',plan:'使い放題MAX＋',price:'5,258円',condition:'家族割プラス3人以上 −1,210円＋auスマートバリュー −1,100円＋au PAYカードお支払い割 −220円。対象の自宅インターネット等が別途必要。',rank:5}
+    ]
+  }
+};
+let band='large';
+let mode='discount';
+const band20=document.getElementById('band20');
+const band100=document.getElementById('band100');
+const modeNormal=document.getElementById('modeNormal');
+const modeDiscount=document.getElementById('modeDiscount');
+const priceTable=document.getElementById('priceTable');
+const resultTitle=document.getElementById('resultTitle');
+const resultSub=document.getElementById('resultSub');
+const modeExplain=document.getElementById('modeExplain');
+const compareTruth=document.getElementById('compareTruth');
+const conditionList=document.getElementById('conditionList');
+const noMatch=document.getElementById('noMatch');
+function render(){
+  const rows=DATA[mode][band];
+  band20.classList.toggle('on',band==='small');band100.classList.toggle('on',band==='large');
+  modeNormal.classList.toggle('on',mode==='normal');modeDiscount.classList.toggle('on',mode==='discount');
+  band20.setAttribute('aria-selected',String(band==='small'));band100.setAttribute('aria-selected',String(band==='large'));
+  modeNormal.setAttribute('aria-selected',String(mode==='normal'));modeDiscount.setAttribute('aria-selected',String(mode==='discount'));
+  resultTitle.textContent=band==='small'?'20GB前後の比較':'100GB以上の比較';
+  resultSub.textContent=mode==='normal'?'割引なし':'条件を全部そろえる';
+  modeExplain.textContent=mode==='normal'?'家族割・光回線・カード割などを入れない基本料金で比較。':'家族・光回線・カードなど、各社の主な継続割引をできるだけ入れた場合。別契約やカード年会費も条件に残しています。';
+  priceTable.innerHTML=rows.map((r,i)=>`<div class="price-row${r.rakuten?' rakuten':''}"><div class="price-main"><span class="rank">${r.rank||i+1}</span><div class="brand"><strong>${r.name}</strong><small>${r.plan}</small></div><b class="price">${r.price}</b></div></div>`).join('');
+  conditionList.innerHTML=rows.map(r=>`<div class="condition-item${r.rakuten?' rakuten':''}"><strong>${r.name}｜${r.price}</strong><p>${r.condition}</p></div>`).join('');
+  if(band==='small'&&mode==='normal') compareTruth.innerHTML='<strong>20GBなら、楽天が安い。</strong><p>ただしLINEMOとahamoは30GB・通話込み。単純な月額だけでなく、容量と通話条件も一緒に見る。</p>';
+  if(band==='small'&&mode==='discount') compareTruth.innerHTML='<strong>条件を全部そろえると、20GB前後はY!mobileが1位。</strong><p>ここは楽天に都合よく隠さない。その代わりY!mobileは光回線とPayPayカード ゴールドなどの条件が必要。</p>';
+  if(band==='large'&&mode==='normal') compareTruth.innerHTML='<strong>100GB級では、楽天がかなり離れる。</strong><p>楽天3,278円、ahamo大盛り4,950円。ここから大容量で楽天を見る意味が出てくる。</p>';
+  if(band==='large'&&mode==='discount') compareTruth.innerHTML='<strong>大手の割引条件を全部入れても、100GB級は楽天が残る。</strong><p>しかも楽天は最強家族割だけ。ドコモ・au・SoftBankは家族回線、光回線、カードなど複数条件が重なる。</p>';
+  noMatch.innerHTML=band==='large'?'<b>100GB級で順位表に置かなかったもの：</b>LINEMO・Y!mobile・UQ mobile。今回の比較条件では100GB級の月額プランとして同じ土俵に置いていません。':'<b>20GB前後の見方：</b>各社で容量が20〜35GBと少し違います。20GBを使う人が現実に選びやすい主要プランとして並べています。';
+}
+band20.addEventListener('click',()=>{band='small';render()});
+band100.addEventListener('click',()=>{band='large';render()});
+modeNormal.addEventListener('click',()=>{mode='normal';render()});
+modeDiscount.addEventListener('click',()=>{mode='discount';render()});
+render();
 </script>
-</body></html>
+</body>
+</html>
