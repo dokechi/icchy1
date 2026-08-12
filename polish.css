@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+
+:root{
+  --icchy-ease:cubic-bezier(.16,1,.3,1);
+}
+
+html,body,button,input,select,textarea{
+  font-family:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,system-ui,sans-serif!important;
+  font-feature-settings:"palt" 1;
+  font-kerning:normal;
+}
+body{font-weight:500}
+h1,h2,h3,strong,b,.brand,.price,.savings-amount,.hero-number,.section-index{font-weight:900}
+
+/* Home: only subtle motion. Content remains visible if JS is unavailable. */
+html.motion-ready .reveal-item{
+  opacity:0;
+  transform:translate3d(0,10px,0);
+  transition:
+    opacity .38s var(--icchy-ease) var(--reveal-delay,0ms),
+    transform .42s var(--icchy-ease) var(--reveal-delay,0ms);
+  will-change:opacity,transform;
+}
+html.motion-ready .reveal-item.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}
+
+/* Chapter numbers get their own restrained movement. */
+html.motion-ready .section-index.reveal-item{
+  transform:translate3d(0,12px,0) scale(.97);
+  transition-duration:.46s,.5s;
+}
+html.motion-ready .section-index.reveal-item.is-visible{
+  transform:translate3d(0,0,0) scale(1);
+}
+
+/* Keep the page feeling crisp rather than floaty. */
+.choice,.judge-card,.decision-card,.compare-builder,.stat-pair,.cta-box{
+  backface-visibility:hidden;
+}
+.choice .arrow{
+  transition:transform .22s var(--icchy-ease),border-color .18s ease,background-color .18s ease;
+}
+.choice:hover .arrow,.choice:focus-visible .arrow{transform:translateX(3px)}
+.primary{transition:transform .18s var(--icchy-ease),box-shadow .2s ease,background-color .18s ease!important}
+.primary:hover{transform:translateY(-1px)}
+
+/* Comparison switching: 180ms, no layout shift. */
+@keyframes icchyCompareFlash{
+  0%{opacity:.58;transform:translate3d(0,3px,0)}
+  100%{opacity:1;transform:translate3d(0,0,0)}
+}
+.compare-flash{animation:icchyCompareFlash .18s var(--icchy-ease) both}
+
+/* Zen Kaku needs slightly less aggressive tracking than the previous system stack. */
+.intro h1,.hero h1,.section h2,.judge-card h3,.decision-card h3,.cta-box h2{
+  letter-spacing:-.025em!important;
+}
+.savings-amount,.metric-gb,.metric-price,.hero-number,.price{
+  letter-spacing:-.045em!important;
+}
+
+@media(max-width:390px){
+  .intro h1,.hero h1,.section h2{letter-spacing:-.02em!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html.motion-ready .reveal-item,
+  html.motion-ready .section-index.reveal-item{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  .compare-flash{animation:none!important}
+  .choice .arrow,.primary{transition:none!important}
+}
