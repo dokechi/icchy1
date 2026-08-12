@@ -1,339 +1,266 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Barlow+Condensed:wght@600;700;800&display=swap');
 
 :root{
   --icchy-ease:cubic-bezier(.16,1,.3,1);
   --icchy-black:#111318;
-  --icchy-paper:#f3f4f6;
+  --icchy-paper:#f1f2f4;
   --icchy-pink:#e83d70;
   --icchy-pink-deep:#a92149;
-  --icchy-rule:#c8ced6;
+  --icchy-rule:#abb2bb;
 }
 
 html,body,button,input,select,textarea{
-  font-family:"Zen Kaku Gothic New","Noto Sans JP","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,system-ui,sans-serif!important;
-  font-feature-settings:"palt" 1;
+  font-family:"BIZ UDPGothic","Yu Gothic UI","Yu Gothic","Hiragino Sans",Meiryo,system-ui,sans-serif!important;
   font-kerning:normal;
 }
-body{font-weight:500}
-h1,h2,h3,strong,b,.brand{font-weight:900}
-
-/* 数字だけ少し無骨な欧文。日本語本文はZen Kakuのまま。 */
+body{font-weight:400}
+h1,h2,h3,strong,b,.brand{font-weight:700!important}
 .savings-amount,.metric-gb,.metric-price,.hero-number,.hero-zero,.price,.rank,.section-index,.meta-value{
   font-family:"Barlow Condensed","Arial Narrow",sans-serif!important;
   font-feature-settings:"tnum" 1;
 }
 
-/* ---------------- HOME ---------------- */
+/* ---------- launcher / header ---------- */
+.font-toggle{font-size:18px!important;min-height:46px!important;padding-inline:14px!important}
+.brand{font-size:20px!important}
+.home-back{font-size:26px!important;min-width:46px!important;min-height:46px!important}
+.home{height:auto!important;min-height:calc(100dvh - 60px)!important;overflow-y:auto!important}
 .site-stamp{
-  width:max-content;
-  margin:0 0 8px;
-  padding:4px 7px 5px;
-  background:var(--icchy-black);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  line-height:1;
-  letter-spacing:.045em;
-  border-radius:0;
+  width:max-content;margin:0 0 10px;padding:6px 9px 7px;background:var(--icchy-black);color:#fff;
+  font-size:18px!important;font-weight:700;line-height:1.05;letter-spacing:.02em;border-radius:0;
 }
-.home .intro h1{letter-spacing:-.022em!important}
-.home .intro-metrics{
-  border-top:2px solid var(--icchy-black)!important;
-  border-bottom:1px solid var(--icchy-black)!important;
-}
-.home .savings-amount{letter-spacing:-.025em!important}
-.home .choice{
-  border-radius:7px!important;
-  box-shadow:none!important;
-  border-color:#c9ced5!important;
-}
+.home .intro h1{letter-spacing:-.02em!important}
+.home .intro-metrics{border-top:3px solid var(--icchy-black)!important;border-bottom:1px solid var(--icchy-black)!important}
+.home .intro-context,.home .intro-context strong,.home .savings-period,.home .savings-suffix,.home .intro-note,.home .choice-label,.home .choice small,.home .choice.mobile .mobile-promise{font-size:18px!important;line-height:1.55!important}
+.home .savings-amount{font-size:58px!important;letter-spacing:-.02em!important}
+.home .choice{border-radius:7px!important;box-shadow:none!important;border-color:#c9ced5!important;min-height:190px!important}
 .home .choice.mobile{background:#fff!important;border-width:2px!important;border-color:#d5a5b4!important}
-.home .choice-label{
-  display:inline-block!important;
-  width:max-content;
-  padding:4px 7px 5px;
-  background:var(--icchy-black)!important;
-  color:#fff!important;
-  border-radius:0;
-  font-size:11px!important;
-  letter-spacing:.03em!important;
-}
-.home .choice::before{width:4px!important}
-.home .arrow{border-radius:4px!important;border-color:#aeb5be!important}
+.home .choice-label{display:inline-block!important;width:max-content;padding:5px 8px 6px;background:var(--icchy-black)!important;color:#fff!important;border-radius:0}
+.home .choice strong{font-size:36px!important;line-height:1.15!important}
+.home .metric-gb{font-size:48px!important}
+.home .metric-price{font-size:54px!important;margin-top:7px!important}
+.home .mobile-outcome{font-size:22px!important;line-height:1.5!important}
+.home .choice::before{width:5px!important}
+.home .arrow{border-radius:4px!important;border-color:#aeb5be!important;width:42px!important;height:42px!important;font-size:31px!important}
+html.large .home .intro-context,html.large .home .intro-context strong,html.large .home .savings-period,html.large .home .savings-suffix,html.large .home .intro-note,html.large .home .choice-label,html.large .home .choice small,html.large .home .choice.mobile .mobile-promise{font-size:22px!important}
+html.large .home .intro h1{font-size:58px!important}
+html.large .home .savings-amount{font-size:68px!important}
+html.large .home .choice strong{font-size:44px!important}
+html.large .home .metric-gb{font-size:58px!important}
+html.large .home .metric-price{font-size:64px!important}
+html.large .home .mobile-outcome{font-size:27px!important}
+html.large .font-toggle{font-size:22px!important}
 
-/* ---------------- 共通：少しだけ“個人制作物”の癖 ---------------- */
+/* ---------- mobile page base: no display text below 18px ---------- */
+html.icchy-mobile-page body{font-size:22px!important;line-height:1.72!important}
+html.icchy-mobile-page main{width:min(820px,100%)!important}
+html.icchy-mobile-page .eyebrow,
+html.icchy-mobile-page .kicker,
+html.icchy-mobile-page .hero-note,
+html.icchy-mobile-page .icchy-topline,
+html.icchy-mobile-page .chapter-tab,
+html.icchy-mobile-page .detail-meta>span,
+html.icchy-mobile-page .evidence-strip,
+html.icchy-mobile-page .compare-strap,
+html.icchy-mobile-page .mode-explain,
+html.icchy-mobile-page .result-head span,
+html.icchy-mobile-page .plan small,
+html.icchy-mobile-page .condition-item p,
+html.icchy-mobile-page .no-match,
+html.icchy-mobile-page .judge-card span,
+html.icchy-mobile-page .decision-card::after,
+html.icchy-mobile-page .cta-note,
+html.icchy-mobile-page .source-head,
+html.icchy-mobile-page .sources a,
+html.icchy-mobile-page .back,
+html.icchy-mobile-page .image-slot,
+html.icchy-mobile-page .tether-source small,
+html.icchy-mobile-page .tether-targets small{font-size:18px!important}
+
+html.icchy-mobile-page .section-lead,
+html.icchy-mobile-page .compare-intro,
+html.icchy-mobile-page .proof-line,
+html.icchy-mobile-page .judge-card p,
+html.icchy-mobile-page .decision-card li,
+html.icchy-mobile-page .cta-box p,
+html.icchy-mobile-page .cta-points span,
+html.icchy-mobile-page .condition-details summary{font-size:22px!important;line-height:1.72!important}
+
+html.icchy-mobile-page .eyebrow,html.icchy-mobile-page .kicker{font-size:20px!important;line-height:1.45!important}
+html.icchy-mobile-page .control-label,html.icchy-mobile-page .segmented button{font-size:20px!important}
+html.icchy-mobile-page .plan strong{font-size:22px!important}
+html.icchy-mobile-page .condition-item strong{font-size:20px!important}
+html.icchy-mobile-page .price{font-size:40px!important}
+html.icchy-mobile-page .rank{font-size:20px!important;width:40px!important;height:40px!important}
+html.icchy-mobile-page .result-head strong{font-size:30px!important}
+html.icchy-mobile-page .compare-truth strong{font-size:27px!important;line-height:1.42!important}
+html.icchy-mobile-page .compare-truth p{font-size:20px!important;line-height:1.7!important}
+html.icchy-mobile-page .judge-card h3,html.icchy-mobile-page .decision-card h3{font-size:30px!important;line-height:1.42!important}
+html.icchy-mobile-page .decision-answer{font-size:27px!important}
+html.icchy-mobile-page .primary{font-size:22px!important;min-height:72px!important}
+
+/* top black strip */
 .icchy-topline{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin:0 0 13px;
-  padding:6px 8px;
-  background:var(--icchy-black);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  line-height:1.1;
-  letter-spacing:.035em;
-  border-radius:0;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px;padding:10px 12px;
+  background:var(--icchy-black);color:#fff;font-weight:700;line-height:1.2;letter-spacing:.02em;border-radius:0;
 }
-.icchy-topline .topline-sub{color:#cdd2d8;font-weight:700}
+.icchy-topline .topline-sub{color:#d0d4d9;font-weight:400}
 
-.detail-meta{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  margin-top:18px;
-  border-top:2px solid var(--icchy-black);
-  border-bottom:1px solid var(--icchy-black);
-  background:#fff;
-}
-.detail-meta>span{
-  min-width:0;
-  padding:9px 8px 10px;
-  border-left:1px solid #d5d9df;
-  color:#4d555f;
-  font-size:10px;
-  line-height:1.18;
-}
+/* hero */
+html.icchy-mobile-page .hero{padding-bottom:54px!important;border-bottom:2px solid var(--icchy-black)!important}
+html.icchy-mobile-page .hero h1{max-width:20ch!important;font-size:clamp(40px,10.8vw,56px)!important;line-height:1.18!important;letter-spacing:-.02em!important}
+html.icchy-mobile-page .hero-promise{margin-top:30px!important;padding:24px 0 22px!important;border-top:3px solid var(--icchy-black)!important;border-bottom:1px solid var(--icchy-black)!important}
+html.icchy-mobile-page .hero-promise-main{display:block!important}
+.hero-usage-line,.hero-price-line{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hero-price-line{margin-top:13px}
+html.icchy-mobile-page .hero-number{font-size:clamp(64px,18vw,86px)!important;line-height:.88!important;letter-spacing:-.02em!important;color:var(--icchy-pink-deep)!important}
+html.icchy-mobile-page .hero-connector{font-size:24px!important;line-height:1.2!important;margin:0!important;font-weight:700!important}
+.hero-period{font-size:30px;font-weight:700}
+html.icchy-mobile-page .hero-promise-sub{margin-top:26px!important;font-size:30px!important;line-height:1.45!important;letter-spacing:-.015em!important}
+html.icchy-mobile-page .hero-wifi-outcome{white-space:normal!important;color:var(--icchy-pink-deep)!important}
+html.icchy-mobile-page .hero-note{margin-top:18px!important;line-height:1.65!important;color:#565e68!important}
+
+.detail-meta{display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border-top:3px solid var(--icchy-black);border-bottom:2px solid var(--icchy-black);background:#fff}
+.detail-meta>span{min-width:0;padding:15px 12px 16px;border-left:1px solid #c8cdd3;color:#484f58;line-height:1.35}
 .detail-meta>span:first-child{border-left:0}
-.detail-meta b{display:block;margin-top:3px;color:var(--icchy-black);font-size:15px;line-height:1.08;font-weight:900}
-.detail-meta .meta-value{font-size:19px;letter-spacing:-.015em}
+.detail-meta b{display:block;margin-top:7px;color:var(--icchy-black);font-size:24px!important;line-height:1.05;font-weight:700!important}
+.detail-meta .meta-value{font-size:36px!important;letter-spacing:0!important}
+.live-note{margin-top:18px;padding:18px 18px 19px;border-left:6px solid var(--icchy-black);background:#f0f1f3;font-size:20px;line-height:1.65}
+.live-note b{display:block;margin-bottom:5px;font-size:20px!important}
 
-.chapter-tab{
-  display:inline-block;
-  width:max-content;
-  margin:0 0 7px;
-  padding:5px 8px 6px;
-  background:var(--icchy-black);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  line-height:1;
-  letter-spacing:.045em;
-  border-radius:0;
-}
+/* chapter rhythm */
+.chapter-tab{display:inline-block;width:max-content;margin:0 0 10px;padding:7px 10px 8px;background:var(--icchy-black);color:#fff;font-weight:700;line-height:1;letter-spacing:.02em;border-radius:0}
 .section-head .kicker{display:block}
-.section-index{
-  color:#e6e8eb!important;
-  letter-spacing:-.025em!important;
-  font-weight:800!important;
-}
-#section-wifi .section-index{color:#eee2e6!important}
-.section h2,.judge-card h3,.decision-card h3,.cta-box h2{letter-spacing:-.02em!important}
+.section-index{color:#e4e7ea!important;letter-spacing:-.015em!important;font-weight:800!important;font-size:68px!important}
+#section-wifi .section-index{color:#eee1e5!important}
+html.icchy-mobile-page .section{padding:76px 0!important}
+html.icchy-mobile-page .section::before{content:"";position:absolute;left:0;top:0;width:62px;height:4px;background:var(--icchy-black)}
+html.icchy-mobile-page #comparison::before{left:var(--side)}
+html.icchy-mobile-page .section h2{font-size:clamp(42px,10.7vw,52px)!important;line-height:1.24!important;letter-spacing:-.02em!important;max-width:21ch!important}
+html.icchy-mobile-page .section-lead,html.icchy-mobile-page .compare-intro{margin-top:20px!important}
 
-/* セクションに同じカード文法を使い続けない */
-.section::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  width:44px;
-  height:3px;
-  background:var(--icchy-black);
-}
-#comparison::before{left:var(--side)}
+/* 01 */
+.tether-map{grid-template-columns:1fr!important;gap:12px!important;margin-top:32px!important;padding:18px!important;border-radius:3px!important;border:2px solid #9ca3ad!important;box-shadow:none!important;background:#f1f2f4!important}
+.tether-source,.tether-targets>div{border-radius:2px!important;padding:20px 14px!important}
+.tether-source{background:#fff!important;border:3px solid var(--icchy-black)!important}
+.tether-source strong,.tether-targets strong{font-size:24px!important}
+.tether-arrow{font-size:34px!important;line-height:1!important}
+.tether-targets{grid-template-columns:1fr 1fr!important;gap:12px!important}
+.proof-line{border-radius:0!important;border-left:6px solid var(--icchy-black)!important;background:#f1f2f4!important;color:#252b33!important;padding:20px!important}
+.image-slot{min-height:190px!important;border-radius:4px!important;background:#fff!important;line-height:1.7!important}
 
-/* 01: 実用品っぽい配線図。丸みを減らす */
-.tether-map{
-  border-radius:3px!important;
-  border-color:#aeb5bd!important;
-  box-shadow:none!important;
-  background:#f2f3f5!important;
-}
-.tether-source,.tether-targets>div{border-radius:2px!important}
-.tether-source{background:#fff!important;border:2px solid var(--icchy-black)!important}
-.tether-source strong{color:var(--icchy-black)}
-.proof-line{
-  border-radius:0!important;
-  border-left:5px solid var(--icchy-black)!important;
-  background:#f2f3f5!important;
-  color:#252b33!important;
-}
-.image-slot{border-radius:4px!important;background:#fff!important}
-
-/* 02: 証拠は“データ板”にする */
-.evidence-strip{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin:20px 0 -10px;
-  color:#656d77;
-  font-size:11px;
-  font-weight:700;
-}
-.evidence-strip::before{content:"俺の実使用";padding:4px 7px;background:var(--icchy-black);color:#fff;font-weight:900;letter-spacing:.04em}
-.stat-pair{
-  border-radius:3px!important;
-  border:2px solid var(--icchy-black)!important;
-  box-shadow:none!important;
-}
-.stat-pair>div{background:#fff!important}
+/* 02 */
+.evidence-strip{display:flex;align-items:center;gap:10px;margin:24px 0 -8px;color:#5b636d;font-weight:400;line-height:1.4}
+.evidence-strip::before{content:"俺の実使用";padding:7px 10px;background:var(--icchy-black);color:#fff;font-weight:700;letter-spacing:.02em}
+.stat-pair{border-radius:3px!important;border:3px solid var(--icchy-black)!important;box-shadow:none!important;margin-top:28px!important}
+.stat-pair>div{background:#fff!important;padding:26px 20px!important}
 .stat-pair .accent{background:#fff!important}
 .stat-pair .accent strong{color:var(--icchy-pink-deep)!important}
-.stat-pair span{color:#5b626b!important}
+.stat-pair span{font-size:18px!important;color:#555d67!important}
+.stat-pair strong{font-size:44px!important;line-height:1.1!important}
 
-/* 03: ここだけ“ツール画面”。詳細表は絶対に縮めない。 */
-#comparison{background:#f0f1f3!important}
-.compare-strap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin:18px 0 0;
-  padding:7px 9px;
-  background:var(--icchy-black);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  line-height:1.2;
-}
-.compare-strap span:last-child{color:#cfd4d9;font-weight:700;text-align:right}
-.compare-builder{
-  border-radius:2px!important;
-  border:1px solid #8f969f!important;
-  box-shadow:none!important;
-}
-.segmented{border-radius:2px!important;background:#e7e9ec!important;border-color:#adb4bc!important}
-.segmented button{border-radius:1px!important}
+/* 03 */
+#comparison{background:#eef0f2!important}
+.compare-strap{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin:24px 0 0;padding:12px 13px;background:var(--icchy-black);color:#fff;font-weight:700;line-height:1.45}
+.compare-strap span:last-child{color:#d0d4d9;font-weight:400;text-align:right}
+.compare-builder{border-radius:2px!important;border:2px solid #8d949d!important;box-shadow:none!important;padding:20px!important}
+.compare-control{margin-top:28px!important}
+.segmented{border-radius:2px!important;background:#e2e5e8!important;border:2px solid #a2a8b0!important;gap:6px!important;padding:5px!important}
+.segmented button{min-height:66px!important;border-radius:1px!important;line-height:1.35!important}
 .segmented button.on,.segmented button[aria-selected="true"]{background:var(--icchy-black)!important;border-color:var(--icchy-black)!important;box-shadow:none!important}
-.mode-explain{border-radius:0!important;border-left:3px solid #9aa1aa!important;background:#f2f3f5!important}
-.result-head{
-  border-bottom:3px solid var(--icchy-black)!important;
-  padding:10px 10px 9px!important;
-  background:var(--icchy-black);
-  color:#fff;
-}
-.result-head span{color:#cbd0d6!important}
-.price-table{
-  border-radius:0!important;
-  border-color:#858d97!important;
-  background:#fff!important;
-}
-.price-row{
-  min-height:72px;
-  padding-top:17px!important;
-  padding-bottom:17px!important;
-}
-.price-row.rakuten{
-  background:#fff6f8!important;
-  box-shadow:inset 5px 0 0 var(--icchy-pink)!important;
-}
-.price{font-size:clamp(31px,7.6vw,38px)!important;letter-spacing:-.02em!important}
-.plan strong{font-size:18px!important}
-.plan small{
-  margin-top:5px!important;
-  font-size:14px!important;
-  line-height:1.55!important;
-  color:#5e6670!important;
-}
-.rank{border-radius:2px!important;background:#e4e7ea!important;font-size:16px!important}
+.mode-explain{margin-top:18px!important;padding:16px 17px!important;border-radius:0!important;border-left:5px solid #8d949d!important;background:#f2f3f5!important;line-height:1.65!important}
+.result-head{margin-top:40px!important;border-bottom:3px solid var(--icchy-black)!important;padding:15px 14px 13px!important;background:var(--icchy-black);color:#fff}
+.result-head span{color:#d4d8dd!important}
+.price-table{border-radius:0!important;border-color:#7e8791!important;background:#fff!important}
+.price-row{min-height:90px!important;grid-template-columns:44px minmax(0,1fr) auto!important;gap:13px!important;padding:20px 14px!important}
+.price-row.rakuten{background:#fff5f8!important;box-shadow:inset 6px 0 0 var(--icchy-pink)!important}
+.plan small{margin-top:7px!important;line-height:1.55!important;color:#555e68!important}
+.rank{border-radius:2px!important;background:#e1e4e7!important}
 .price-row.rakuten .rank{background:var(--icchy-black)!important;color:#fff!important}
-.compare-truth{
-  border-radius:0!important;
-  border:2px solid var(--icchy-black)!important;
-  border-left:7px solid var(--icchy-pink)!important;
-  background:#fff!important;
-}
-.condition-details{border-radius:2px!important;border-color:#8f969f!important}
-.condition-details summary{background:#f3f4f5}
-.condition-item strong{font-size:16px!important}
-.condition-item p{font-size:14.5px!important;line-height:1.78!important}
-.no-match{color:#4e5660!important}
+.compare-truth{margin-top:22px!important;border-radius:0!important;border:2px solid var(--icchy-black)!important;border-left:8px solid var(--icchy-pink)!important;background:#fff!important;padding:22px!important}
+.condition-details{border-radius:2px!important;border:2px solid #8d949d!important;margin-top:18px!important}
+.condition-details summary{background:#f2f3f5;padding:20px!important}
+.condition-list{padding-inline:20px!important}
+.condition-item{padding:20px 0!important}
+.condition-item p{line-height:1.75!important;margin-top:7px!important}
+.no-match{margin-top:18px!important;padding-left:16px!important;border-left:4px solid #9ca3ad!important;color:#49515b!important;line-height:1.7!important}
 
-/* 04: 判定。企業っぽいピルをやめる */
-.judgment{gap:8px!important}
-.judge-card{
-  border-radius:2px!important;
-  border:1px solid #8f969f!important;
-  box-shadow:none!important;
-}
-.judge-card span{
-  border-radius:0!important;
-  background:var(--icchy-black)!important;
-  color:#fff!important;
-  padding:5px 8px!important;
-}
-.judge-card.rakuten{background:#fff!important;border:2px solid var(--icchy-black)!important}
-.judge-card.rakuten::after{
-  content:"俺の結論";
-  position:absolute;
-  right:0;
-  top:0;
-  padding:6px 8px;
-  background:var(--icchy-pink);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-}
+/* 04 */
+.judgment{gap:12px!important;margin-top:30px!important}
+.judge-card{border-radius:2px!important;border:2px solid #8d949d!important;box-shadow:none!important;padding:28px 22px!important}
+.judge-card span{display:inline-block!important;border-radius:0!important;background:var(--icchy-black)!important;color:#fff!important;padding:8px 10px!important;line-height:1.45!important}
+.judge-card.rakuten{background:#fff!important;border:3px solid var(--icchy-black)!important}
+.judge-card.rakuten::after{content:"俺の結論";position:absolute;right:0;top:0;padding:8px 10px;background:var(--icchy-pink);color:#fff;font-size:18px;font-weight:700}
 .judge-card.rakuten h3{color:var(--icchy-pink-deep)!important}
 
-/* 05: 二択の“札”感 */
-.wifi-decision{gap:8px!important}
-.decision-card{
-  border-radius:2px!important;
-  border:1px solid #8f969f!important;
-  box-shadow:none!important;
-  padding-top:50px!important;
-}
-.decision-card::before{width:100%!important;height:34px!important;bottom:auto!important;background:var(--icchy-black)!important}
+/* 05 */
+.wifi-decision{gap:12px!important;margin-top:30px!important}
+.decision-card{border-radius:2px!important;border:2px solid #8d949d!important;box-shadow:none!important;padding:64px 22px 28px!important}
+.decision-card::before{width:100%!important;height:44px!important;bottom:auto!important;background:var(--icchy-black)!important}
 .decision-card.go::before{background:var(--icchy-pink)!important}
-.decision-card::after{
-  position:absolute;
-  left:12px;
-  top:7px;
-  color:#fff;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.04em;
-}
+.decision-card::after{position:absolute;left:14px;top:10px;color:#fff;font-weight:700;letter-spacing:.02em}
 .decision-card.go::after{content:"やめる"}
 .decision-card.stop::after{content:"残す"}
-.decision-answer{border-top:2px solid var(--icchy-black)!important}
+.decision-answer{border-top:3px solid var(--icchy-black)!important;padding-top:18px!important;margin-top:20px!important}
 
-/* CTA: 最後だけ少し強くする */
-.cta-box{
-  position:relative;
-  border-radius:4px!important;
-  border:2px solid var(--icchy-black)!important;
-  border-top:9px solid var(--icchy-black)!important;
-  background:#fff!important;
-  box-shadow:8px 8px 0 #e7e9ec!important;
-}
-.cta-box .kicker{
-  display:inline-block;
-  padding:4px 7px 5px;
-  background:var(--icchy-black);
-  color:#fff!important;
-  font-size:11px!important;
-}
-.cta-points span{background:transparent!important}
-.primary{
-  border-radius:2px!important;
-  box-shadow:none!important;
-  background:var(--icchy-pink)!important;
-}
+/* CTA */
+.cta-box{position:relative;border-radius:4px!important;border:3px solid var(--icchy-black)!important;border-top:11px solid var(--icchy-black)!important;background:#fff!important;box-shadow:9px 9px 0 #e5e7ea!important;padding:32px 24px!important}
+.cta-box .kicker{display:inline-block;padding:7px 10px 8px;background:var(--icchy-black);color:#fff!important}
+html.icchy-mobile-page .cta-box h2{font-size:clamp(42px,10.7vw,52px)!important;line-height:1.28!important;letter-spacing:-.02em!important}
+.primary{border-radius:2px!important;box-shadow:none!important;background:var(--icchy-pink)!important;margin-top:28px!important}
 .primary:hover{background:#c82f5d!important}
 
-/* 公式ソースも“資料置き場”っぽく */
-.source-head{
-  display:inline-block;
-  margin:0 0 7px;
-  padding:4px 7px;
-  background:var(--icchy-black);
-  color:#fff;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.05em;
-}
-.sources a{border-radius:1px!important;box-shadow:none!important}
+/* sources */
+.source-head{display:inline-block;margin:0 8px 8px 0;padding:6px 8px;background:var(--icchy-black);color:#fff;font-weight:700;letter-spacing:.02em}
+.sources summary{font-size:20px!important;line-height:1.5!important}
+.sources a{border-radius:1px!important;box-shadow:none!important;padding:15px 16px!important;line-height:1.55!important}
 
-/* 動きは軽いまま。 */
-html.motion-ready .reveal-item{
-  opacity:0;
-  transform:translate3d(0,10px,0);
-  transition:opacity .38s var(--icchy-ease) var(--reveal-delay,0ms),transform .42s var(--icchy-ease) var(--reveal-delay,0ms);
-  will-change:opacity,transform;
-}
+/* large type button: no display text below 22px */
+html.font-step-up body{font-size:27px!important}
+html.font-step-up .eyebrow,
+html.font-step-up .kicker,
+html.font-step-up .hero-note,
+html.font-step-up .icchy-topline,
+html.font-step-up .chapter-tab,
+html.font-step-up .detail-meta>span,
+html.font-step-up .evidence-strip,
+html.font-step-up .compare-strap,
+html.font-step-up .mode-explain,
+html.font-step-up .result-head span,
+html.font-step-up .plan small,
+html.font-step-up .condition-item p,
+html.font-step-up .no-match,
+html.font-step-up .judge-card span,
+html.font-step-up .decision-card::after,
+html.font-step-up .cta-note,
+html.font-step-up .source-head,
+html.font-step-up .sources a,
+html.font-step-up .back,
+html.font-step-up .image-slot,
+html.font-step-up .tether-source small,
+html.font-step-up .tether-targets small{font-size:22px!important}
+html.font-step-up .section-lead,html.font-step-up .compare-intro,html.font-step-up .proof-line,html.font-step-up .judge-card p,html.font-step-up .decision-card li,html.font-step-up .cta-box p,html.font-step-up .cta-points span,html.font-step-up .condition-details summary{font-size:27px!important}
+html.font-step-up .eyebrow,html.font-step-up .kicker,html.font-step-up .control-label,html.font-step-up .segmented button{font-size:24px!important}
+html.font-step-up .hero h1,html.font-step-up .section h2,html.font-step-up .cta-box h2{font-size:52px!important}
+html.font-step-up .hero-number{font-size:88px!important}
+html.font-step-up .hero-connector{font-size:30px!important}
+html.font-step-up .hero-promise-sub{font-size:36px!important}
+html.font-step-up .detail-meta b{font-size:30px!important}
+html.font-step-up .detail-meta .meta-value{font-size:44px!important}
+html.font-step-up .live-note,html.font-step-up .live-note b{font-size:24px!important}
+html.font-step-up .plan strong{font-size:26px!important}
+html.font-step-up .condition-item strong{font-size:24px!important}
+html.font-step-up .price{font-size:48px!important}
+html.font-step-up .rank{font-size:24px!important;width:46px!important;height:46px!important}
+html.font-step-up .result-head strong{font-size:36px!important}
+html.font-step-up .compare-truth strong{font-size:32px!important}
+html.font-step-up .compare-truth p{font-size:24px!important}
+html.font-step-up .judge-card h3,html.font-step-up .decision-card h3{font-size:36px!important}
+html.font-step-up .decision-answer{font-size:32px!important}
+html.font-step-up .primary{font-size:27px!important;min-height:82px!important}
+
+/* motion stays small and cheap */
+html.motion-ready .reveal-item{opacity:0;transform:translate3d(0,10px,0);transition:opacity .38s var(--icchy-ease) var(--reveal-delay,0ms),transform .42s var(--icchy-ease) var(--reveal-delay,0ms);will-change:opacity,transform}
 html.motion-ready .reveal-item.is-visible{opacity:1;transform:translate3d(0,0,0)}
 html.motion-ready .section-index.reveal-item{transform:translate3d(0,12px,0) scale(.97);transition-duration:.46s,.5s}
 html.motion-ready .section-index.reveal-item.is-visible{transform:translate3d(0,0,0) scale(1)}
@@ -345,17 +272,30 @@ html.motion-ready .section-index.reveal-item.is-visible{transform:translate3d(0,
 @keyframes icchyCompareFlash{0%{opacity:.58;transform:translate3d(0,3px,0)}100%{opacity:1;transform:translate3d(0,0,0)}}
 .compare-flash{animation:icchyCompareFlash .18s var(--icchy-ease) both}
 
-@media(max-width:390px){
-  .detail-meta>span{padding-inline:6px}
-  .detail-meta b{font-size:14px}
-  .detail-meta .meta-value{font-size:18px}
-  .compare-strap{align-items:flex-start;flex-direction:column;gap:3px}
+@media(max-width:520px){
+  .icchy-topline{align-items:flex-start;flex-direction:column}
+  .detail-meta{grid-template-columns:1fr 1fr}
+  .detail-meta>span:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid #c8cdd3}
+  .tether-targets{grid-template-columns:1fr 1fr!important}
+  .compare-strap{flex-direction:column;gap:6px}
   .compare-strap span:last-child{text-align:left}
-  .price-row{min-height:76px!important}
-  .plan small{font-size:13.5px!important}
-  .price{font-size:30px!important}
+  html.icchy-mobile-page .price-row{grid-template-columns:42px minmax(0,1fr) auto!important;gap:10px!important;padding-inline:10px!important}
+  html.icchy-mobile-page .price{font-size:38px!important}
 }
-
+@media(max-width:380px){
+  .detail-meta{grid-template-columns:1fr}
+  .detail-meta>span,.detail-meta>span:nth-child(3){grid-column:auto;border-left:0;border-top:1px solid #c8cdd3}
+  .detail-meta>span:first-child{border-top:0}
+  html.icchy-mobile-page .price-row{grid-template-columns:40px minmax(0,1fr)!important}
+  html.icchy-mobile-page .price{grid-column:2;justify-self:start;margin-top:4px}
+}
+@media(max-width:600px){
+  html.font-step-up .detail-meta{grid-template-columns:1fr!important}
+  html.font-step-up .detail-meta>span{grid-column:auto!important;border-left:0!important;border-top:1px solid #c8cdd3!important}
+  html.font-step-up .detail-meta>span:first-child{border-top:0!important}
+  html.font-step-up .price-row{grid-template-columns:48px minmax(0,1fr)!important}
+  html.font-step-up .price{grid-column:2;justify-self:start;margin-top:8px}
+}
 @media(prefers-reduced-motion:reduce){
   html.motion-ready .reveal-item,html.motion-ready .section-index.reveal-item{opacity:1!important;transform:none!important;transition:none!important}
   .compare-flash{animation:none!important}
