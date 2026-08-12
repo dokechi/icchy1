@@ -1,0 +1,218 @@
+/* Human layer: 個人サイトの生活感を足す。既存の料金表・本文構造は触らない。 */
+
+html.icchy-mobile-page .author-strip,
+html.icchy-mobile-page .self-question,
+html.icchy-mobile-page .usage-log,
+html.icchy-mobile-page .page-history,
+html.icchy-mobile-page .other-note-link{
+  font-size:20px;
+  line-height:1.65;
+}
+
+.author-strip{
+  margin-top:22px;
+  border-top:3px solid #111318;
+  border-bottom:1px solid #111318;
+  background:#fff;
+}
+.author-strip-head{
+  display:inline-block;
+  padding:7px 10px 8px;
+  background:#111318;
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  line-height:1;
+}
+.author-strip-body{
+  padding:18px 0 19px;
+}
+.author-strip-name{
+  display:block;
+  font-size:28px;
+  line-height:1.25;
+  font-weight:700;
+  letter-spacing:-.015em;
+}
+.author-strip-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  margin-top:10px;
+  color:#4c545e;
+  font-size:18px;
+}
+.author-strip-meta span::before{
+  content:"# ";
+  color:#111318;
+  font-weight:700;
+}
+
+.self-question{
+  position:relative;
+  margin:26px 0 0;
+  padding:18px 18px 19px 22px;
+  border-left:6px solid #111318;
+  background:#f1f2f4;
+}
+.self-question-tag{
+  display:block;
+  margin-bottom:8px;
+  color:#5d6570;
+  font-size:18px;
+  font-weight:700;
+}
+.self-question-q{
+  display:block;
+  font-size:26px;
+  line-height:1.45;
+  font-weight:700;
+}
+.self-question-q::before{
+  content:">> ";
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-size:1.15em;
+  letter-spacing:.01em;
+}
+.self-question-a{
+  display:block;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid #aeb4bc;
+  font-size:22px;
+  line-height:1.65;
+}
+.self-question-a b{color:#a92149}
+
+.usage-log{
+  margin:24px 0 2px;
+  border:2px solid #111318;
+  background:#fff;
+}
+.usage-log-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  background:#111318;
+  color:#fff;
+}
+.usage-log-head strong{font-size:20px!important}
+.usage-log-head span{font-size:18px;color:#d0d4d9}
+.usage-log-row{
+  display:grid;
+  grid-template-columns:115px minmax(0,1fr);
+  gap:14px;
+  padding:14px 14px 15px;
+  border-top:1px solid #cdd2d8;
+}
+.usage-log-row:first-of-type{border-top:0}
+.usage-log-row b{
+  font-size:20px!important;
+  line-height:1.45;
+}
+.usage-log-row span{
+  font-size:20px;
+  line-height:1.5;
+  color:#3e4650;
+}
+.usage-log-row.last{
+  background:#fff5f8;
+  border-top:2px solid #111318;
+}
+.usage-log-row.last b,.usage-log-row.last span{font-weight:700;color:#a92149}
+
+#comparison .self-question{
+  margin-top:24px;
+  margin-bottom:4px;
+  background:#fff;
+  border:2px solid #111318;
+  border-left:8px solid #111318;
+}
+
+.page-history{
+  margin-top:42px;
+  padding-top:26px;
+  border-top:4px solid #111318;
+}
+.page-history-label{
+  display:inline-block;
+  padding:7px 10px 8px;
+  background:#111318;
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  line-height:1;
+}
+.page-history h3{
+  margin:14px 0 0;
+  font-size:32px;
+  line-height:1.35;
+  letter-spacing:-.02em;
+}
+.history-entry{
+  display:grid;
+  grid-template-columns:135px minmax(0,1fr);
+  gap:16px;
+  margin-top:18px;
+  padding:17px 0 18px;
+  border-top:1px solid #aeb4bc;
+  border-bottom:1px solid #aeb4bc;
+}
+.history-date{
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-size:28px;
+  font-weight:700;
+  line-height:1.1;
+}
+.history-body{
+  font-size:20px;
+  line-height:1.65;
+}
+.history-body p{margin:0}
+.history-body p+p{margin-top:6px}
+
+.other-note-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:18px;
+  padding:18px 0;
+  border-bottom:3px solid #111318;
+  font-size:22px;
+  font-weight:700;
+}
+.other-note-link span:last-child{
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-size:32px;
+}
+
+html.font-step-up .author-strip-head,
+html.font-step-up .author-strip-meta,
+html.font-step-up .self-question-tag,
+html.font-step-up .usage-log-head span,
+html.font-step-up .page-history-label{
+  font-size:22px!important;
+}
+html.font-step-up .author-strip-name{font-size:34px!important}
+html.font-step-up .self-question-q{font-size:32px!important}
+html.font-step-up .self-question-a{font-size:27px!important}
+html.font-step-up .usage-log-head strong{font-size:24px!important}
+html.font-step-up .usage-log-row b,
+html.font-step-up .usage-log-row span,
+html.font-step-up .history-body{font-size:24px!important}
+html.font-step-up .page-history h3{font-size:38px!important}
+html.font-step-up .history-date{font-size:34px!important}
+html.font-step-up .other-note-link{font-size:27px!important}
+
+@media(max-width:520px){
+  .author-strip-meta{display:grid;gap:5px}
+  .usage-log-row{grid-template-columns:1fr;gap:4px}
+  .history-entry{grid-template-columns:1fr;gap:8px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .author-strip,.self-question,.usage-log,.page-history,.other-note-link{scroll-behavior:auto}
+}
