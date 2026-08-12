@@ -1,7 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
 
 :root{
   --icchy-ease:cubic-bezier(.16,1,.3,1);
+  --icchy-black:#111318;
+  --icchy-paper:#f3f4f6;
+  --icchy-pink:#e83d70;
+  --icchy-pink-deep:#a92149;
+  --icchy-rule:#c8ced6;
 }
 
 html,body,button,input,select,textarea{
@@ -10,68 +15,349 @@ html,body,button,input,select,textarea{
   font-kerning:normal;
 }
 body{font-weight:500}
-h1,h2,h3,strong,b,.brand,.price,.savings-amount,.hero-number,.section-index{font-weight:900}
+h1,h2,h3,strong,b,.brand{font-weight:900}
 
-/* Home: only subtle motion. Content remains visible if JS is unavailable. */
+/* 数字だけ少し無骨な欧文。日本語本文はZen Kakuのまま。 */
+.savings-amount,.metric-gb,.metric-price,.hero-number,.hero-zero,.price,.rank,.section-index,.meta-value{
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif!important;
+  font-feature-settings:"tnum" 1;
+}
+
+/* ---------------- HOME ---------------- */
+.site-stamp{
+  width:max-content;
+  margin:0 0 8px;
+  padding:4px 7px 5px;
+  background:var(--icchy-black);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.045em;
+  border-radius:0;
+}
+.home .intro h1{letter-spacing:-.022em!important}
+.home .intro-metrics{
+  border-top:2px solid var(--icchy-black)!important;
+  border-bottom:1px solid var(--icchy-black)!important;
+}
+.home .savings-amount{letter-spacing:-.025em!important}
+.home .choice{
+  border-radius:7px!important;
+  box-shadow:none!important;
+  border-color:#c9ced5!important;
+}
+.home .choice.mobile{background:#fff!important;border-width:2px!important;border-color:#d5a5b4!important}
+.home .choice-label{
+  display:inline-block!important;
+  width:max-content;
+  padding:4px 7px 5px;
+  background:var(--icchy-black)!important;
+  color:#fff!important;
+  border-radius:0;
+  font-size:11px!important;
+  letter-spacing:.03em!important;
+}
+.home .choice::before{width:4px!important}
+.home .arrow{border-radius:4px!important;border-color:#aeb5be!important}
+
+/* ---------------- 共通：少しだけ“個人制作物”の癖 ---------------- */
+.icchy-topline{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:0 0 13px;
+  padding:6px 8px;
+  background:var(--icchy-black);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:.035em;
+  border-radius:0;
+}
+.icchy-topline .topline-sub{color:#cdd2d8;font-weight:700}
+
+.detail-meta{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:18px;
+  border-top:2px solid var(--icchy-black);
+  border-bottom:1px solid var(--icchy-black);
+  background:#fff;
+}
+.detail-meta>span{
+  min-width:0;
+  padding:9px 8px 10px;
+  border-left:1px solid #d5d9df;
+  color:#4d555f;
+  font-size:10px;
+  line-height:1.18;
+}
+.detail-meta>span:first-child{border-left:0}
+.detail-meta b{display:block;margin-top:3px;color:var(--icchy-black);font-size:15px;line-height:1.08;font-weight:900}
+.detail-meta .meta-value{font-size:19px;letter-spacing:-.015em}
+
+.chapter-tab{
+  display:inline-block;
+  width:max-content;
+  margin:0 0 7px;
+  padding:5px 8px 6px;
+  background:var(--icchy-black);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.045em;
+  border-radius:0;
+}
+.section-head .kicker{display:block}
+.section-index{
+  color:#e6e8eb!important;
+  letter-spacing:-.025em!important;
+  font-weight:800!important;
+}
+#section-wifi .section-index{color:#eee2e6!important}
+.section h2,.judge-card h3,.decision-card h3,.cta-box h2{letter-spacing:-.02em!important}
+
+/* セクションに同じカード文法を使い続けない */
+.section::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:44px;
+  height:3px;
+  background:var(--icchy-black);
+}
+#comparison::before{left:var(--side)}
+
+/* 01: 実用品っぽい配線図。丸みを減らす */
+.tether-map{
+  border-radius:3px!important;
+  border-color:#aeb5bd!important;
+  box-shadow:none!important;
+  background:#f2f3f5!important;
+}
+.tether-source,.tether-targets>div{border-radius:2px!important}
+.tether-source{background:#fff!important;border:2px solid var(--icchy-black)!important}
+.tether-source strong{color:var(--icchy-black)}
+.proof-line{
+  border-radius:0!important;
+  border-left:5px solid var(--icchy-black)!important;
+  background:#f2f3f5!important;
+  color:#252b33!important;
+}
+.image-slot{border-radius:4px!important;background:#fff!important}
+
+/* 02: 証拠は“データ板”にする */
+.evidence-strip{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:20px 0 -10px;
+  color:#656d77;
+  font-size:11px;
+  font-weight:700;
+}
+.evidence-strip::before{content:"俺の実使用";padding:4px 7px;background:var(--icchy-black);color:#fff;font-weight:900;letter-spacing:.04em}
+.stat-pair{
+  border-radius:3px!important;
+  border:2px solid var(--icchy-black)!important;
+  box-shadow:none!important;
+}
+.stat-pair>div{background:#fff!important}
+.stat-pair .accent{background:#fff!important}
+.stat-pair .accent strong{color:var(--icchy-pink-deep)!important}
+.stat-pair span{color:#5b626b!important}
+
+/* 03: ここだけ“ツール画面”。詳細表は絶対に縮めない。 */
+#comparison{background:#f0f1f3!important}
+.compare-strap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:18px 0 0;
+  padding:7px 9px;
+  background:var(--icchy-black);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  line-height:1.2;
+}
+.compare-strap span:last-child{color:#cfd4d9;font-weight:700;text-align:right}
+.compare-builder{
+  border-radius:2px!important;
+  border:1px solid #8f969f!important;
+  box-shadow:none!important;
+}
+.segmented{border-radius:2px!important;background:#e7e9ec!important;border-color:#adb4bc!important}
+.segmented button{border-radius:1px!important}
+.segmented button.on,.segmented button[aria-selected="true"]{background:var(--icchy-black)!important;border-color:var(--icchy-black)!important;box-shadow:none!important}
+.mode-explain{border-radius:0!important;border-left:3px solid #9aa1aa!important;background:#f2f3f5!important}
+.result-head{
+  border-bottom:3px solid var(--icchy-black)!important;
+  padding:10px 10px 9px!important;
+  background:var(--icchy-black);
+  color:#fff;
+}
+.result-head span{color:#cbd0d6!important}
+.price-table{
+  border-radius:0!important;
+  border-color:#858d97!important;
+  background:#fff!important;
+}
+.price-row{
+  min-height:72px;
+  padding-top:17px!important;
+  padding-bottom:17px!important;
+}
+.price-row.rakuten{
+  background:#fff6f8!important;
+  box-shadow:inset 5px 0 0 var(--icchy-pink)!important;
+}
+.price{font-size:clamp(31px,7.6vw,38px)!important;letter-spacing:-.02em!important}
+.plan strong{font-size:18px!important}
+.plan small{
+  margin-top:5px!important;
+  font-size:14px!important;
+  line-height:1.55!important;
+  color:#5e6670!important;
+}
+.rank{border-radius:2px!important;background:#e4e7ea!important;font-size:16px!important}
+.price-row.rakuten .rank{background:var(--icchy-black)!important;color:#fff!important}
+.compare-truth{
+  border-radius:0!important;
+  border:2px solid var(--icchy-black)!important;
+  border-left:7px solid var(--icchy-pink)!important;
+  background:#fff!important;
+}
+.condition-details{border-radius:2px!important;border-color:#8f969f!important}
+.condition-details summary{background:#f3f4f5}
+.condition-item strong{font-size:16px!important}
+.condition-item p{font-size:14.5px!important;line-height:1.78!important}
+.no-match{color:#4e5660!important}
+
+/* 04: 判定。企業っぽいピルをやめる */
+.judgment{gap:8px!important}
+.judge-card{
+  border-radius:2px!important;
+  border:1px solid #8f969f!important;
+  box-shadow:none!important;
+}
+.judge-card span{
+  border-radius:0!important;
+  background:var(--icchy-black)!important;
+  color:#fff!important;
+  padding:5px 8px!important;
+}
+.judge-card.rakuten{background:#fff!important;border:2px solid var(--icchy-black)!important}
+.judge-card.rakuten::after{
+  content:"俺の結論";
+  position:absolute;
+  right:0;
+  top:0;
+  padding:6px 8px;
+  background:var(--icchy-pink);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+}
+.judge-card.rakuten h3{color:var(--icchy-pink-deep)!important}
+
+/* 05: 二択の“札”感 */
+.wifi-decision{gap:8px!important}
+.decision-card{
+  border-radius:2px!important;
+  border:1px solid #8f969f!important;
+  box-shadow:none!important;
+  padding-top:50px!important;
+}
+.decision-card::before{width:100%!important;height:34px!important;bottom:auto!important;background:var(--icchy-black)!important}
+.decision-card.go::before{background:var(--icchy-pink)!important}
+.decision-card::after{
+  position:absolute;
+  left:12px;
+  top:7px;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+.decision-card.go::after{content:"やめる"}
+.decision-card.stop::after{content:"残す"}
+.decision-answer{border-top:2px solid var(--icchy-black)!important}
+
+/* CTA: 最後だけ少し強くする */
+.cta-box{
+  position:relative;
+  border-radius:4px!important;
+  border:2px solid var(--icchy-black)!important;
+  border-top:9px solid var(--icchy-black)!important;
+  background:#fff!important;
+  box-shadow:8px 8px 0 #e7e9ec!important;
+}
+.cta-box .kicker{
+  display:inline-block;
+  padding:4px 7px 5px;
+  background:var(--icchy-black);
+  color:#fff!important;
+  font-size:11px!important;
+}
+.cta-points span{background:transparent!important}
+.primary{
+  border-radius:2px!important;
+  box-shadow:none!important;
+  background:var(--icchy-pink)!important;
+}
+.primary:hover{background:#c82f5d!important}
+
+/* 公式ソースも“資料置き場”っぽく */
+.source-head{
+  display:inline-block;
+  margin:0 0 7px;
+  padding:4px 7px;
+  background:var(--icchy-black);
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.05em;
+}
+.sources a{border-radius:1px!important;box-shadow:none!important}
+
+/* 動きは軽いまま。 */
 html.motion-ready .reveal-item{
   opacity:0;
   transform:translate3d(0,10px,0);
-  transition:
-    opacity .38s var(--icchy-ease) var(--reveal-delay,0ms),
-    transform .42s var(--icchy-ease) var(--reveal-delay,0ms);
+  transition:opacity .38s var(--icchy-ease) var(--reveal-delay,0ms),transform .42s var(--icchy-ease) var(--reveal-delay,0ms);
   will-change:opacity,transform;
 }
-html.motion-ready .reveal-item.is-visible{
-  opacity:1;
-  transform:translate3d(0,0,0);
-}
-
-/* Chapter numbers get their own restrained movement. */
-html.motion-ready .section-index.reveal-item{
-  transform:translate3d(0,12px,0) scale(.97);
-  transition-duration:.46s,.5s;
-}
-html.motion-ready .section-index.reveal-item.is-visible{
-  transform:translate3d(0,0,0) scale(1);
-}
-
-/* Keep the page feeling crisp rather than floaty. */
-.choice,.judge-card,.decision-card,.compare-builder,.stat-pair,.cta-box{
-  backface-visibility:hidden;
-}
-.choice .arrow{
-  transition:transform .22s var(--icchy-ease),border-color .18s ease,background-color .18s ease;
-}
+html.motion-ready .reveal-item.is-visible{opacity:1;transform:translate3d(0,0,0)}
+html.motion-ready .section-index.reveal-item{transform:translate3d(0,12px,0) scale(.97);transition-duration:.46s,.5s}
+html.motion-ready .section-index.reveal-item.is-visible{transform:translate3d(0,0,0) scale(1)}
+.choice,.judge-card,.decision-card,.compare-builder,.stat-pair,.cta-box{backface-visibility:hidden}
+.choice .arrow{transition:transform .22s var(--icchy-ease),border-color .18s ease,background-color .18s ease}
 .choice:hover .arrow,.choice:focus-visible .arrow{transform:translateX(3px)}
-.primary{transition:transform .18s var(--icchy-ease),box-shadow .2s ease,background-color .18s ease!important}
+.primary{transition:transform .18s var(--icchy-ease),background-color .18s ease!important}
 .primary:hover{transform:translateY(-1px)}
-
-/* Comparison switching: 180ms, no layout shift. */
-@keyframes icchyCompareFlash{
-  0%{opacity:.58;transform:translate3d(0,3px,0)}
-  100%{opacity:1;transform:translate3d(0,0,0)}
-}
+@keyframes icchyCompareFlash{0%{opacity:.58;transform:translate3d(0,3px,0)}100%{opacity:1;transform:translate3d(0,0,0)}}
 .compare-flash{animation:icchyCompareFlash .18s var(--icchy-ease) both}
 
-/* Zen Kaku needs slightly less aggressive tracking than the previous system stack. */
-.intro h1,.hero h1,.section h2,.judge-card h3,.decision-card h3,.cta-box h2{
-  letter-spacing:-.025em!important;
-}
-.savings-amount,.metric-gb,.metric-price,.hero-number,.price{
-  letter-spacing:-.045em!important;
-}
-
 @media(max-width:390px){
-  .intro h1,.hero h1,.section h2{letter-spacing:-.02em!important}
+  .detail-meta>span{padding-inline:6px}
+  .detail-meta b{font-size:14px}
+  .detail-meta .meta-value{font-size:18px}
+  .compare-strap{align-items:flex-start;flex-direction:column;gap:3px}
+  .compare-strap span:last-child{text-align:left}
+  .price-row{min-height:76px!important}
+  .plan small{font-size:13.5px!important}
+  .price{font-size:30px!important}
 }
 
 @media(prefers-reduced-motion:reduce){
-  html.motion-ready .reveal-item,
-  html.motion-ready .section-index.reveal-item{
-    opacity:1!important;
-    transform:none!important;
-    transition:none!important;
-  }
+  html.motion-ready .reveal-item,html.motion-ready .section-index.reveal-item{opacity:1!important;transform:none!important;transition:none!important}
   .compare-flash{animation:none!important}
   .choice .arrow,.primary{transition:none!important}
 }
