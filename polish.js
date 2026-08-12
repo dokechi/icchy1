@@ -267,3 +267,25 @@
     targets.forEach(el=>el.classList.add('is-visible'));
   }
 })();
+
+(()=>{
+  const loadHuman=()=>{
+    if(document.getElementById('icchyHumanScript'))return;
+    const script=document.createElement('script');
+    script.id='icchyHumanScript';
+    script.src='human-layer.js?v=20260812-1';
+    script.async=false;
+    document.body.appendChild(script);
+  };
+  if(!document.getElementById('icchyHumanStyle')){
+    const link=document.createElement('link');
+    link.id='icchyHumanStyle';
+    link.rel='stylesheet';
+    link.href='human-layer.css?v=20260812-1';
+    link.addEventListener('load',loadHuman,{once:true});
+    document.head.appendChild(link);
+    window.setTimeout(loadHuman,700);
+  }else{
+    loadHuman();
+  }
+})();
