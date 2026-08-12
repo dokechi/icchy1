@@ -21,13 +21,277 @@
 html.font-step-up body{font-size:19px}html.font-step-up .hero-promise-main{font-size:clamp(34px,8.4vw,44px)}html.font-step-up .hero-promise-sub{font-size:clamp(26px,6.4vw,34px)}
 @media(max-width:390px){body{font-size:16px}.hero{padding-top:6px}.hero h1{font-size:34px}.hero-promise-main{font-size:clamp(29px,8.4vw,34px)}.hero-promise-sub{font-size:clamp(22px,6.2vw,27px)}.hero-note{font-size:12px}.section{padding:29px 0}.section h2{font-size:clamp(27px,7.7vw,32px)}.tether-map{grid-template-columns:1fr 27px 1fr}.stat-pair{grid-template-columns:1fr 1fr}.segmented button{font-size:16px}.price-row{grid-template-columns:32px minmax(0,1fr) auto;padding:14px 10px;gap:8px}.plan strong{font-size:17px}.plan small{font-size:12.5px}.price{font-size:23px}.result-head strong{font-size:21px}.result-head span{font-size:13px}.compare-truth strong{font-size:19px}}
 </style>
+<style>
+:root{
+  --pink:#e83d70;
+  --pink-deep:#b82750;
+  --pink-action:#c72b56;
+  --pink-soft:#fff4f7;
+  --ink:#141820;
+  --muted:#626b76;
+  --line:#dfe3e8;
+  --line-strong:#ccd4dd;
+  --soft:#f6f7f9;
+  --side:clamp(16px,4.6vw,22px);
+}
+html{scroll-padding-top:20px}
+body{font-size:17px;line-height:1.78;background:#fff;color:var(--ink)}
+main{width:min(760px,100%);padding:18px var(--side) 56px}
+h1,h2,h3,.section-lead,.compare-intro,.primary,summary{word-break:auto-phrase;text-wrap:balance}
+p{max-width:42em}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid rgba(35,95,126,.42);outline-offset:3px}
+
+.eyebrow,.kicker{color:var(--pink-deep);font-size:14px;font-weight:820;letter-spacing:.01em}
+.hero{padding:8px 0 42px;border-bottom:1px solid var(--line)}
+.hero h1{
+  max-width:19ch;
+  margin-top:10px;
+  font-size:clamp(29px,7.8vw,44px);
+  line-height:1.16;
+  letter-spacing:-.045em;
+  font-weight:880;
+}
+.hero h1 em{color:var(--pink);font-weight:900}
+.hero-promise{
+  margin-top:24px;
+  padding:18px 0 17px;
+  border-top:1px solid #f0c2d0;
+  border-bottom:1px solid #f0c2d0;
+  line-height:1.2;
+}
+.hero-promise-main{
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:12px;
+  align-items:end;
+  font-size:inherit;
+  font-weight:880;
+}
+.promise-usage,.promise-price{display:block;min-width:0}
+.hero-number{
+  display:block;
+  color:var(--pink-deep);
+  font-size:clamp(40px,11.3vw,58px);
+  font-weight:920;
+  line-height:.94;
+  letter-spacing:-.065em;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.promise-price{color:var(--ink);font-size:19px;line-height:1}
+.promise-price .hero-number{display:inline-block;font-size:clamp(42px,11.8vw,62px)}
+.hero-connector{display:block;margin-top:7px;color:#29313a;font-size:15px;font-weight:820;line-height:1.25;letter-spacing:-.02em}
+.hero-promise-sub{
+  display:block;
+  margin-top:20px;
+  font-size:clamp(22px,6.1vw,30px);
+  font-weight:850;
+  line-height:1.38;
+  letter-spacing:-.035em;
+}
+.hero-wifi-outcome{white-space:nowrap;color:var(--pink-deep)}
+.hero-zero{display:inline-block;white-space:nowrap;color:var(--pink-deep);font-size:1.34em;font-weight:920;font-variant-numeric:tabular-nums}
+.hero-note{max-width:66ch;margin-top:14px;color:var(--muted);font-size:13px;line-height:1.72}
+
+.section{padding:56px 0;border-bottom:1px solid var(--line)}
+.section h2{max-width:20ch;margin-top:7px;font-size:clamp(30px,7.2vw,40px);line-height:1.25;letter-spacing:-.035em;font-weight:880}
+.section-lead,.compare-intro{max-width:38em;margin-top:14px;color:#3f4852;font-size:17px;line-height:1.9}
+.section-lead strong{font-size:1.06em;font-weight:850}
+.proof-line{margin-top:22px;padding:16px 18px;border-left:3px solid var(--pink-deep);background:var(--pink-soft);font-size:16px;font-weight:780;line-height:1.8}
+.image-slot{
+  min-height:168px;
+  margin:26px 0;
+  padding:26px 20px;
+  border:1px dashed #d96a8c;
+  border-radius:16px;
+  background:#fffafb;
+  color:var(--pink-deep);
+  font-size:15px;
+  font-weight:800;
+  line-height:1.7;
+}
+
+.tether-map{grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr);gap:10px;margin-top:28px}
+.tether-source,.tether-targets>div{padding:18px 10px;border:1px solid var(--line-strong);border-radius:14px;background:#fff}
+.tether-source{border-color:#efb4c5;background:var(--pink-soft)}
+.tether-source strong,.tether-targets strong{font-size:18px;letter-spacing:-.02em}
+.tether-source small,.tether-targets small{margin-top:5px;font-size:14px}
+.tether-arrow{color:var(--pink-deep);font-size:28px}
+.tether-targets{gap:10px}
+.stat-pair{
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin-top:22px;
+  border:1px solid var(--line-strong);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
+.stat-pair>div{padding:20px 16px;border:0;border-radius:0;background:#fff}
+.stat-pair>div+div{border-left:1px solid var(--line)}
+.stat-pair span{font-size:14px}
+.stat-pair strong{margin-top:7px;font-size:clamp(29px,7.8vw,38px);letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.stat-pair .accent{background:var(--pink-soft)}
+.stat-pair .accent strong{color:var(--pink-deep)}
+
+.compare-control{margin-top:24px}
+.control-label{margin-bottom:9px;font-size:16px;font-weight:850}
+.segmented{gap:5px;padding:4px;border:1px solid var(--line);border-radius:14px;background:var(--soft)}
+.segmented button{
+  min-height:54px;
+  padding:8px 7px;
+  border:1px solid transparent;
+  border-radius:10px;
+  background:transparent;
+  font-size:16px;
+  font-weight:820;
+  line-height:1.25;
+  transition:background-color .16s ease,color .16s ease,transform .12s ease,box-shadow .16s ease;
+}
+.segmented button.on,.segmented button[aria-selected="true"]{border-color:var(--pink-action);background:var(--pink-action);color:#fff;box-shadow:0 3px 10px rgba(143,27,65,.18)}
+.segmented button:active{transform:scale(.985)}
+.mode-explain{margin-top:14px;padding:12px 14px;border:0;border-radius:10px;background:var(--soft);color:#5b6570;font-size:14px;line-height:1.72}
+.result-head{align-items:baseline;margin-top:32px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.result-head strong{font-size:25px;letter-spacing:-.025em}
+.result-head span{font-size:14px}
+.price-table{margin-top:0;border:1px solid var(--line-strong);border-top:0;border-radius:0 0 16px 16px}
+.price-row{grid-template-columns:34px minmax(0,1fr) auto;gap:11px;padding:18px 14px;border-top:1px solid #e8ebef}
+.price-row:first-child{border-top:0}
+.price-row.rakuten{box-shadow:inset 4px 0 0 var(--pink);background:var(--pink-soft)}
+.rank{width:32px;height:32px;background:#eef1f4;font-size:14px}
+.price-row.rakuten .rank{background:var(--pink-action);color:#fff}
+.plan strong{font-size:18px;line-height:1.35}
+.plan small{margin-top:4px;font-size:13px;line-height:1.46}
+.price{color:#222831;font-size:clamp(29px,7.2vw,36px);font-weight:920;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.price-row.rakuten .plan strong,.price-row.rakuten .price{color:var(--pink-deep)}
+.compare-truth{margin-top:17px;padding:17px 18px;border:0;border-left:4px solid var(--pink-deep);border-radius:10px;background:var(--pink-soft)}
+.compare-truth strong{font-size:21px;line-height:1.48}
+.compare-truth p{margin-top:7px;font-size:15px;line-height:1.72}
+.condition-details{margin-top:14px;border-color:var(--line-strong);border-radius:12px}
+.condition-details summary{padding:16px 17px;font-size:16px}
+.condition-details[open] summary{border-bottom:1px solid var(--line)}
+.condition-list{padding:0 17px 15px}
+.condition-item{padding:15px 0}
+.condition-item strong{font-size:16px;font-variant-numeric:tabular-nums}
+.condition-item p{font-size:14px;line-height:1.7}
+.no-match{margin-top:14px;padding:0 0 0 13px;border-left:2px solid var(--line-strong);border-radius:0;background:transparent;color:#626c77;font-size:13.5px;line-height:1.72}
+
+.judgment,.wifi-decision{
+  gap:0;
+  margin-top:24px;
+  border:1px solid var(--line-strong);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
+.judge-card,.decision-card{padding:22px 19px;border:0;border-radius:0;background:#fff}
+.judge-card+.judge-card,.decision-card+.decision-card{border-top:1px solid var(--line)}
+.judge-card.rakuten{box-shadow:inset 4px 0 0 var(--pink);background:var(--pink-soft)}
+.judge-card span{font-size:14px}
+.judge-card h3{margin-top:7px;font-size:24px;line-height:1.35;letter-spacing:-.025em}
+.judge-card.rakuten h3{color:var(--pink-deep)}
+.judge-card p{margin-top:9px;font-size:16px;line-height:1.76}
+.decision-card.go,.decision-card.stop{border-top:0}
+.decision-card.go{box-shadow:inset 4px 0 0 var(--pink)}
+.decision-card.stop{box-shadow:inset 4px 0 0 #333a43}
+.decision-card h3{font-size:23px;line-height:1.42;letter-spacing:-.025em}
+.decision-card li{margin:8px 0;font-size:16px;line-height:1.55}
+.decision-answer{margin-top:16px;padding-top:14px;font-size:21px}
+.decision-card.go .decision-answer{color:var(--pink-deep)}
+
+.cta-section{padding:64px 0 8px}
+.cta-box{padding:26px 22px;border:2px solid var(--pink-deep);border-radius:18px;background:#fffafb;box-shadow:0 20px 54px rgba(131,33,65,.11)}
+.cta-box h2{font-size:clamp(31px,7.7vw,42px);line-height:1.25;letter-spacing:-.04em}
+.cta-box h2 strong{color:var(--pink-deep)}
+.cta-box p{margin-top:14px;font-size:16px;line-height:1.78}
+.cta-points{gap:0;margin-top:19px;border-top:1px solid #efc5d1}
+.cta-points span{padding:11px 0;border-radius:0;border-bottom:1px solid #efc5d1;background:transparent;font-size:16px;font-weight:780}
+.primary{
+  min-height:64px;
+  margin-top:20px;
+  border-radius:12px;
+  background:var(--pink-action);
+  color:#fff;
+  font-size:19px;
+  font-weight:880;
+  box-shadow:0 9px 22px rgba(143,27,65,.2);
+  transition:transform .14s cubic-bezier(.16,1,.3,1),background-color .16s ease,box-shadow .16s ease;
+}
+.primary:active{transform:translateY(1px) scale(.99);box-shadow:0 5px 14px rgba(143,27,65,.18)}
+.cta-note{font-size:13px!important;line-height:1.68!important}
+.sources{margin-top:32px;padding-top:18px}
+.sources summary{font-size:15px}
+.sources div{grid-template-columns:1fr;gap:7px;margin-top:13px}
+.sources a{padding:11px 13px;border-color:var(--line);border-radius:10px;background:#fff;font-size:14px;line-height:1.5}
+.back{margin-top:24px;min-height:50px;font-size:15px}
+
+html.font-step-up body{font-size:19px}
+html.font-step-up .hero-number{font-size:clamp(44px,12vw,64px)}
+html.font-step-up .promise-price .hero-number{font-size:clamp(46px,12.5vw,68px)}
+html.font-step-up .hero-promise-sub{font-size:clamp(25px,6.7vw,34px)}
+
+@media(max-width:390px){
+  body{font-size:17px}
+  main{padding-top:15px;padding-bottom:48px}
+  .hero{padding-top:6px;padding-bottom:38px}
+  .hero h1{font-size:clamp(29px,8.2vw,32px)}
+  .hero-promise{margin-top:21px;padding-top:17px}
+  .hero-number{font-size:clamp(40px,11.4vw,45px)}
+  .promise-price{font-size:17px}
+  .promise-price .hero-number{font-size:clamp(42px,12vw,47px)}
+  .hero-promise-sub{font-size:clamp(22px,6.1vw,24px)}
+  .hero-note{font-size:13px}
+  .section{padding:52px 0}
+  .section h2{font-size:clamp(30px,8vw,33px)}
+  .tether-map{grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);gap:7px}
+  .tether-source,.tether-targets>div{padding:16px 8px}
+  .stat-pair{grid-template-columns:1fr 1fr}
+  .stat-pair>div{padding:18px 12px}
+  .segmented button{font-size:15px}
+  #modeDiscount{padding-inline:4px;font-size:13.5px;letter-spacing:-.07em;white-space:nowrap}
+  .price-row{grid-template-columns:32px minmax(0,1fr) auto;gap:8px;padding:17px 10px}
+  .plan strong{font-size:17px}
+  .plan small{font-size:12.5px}
+  .price{font-size:clamp(29px,8vw,32px)}
+  .result-head strong{font-size:23px}
+  .result-head span{font-size:13px}
+  .compare-truth strong{font-size:20px}
+}
+@media(max-width:340px){
+  :root{--side:14px}
+  .hero-promise-main{gap:7px}
+  .hero-number{font-size:38px}
+  .promise-price .hero-number{font-size:40px}
+  .hero-connector{font-size:14px}
+  .hero-promise-sub{font-size:21px}
+  .hero-wifi-outcome{white-space:nowrap}
+  .price{font-size:27px}
+  .rank{width:29px;height:29px}
+}
+@media(min-width:700px){
+  main{padding-top:28px;padding-bottom:72px}
+  .hero{padding-bottom:56px}
+  .section{padding:72px 0}
+  .image-slot{min-height:220px}
+  .sources div{grid-template-columns:1fr 1fr}
+  .cta-box{padding:34px 36px}
+}
+@media(hover:hover) and (pointer:fine){
+  .segmented button:not(.on):hover{background:#fff}
+  .primary:hover{transform:translateY(-1px);background:#b9234d;box-shadow:0 13px 28px rgba(143,27,65,.24)}
+  .sources a:hover{border-color:#e2a7b9;background:var(--pink-soft)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
 </head>
 <body>
 <main>
 <header class="hero">
   <p class="eyebrow">楽天モバイル</p>
   <h1>ドコモ、au、ソフトバンク、<br>ahamo、LINEMO。<br>比べたら、<em>楽天だった。</em></h1>
-  <p class="hero-promise"><span class="hero-promise-main"><span class="hero-number">100GB</span>使っても、月<span class="hero-number">3,168円</span>。</span><span class="hero-promise-sub">テザリングで、俺は家のWi-Fi代も<span class="hero-zero">0円</span>になった。</span></p>
+  <p class="hero-promise"><span class="hero-promise-main"><span class="promise-usage"><span class="hero-number">100GB</span><span class="hero-connector">使っても、月</span></span><span class="promise-price"><span class="hero-number">3,168円</span>。</span></span><span class="hero-promise-sub">テザリングで、俺は家の<span class="hero-wifi-outcome">Wi-Fi代も<span class="hero-zero">0円</span></span>になった。</span></p>
   <p class="hero-note">※3,168円はRakuten最強プランの20GB超・最強家族割適用後。通常は3,278円。通話料等別。混雑時など速度制御の場合あり。</p>
 </header>
 
