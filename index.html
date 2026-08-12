@@ -94,9 +94,49 @@ button{font:inherit;color:inherit;cursor:pointer}
   word-break:auto-phrase;
   text-wrap:balance;
 }
-.intro-promise{margin:11px 0 0;color:#343c45;font-size:15px;line-height:1.55}
-.intro-promise strong{font-size:16px;color:var(--ink)}
-.intro-promise b{font-weight:850;font-variant-numeric:tabular-nums}
+.intro-promise{
+  margin:12px 0 0;
+  display:flex;
+  flex-direction:column;
+  color:#343c45;
+  line-height:1.45;
+}
+.intro-context{
+  order:2;
+  display:block;
+  margin-top:9px;
+  color:#59626d;
+  font-size:13px;
+}
+.intro-context strong{color:var(--ink);font-size:14px;font-weight:820}
+.intro-metrics{
+  order:1;
+  display:grid;
+  gap:2px;
+  padding:10px 0 9px;
+  border-top:1px solid #f0c2d0;
+  border-bottom:1px solid #f0c2d0;
+}
+.savings-line{
+  display:grid;
+  grid-template-columns:68px minmax(0,1fr);
+  align-items:baseline;
+  gap:8px;
+  min-width:0;
+  font-weight:850;
+  font-variant-numeric:tabular-nums;
+}
+.savings-period{color:#303842;font-size:14px;line-height:1;white-space:nowrap}
+.savings-value{display:flex;align-items:baseline;min-width:0;color:var(--ink);font-size:12px;line-height:1}
+.savings-amount{
+  color:var(--mobile-deep);
+  font-size:46px;
+  font-weight:920;
+  line-height:.95;
+  letter-spacing:-.06em;
+  white-space:nowrap;
+}
+.savings-suffix{margin-left:5px;color:#59626d;font-size:10px;font-weight:760;white-space:nowrap}
 .intro-note{margin:5px 0 0;color:#747d87;font-size:11px;line-height:1.45}
 
 .choices{
@@ -165,7 +205,11 @@ a:focus-visible,button:focus-visible{outline:3px solid rgba(35,95,126,.38);outli
 
 html.large .home{overflow-y:auto}
 html.large .intro h1{font-size:clamp(42px,11.5vw,54px)}
-html.large .intro-promise{font-size:17px}
+html.large .intro-context{font-size:16px}
+html.large .intro-context strong{font-size:17px}
+html.large .savings-period{font-size:17px}
+html.large .savings-amount{font-size:52px}
+html.large .savings-suffix{font-size:12px}
 html.large .choice strong{font-size:clamp(31px,8.7vw,40px)}
 html.large .choice small{font-size:16px}
 html.large .mobile-outcome{font-size:clamp(20px,5.6vw,25px)}
@@ -178,8 +222,14 @@ html.large .mobile-outcome{font-size:clamp(20px,5.6vw,25px)}
 @media(max-height:700px){
   .home{padding-top:9px;padding-bottom:8px}
   .intro h1{font-size:clamp(32px,9.3vw,40px)}
-  .intro-promise{margin-top:6px;font-size:12.5px;line-height:1.4}
-  .intro-promise strong{font-size:13.5px}
+  .intro-promise{margin-top:6px}
+  .intro-metrics{gap:1px;padding:5px 0 4px}
+  .savings-line{grid-template-columns:53px minmax(0,1fr);gap:6px}
+  .savings-period{font-size:11px}
+  .savings-amount{font-size:34px}
+  .savings-suffix{margin-left:3px;font-size:8px}
+  .intro-context{margin-top:4px;font-size:10.5px;line-height:1.3}
+  .intro-context strong{font-size:11.5px}
   .intro-note{margin-top:2px;font-size:9.5px}
   .choices{margin-top:8px;gap:7px}
   .choice{padding:11px 13px 11px 16px}
@@ -196,7 +246,8 @@ html.large .mobile-outcome{font-size:clamp(20px,5.6vw,25px)}
   :root{--side:14px}
   .font-toggle{padding:0 9px;font-size:12px}
   .choice{padding-left:16px;padding-right:12px}
-  .intro-promise{font-size:13.5px}
+  .savings-line{grid-template-columns:60px minmax(0,1fr);gap:6px}
+  .savings-amount{font-size:42px}
   .choice.mobile .mobile-promise{font-size:14px}
 }
 @media(min-width:720px){
@@ -215,8 +266,14 @@ html.large .mobile-outcome{font-size:clamp(20px,5.6vw,25px)}
   }
   .intro{align-self:start;padding-top:18px}
   .intro h1{font-size:56px}
-  .intro-promise{margin-top:18px;font-size:16px}
-  .intro-promise strong{font-size:17px}
+  .intro-promise{margin-top:20px}
+  .intro-metrics{padding:13px 0 12px}
+  .savings-line{grid-template-columns:78px minmax(0,1fr);gap:10px}
+  .savings-period{font-size:16px}
+  .savings-amount{font-size:54px}
+  .savings-suffix{font-size:11px}
+  .intro-context{margin-top:12px;font-size:14px}
+  .intro-context strong{font-size:16px}
   .intro-note{font-size:11.5px}
   .choices{margin-top:0;gap:14px}
   .choice{padding:24px 24px 24px 28px}
@@ -242,7 +299,7 @@ html.large .mobile-outcome{font-size:clamp(20px,5.6vw,25px)}
 <main class="home" id="homeView">
   <section class="intro">
     <h1>知らないまま、<br>払いすぎない。</h1>
-    <p class="intro-promise"><strong>スマホと保険。</strong><br>なんとなく払い続けるのをやめると、<br><b>1年で20万円浮くことも。</b> <b>50年なら、1,000万円。</b></p>
+    <p class="intro-promise"><span class="intro-context"><strong>スマホと保険。</strong><br>なんとなく払い続けるのをやめると、<br></span><span class="intro-metrics"><b class="savings-line"><span class="savings-period">1年で</span><span class="savings-value"><span class="savings-amount">20万円</span><span class="savings-suffix">浮くことも。</span></span></b> <b class="savings-line"><span class="savings-period">50年なら、</span><span class="savings-value"><span class="savings-amount">1,000万円</span>。</span></b></span></p>
     <p class="intro-note">※年間20万円の差が50年間続いた場合の単純計算。</p>
   </section>
   <nav class="choices" aria-label="見る内容を選ぶ">
