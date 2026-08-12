@@ -1,410 +1,70 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="楽天モバイルと保険。知らないまま払いすぎないために、まずこの2つだけを見るサイト、イッチー。">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="color-scheme" content="light">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="イッチー">
-  <meta property="og:title" content="イッチー｜知らないまま、払いすぎない">
-  <meta property="og:description" content="楽天モバイルと保険。まずこの2つだけ。">
-  <meta name="twitter:card" content="summary">
-  <title>イッチー｜知らないまま、払いすぎない</title>
-  <style>
-    :root{
-      --ink:#151a21;
-      --muted:#606a75;
-      --line:#d8dee5;
-      --paper:#f6f8fa;
-      --surface:#ffffff;
-      --mobile:#f04e7a;
-      --mobile-soft:#fff0f5;
-      --insurance:#00a9c7;
-      --insurance-soft:#eafcff;
-      --side:18px;
-      font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,system-ui,sans-serif;
-      color-scheme:light;
-      font-feature-settings:"palt" 1;
-      font-kerning:normal;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:#fff;color:var(--ink)}
-    body{overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit;color:inherit;cursor:pointer}
-    [hidden]{display:none!important}
-
-    .header{
-      height:60px;
-      position:sticky;
-      top:0;
-      z-index:20;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:0 var(--side);
-      border-bottom:1px solid var(--line);
-      background:rgba(255,255,255,.97);
-      -webkit-backdrop-filter:blur(10px);
-      backdrop-filter:blur(10px);
-    }
-    .brand{
-      border:0;
-      padding:0;
-      background:transparent;
-      font-size:17px;
-      font-weight:950;
-      letter-spacing:-.055em;
-    }
-    .header-actions{display:flex;align-items:center;gap:6px}
-    .font-toggle{
-      min-height:40px;
-      padding:0 10px;
-      border:1px solid var(--line);
-      border-radius:9px;
-      background:#fff;
-      color:#3a424b;
-      font-size:13px;
-      font-weight:850;
-    }
-    .home-back{
-      min-width:40px;
-      min-height:40px;
-      display:grid;
-      place-items:center;
-      border:0;
-      border-radius:9px;
-      background:transparent;
-      font-size:20px;
-      font-weight:900;
-    }
-
-    .home{
-      height:calc(100dvh - 60px);
-      min-height:0;
-      padding:14px var(--side) 12px;
-      display:flex;
-      flex-direction:column;
-      overflow:hidden;
-    }
-    .intro{flex:0 0 auto;padding:2px 0 0}
-    .intro h1{
-      margin:0;
-      font-size:clamp(38px,10.6vw,48px);
-      line-height:1.02;
-      letter-spacing:-.07em;
-      font-weight:950;
-    }
-    .intro p{
-      margin:9px 0 0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.5;
-      font-weight:700;
-    }
-    .choices{
-      flex:1;
-      min-height:0;
-      display:grid;
-      grid-template-rows:repeat(2,minmax(0,1fr));
-      gap:10px;
-      margin-top:15px;
-    }
-    .choice{
-      min-height:0;
-      position:relative;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) 28px;
-      align-items:center;
-      gap:12px;
-      padding:20px 18px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:#fff;
-      overflow:hidden;
-      transition:transform .12s ease,box-shadow .16s ease,border-color .16s ease,background-color .16s ease;
-    }
-    .choice::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:0;
-      bottom:0;
-      width:5px;
-      background:var(--accent);
-    }
-    .choice.mobile{--accent:var(--mobile);--soft:var(--mobile-soft)}
-    .choice.insurance{--accent:var(--insurance);--soft:var(--insurance-soft)}
-    .choice-label{
-      display:block;
-      color:var(--accent);
-      font-size:13px;
-      font-weight:900;
-      letter-spacing:.05em;
-    }
-    .choice strong{
-      display:block;
-      margin-top:7px;
-      font-size:clamp(27px,8vw,36px);
-      line-height:1.08;
-      letter-spacing:-.055em;
-      font-weight:950;
-    }
-    .choice small{
-      display:block;
-      margin-top:8px;
-      color:#47515c;
-      font-size:14px;
-      line-height:1.48;
-      font-weight:720;
-    }
-    .arrow{
-      width:28px;
-      height:28px;
-      display:grid;
-      place-items:center;
-      color:var(--muted);
-      font-size:28px;
-      line-height:1;
-    }
-    .choice:active{transform:translateY(1px) scale(.995);background:var(--soft)}
-
-    .detail{
-      height:calc(100dvh - 60px);
-      min-height:0;
-      background:#fff;
-      overflow:hidden;
-    }
-    .detail iframe{
-      width:100%;
-      height:100%;
-      display:block;
-      border:0;
-      background:#fff;
-    }
-
-    a:focus-visible,button:focus-visible{
-      outline:3px solid rgba(40,95,126,.38);
-      outline-offset:3px;
-    }
-
-    html.large .intro h1{font-size:clamp(42px,12vw,54px)}
-    html.large .intro p{font-size:16px}
-    html.large .choice{padding:18px}
-    html.large .choice-label{font-size:15px}
-    html.large .choice strong{font-size:clamp(31px,9vw,40px)}
-    html.large .choice small{font-size:16px}
-
-    @media(hover:hover) and (pointer:fine){
-      .choice:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(35,52,68,.10);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
-      .font-toggle:hover,.home-back:hover{background:var(--paper)}
-    }
-    @media(max-height:680px){
-      .home{padding-top:10px;padding-bottom:8px}
-      .intro h1{font-size:clamp(34px,9.8vw,42px)}
-      .intro p{margin-top:6px;font-size:13px}
-      .choices{margin-top:10px;gap:8px}
-      .choice{padding:13px 16px}
-      .choice strong{margin-top:4px;font-size:clamp(24px,7.2vw,31px)}
-      .choice small{margin-top:5px;font-size:13px;line-height:1.4}
-    }
-    @media(max-width:340px){
-      :root{--side:14px}
-      .font-toggle{padding:0 8px;font-size:12px}
-      .choice{padding-left:15px;padding-right:13px}
-    }
-    @media(min-width:720px){
-      :root{--side:24px}
-      .home{width:min(680px,100%);margin:0 auto}
-    }
-    @media(prefers-reduced-motion:reduce){
-      *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="知らないまま、払いすぎない。スマホと保険。なんとなく払い続けるのをやめると、1年で20万円浮くことも。">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="イッチー">
+<meta property="og:title" content="イッチー｜知らないまま、払いすぎない">
+<meta property="og:description" content="スマホと保険。なんとなく払い続けるのをやめると、1年で20万円浮くことも。">
+<meta name="twitter:card" content="summary">
+<title>イッチー｜知らないまま、払いすぎない</title>
+<style>
+:root{
+  --ink:#151a21;--muted:#606a75;--line:#d8dee5;--paper:#f6f8fa;--mobile:#f04e7a;--mobile-soft:#fff0f5;--insurance:#00a9c7;--insurance-soft:#eafcff;--side:18px;
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,system-ui,sans-serif;color-scheme:light;
+}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fff;color:var(--ink)}body{overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}[hidden]{display:none!important}
+.header{height:60px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 var(--side);border-bottom:1px solid var(--line);background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.brand{border:0;padding:0;background:transparent;font-size:17px;font-weight:850}.header-actions{display:flex;align-items:center;gap:6px}.font-toggle{min-height:40px;padding:0 10px;border:1px solid var(--line);border-radius:9px;background:#fff;color:#3a424b;font-size:13px;font-weight:750}.home-back{min-width:40px;min-height:40px;display:grid;place-items:center;border:0;border-radius:9px;background:transparent;font-size:20px}
+.home{height:calc(100dvh - 60px);min-height:0;padding:13px var(--side) 11px;display:flex;flex-direction:column;overflow:hidden}.intro{flex:0 0 auto}.intro h1{margin:0;font-size:clamp(37px,10.2vw,47px);line-height:1.04;letter-spacing:-.035em;font-weight:850}.intro-promise{margin:10px 0 0;color:#343c45;font-size:14px;line-height:1.52}.intro-promise strong{font-size:15px;color:var(--ink)}.intro-promise b{font-weight:850}.intro-note{margin:4px 0 0;color:#7a838d;font-size:10.5px;line-height:1.4}.choices{flex:1;min-height:0;display:grid;grid-template-rows:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.choice{min-height:0;position:relative;display:grid;grid-template-columns:minmax(0,1fr) 28px;align-items:center;gap:12px;padding:17px 17px;border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden;transition:transform .12s ease,box-shadow .16s ease,border-color .16s ease,background-color .16s ease}.choice::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}.choice.mobile{--accent:var(--mobile);--soft:var(--mobile-soft)}.choice.insurance{--accent:var(--insurance);--soft:var(--insurance-soft)}.choice-label{display:block;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.04em}.choice strong{display:block;margin-top:5px;font-size:clamp(26px,7.7vw,35px);line-height:1.08;letter-spacing:-.025em;font-weight:850}.choice small{display:block;margin-top:7px;color:#47515c;font-size:13px;line-height:1.48}.choice small b{color:var(--ink);font-weight:800}.arrow{width:28px;height:28px;display:grid;place-items:center;color:var(--muted);font-size:28px}.choice:active{transform:translateY(1px) scale(.995);background:var(--soft)}
+.detail{height:calc(100dvh - 60px);min-height:0;background:#fff;overflow:hidden}.detail iframe{width:100%;height:100%;display:block;border:0;background:#fff}a:focus-visible,button:focus-visible{outline:3px solid rgba(40,95,126,.38);outline-offset:3px}
+html.large .intro h1{font-size:clamp(41px,11.5vw,53px)}html.large .intro-promise{font-size:16px}html.large .choice strong{font-size:clamp(30px,8.7vw,39px)}html.large .choice small{font-size:15px}
+@media(hover:hover) and (pointer:fine){.choice:hover{transform:translateY(-2px);box-shadow:0 9px 24px rgba(35,52,68,.10);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}.font-toggle:hover,.home-back:hover{background:var(--paper)}}
+@media(max-height:700px){.home{padding-top:9px;padding-bottom:8px}.intro h1{font-size:clamp(33px,9.5vw,41px)}.intro-promise{margin-top:7px;font-size:12.5px;line-height:1.42}.intro-promise strong{font-size:13.5px}.intro-note{font-size:9.5px}.choices{margin-top:8px;gap:7px}.choice{padding:12px 15px}.choice strong{margin-top:3px;font-size:clamp(23px,6.9vw,30px)}.choice small{margin-top:4px;font-size:12px;line-height:1.38}}
+@media(max-width:340px){:root{--side:14px}.font-toggle{padding:0 8px;font-size:12px}.choice{padding-left:14px;padding-right:12px}.intro-promise{font-size:12.5px}}
+@media(min-width:720px){:root{--side:24px}.home{width:min(680px,100%);margin:0 auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <header class="header">
-    <button class="brand" id="brandHome" type="button">イッチー</button>
-    <div class="header-actions">
-      <button class="font-toggle" id="fontToggle" type="button" aria-pressed="false">文字を大きく</button>
-      <button class="home-back" id="homeBack" type="button" aria-label="最初に戻る" hidden>⌂</button>
-    </div>
-  </header>
-
-  <main class="home" id="homeView">
-    <section class="intro">
-      <h1>知らないまま、<br>払いすぎない。</h1>
-      <p>いったん、見るのはこの2つだけ。</p>
-    </section>
-
-    <nav class="choices" aria-label="見る内容を選ぶ">
-      <a class="choice mobile" href="#mobile">
-        <span>
-          <span class="choice-label">スマホ代</span>
-          <strong>楽天モバイル</strong>
-          <small>20GB以上使うなら見る。<br>料金と使い方を確認する。</small>
-        </span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-
-      <a class="choice insurance" href="#insurance">
-        <span>
-          <span class="choice-label">固定費</span>
-          <strong>保険</strong>
-          <small>払いすぎる前に、<br>国・会社の保障から見る。</small>
-        </span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-    </nav>
-  </main>
-
-  <section class="detail" id="detailView" hidden aria-label="詳細">
-    <iframe id="detailFrame" title="イッチー 詳細ページ"></iframe>
+<header class="header">
+  <button class="brand" id="brandHome" type="button">イッチー</button>
+  <div class="header-actions">
+    <button class="font-toggle" id="fontToggle" type="button" aria-pressed="false">文字を大きく</button>
+    <button class="home-back" id="homeBack" type="button" aria-label="最初に戻る" hidden>⌂</button>
+  </div>
+</header>
+<main class="home" id="homeView">
+  <section class="intro">
+    <h1>知らないまま、<br>払いすぎない。</h1>
+    <p class="intro-promise"><strong>スマホと保険。</strong><br>なんとなく払い続けるのをやめると、<br><b>1年で20万円浮くことも。</b> <b>50年なら、1,000万円。</b></p>
+    <p class="intro-note">※年間20万円の差が50年間続いた場合の単純計算。</p>
   </section>
-
-  <script>
-    const KNOWN_ROUTES=new Set(["mobile","mobile-100gb","yutai","insurance","insurance-compare","deals"]);
-    const homeView=document.getElementById("homeView");
-    const detailView=document.getElementById("detailView");
-    const detailFrame=document.getElementById("detailFrame");
-    const brandHome=document.getElementById("brandHome");
-    const homeBack=document.getElementById("homeBack");
-    const fontToggle=document.getElementById("fontToggle");
-
-    function currentRoute(){
-      const route=location.hash.slice(1);
-      return KNOWN_ROUTES.has(route)?route:"home";
-    }
-
-    function goHome(){
-      if(location.hash==="#home"||!location.hash){
-        history.replaceState(null,"",location.pathname+location.search+"#home");
-        renderRoute();
-      }else{
-        location.hash="home";
-      }
-    }
-
-    function applyFontSize(){
-      let large=false;
-      try{large=localStorage.getItem("icchy-font-size")==="large"}catch(error){}
-      document.documentElement.classList.toggle("large",large);
-      fontToggle.setAttribute("aria-pressed",String(large));
-      fontToggle.textContent=large?"元に戻す":"文字を大きく";
-      try{
-        const doc=detailFrame.contentDocument;
-        if(doc?.documentElement){doc.documentElement.classList.toggle("font-step-up",large)}
-      }catch(error){}
-    }
-
-    function applyFrameTheme(){
-      try{
-        const win=detailFrame.contentWindow;
-        const doc=detailFrame.contentDocument;
-        if(!win||!doc)return;
-        const route=(win.location.hash||"").slice(1)||detailFrame.dataset.route||"";
-        const root=doc.documentElement;
-        const isRakuten=route==="mobile"||route==="mobile-100gb";
-        const vars=["--page-accent","--page-accent-soft","--green","--green-soft","--paper"];
-        if(isRakuten){
-          root.style.setProperty("--page-accent","#f04e7a");
-          root.style.setProperty("--page-accent-soft","#fff0f5");
-          root.style.setProperty("--green","#f04e7a");
-          root.style.setProperty("--green-soft","#fff0f5");
-          root.style.setProperty("--paper","#fff9fb");
-        }else{
-          vars.forEach(name=>root.style.removeProperty(name));
-        }
-      }catch(error){}
-    }
-
-    function renderRoute(){
-      const route=currentRoute();
-      const isHome=route==="home";
-      homeView.hidden=!isHome;
-      detailView.hidden=isHome;
-      homeBack.hidden=isHome;
-      document.body.style.overflow="hidden";
-
-      if(isHome){
-        document.title="イッチー｜知らないまま、払いすぎない";
-        return;
-      }
-
-      const target=`app.html#${route}`;
-      if(detailFrame.dataset.route!==route){
-        detailFrame.dataset.route=route;
-        detailFrame.src=target;
-      }
-      document.title=route.startsWith("insurance")?"保険｜イッチー":"楽天モバイル｜イッチー";
-    }
-
-    function enhanceFrame(){
-      try{
-        const win=detailFrame.contentWindow;
-        const doc=detailFrame.contentDocument;
-        if(!win||!doc)return;
-
-        const innerHeader=doc.querySelector(".header");
-        if(innerHeader)innerHeader.style.display="none";
-        const innerSite=doc.querySelector(".site");
-        if(innerSite){
-          innerSite.style.boxShadow="none";
-          innerSite.style.margin="0 auto";
-        }
-
-        applyFrameTheme();
-
-        const large=document.documentElement.classList.contains("large");
-        doc.documentElement.classList.toggle("font-step-up",large);
-
-        if(!doc.documentElement.dataset.launcherBound){
-          doc.documentElement.dataset.launcherBound="1";
-          doc.addEventListener("click",event=>{
-            const anchor=event.target.closest("a");
-            if(!anchor)return;
-            const href=anchor.getAttribute("href")||"";
-            if(href==="#home"){
-              event.preventDefault();
-              goHome();
-              return;
-            }
-            if(href.startsWith("./insurance-consultation")){
-              event.preventDefault();
-              window.location.href="insurance-consultation/";
-            }
-          },true);
-
-          win.addEventListener("hashchange",()=>{
-            const route=win.location.hash.slice(1);
-            if(KNOWN_ROUTES.has(route)){
-              detailFrame.dataset.route=route;
-              history.replaceState(null,"",location.pathname+location.search+`#${route}`);
-              applyFrameTheme();
-            }
-          });
-        }
-      }catch(error){}
-    }
-
-    brandHome.addEventListener("click",goHome);
-    homeBack.addEventListener("click",goHome);
-    fontToggle.addEventListener("click",()=>{
-      const next=!document.documentElement.classList.contains("large");
-      try{localStorage.setItem("icchy-font-size",next?"large":"normal")}catch(error){}
-      applyFontSize();
-    });
-    detailFrame.addEventListener("load",enhanceFrame);
-    window.addEventListener("hashchange",renderRoute);
-
-    if(!location.hash)history.replaceState(null,"",location.pathname+location.search+"#home");
-    applyFontSize();
-    renderRoute();
-  </script>
-  <script src="image-slots.js"></script>
+  <nav class="choices" aria-label="見る内容を選ぶ">
+    <a class="choice mobile" href="#mobile">
+      <span><span class="choice-label">スマホ代</span><strong>楽天モバイル</strong><small><b>100GB使っても、月3,168円。</b><br>テザリングで、俺は家のWi-Fi代も0円になった。</small></span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="choice insurance" href="#insurance">
+      <span><span class="choice-label">固定費</span><strong>保険</strong><small>払いすぎる前に、<br>国・会社の保障から見る。</small></span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+  </nav>
+</main>
+<section class="detail" id="detailView" hidden aria-label="詳細"><iframe id="detailFrame" title="イッチー 詳細ページ"></iframe></section>
+<script>
+const KNOWN_ROUTES=new Set(['mobile','mobile-100gb','yutai','insurance','insurance-compare','deals']);
+const homeView=document.getElementById('homeView'),detailView=document.getElementById('detailView'),detailFrame=document.getElementById('detailFrame'),brandHome=document.getElementById('brandHome'),homeBack=document.getElementById('homeBack'),fontToggle=document.getElementById('fontToggle');
+function currentRoute(){const route=location.hash.slice(1);return KNOWN_ROUTES.has(route)?route:'home'}
+function goHome(){if(location.hash==='#home'||!location.hash){history.replaceState(null,'',location.pathname+location.search+'#home');renderRoute()}else location.hash='home'}
+function applyFontSize(){let large=false;try{large=localStorage.getItem('icchy-font-size')==='large'}catch(e){}document.documentElement.classList.toggle('large',large);fontToggle.setAttribute('aria-pressed',String(large));fontToggle.textContent=large?'元に戻す':'文字を大きく';try{detailFrame.contentDocument?.documentElement.classList.toggle('font-step-up',large)}catch(e){}}
+function renderRoute(){const route=currentRoute(),isHome=route==='home';homeView.hidden=!isHome;detailView.hidden=isHome;homeBack.hidden=isHome;document.body.style.overflow='hidden';if(isHome){document.title='イッチー｜知らないまま、払いすぎない';return}const target=route==='mobile'?'mobile.html':`app.html#${route}`;if(detailFrame.dataset.target!==target){detailFrame.dataset.target=target;detailFrame.dataset.route=route;detailFrame.src=target}document.title=route.startsWith('insurance')?'保険｜イッチー':'楽天モバイル｜イッチー'}
+function enhanceFrame(){try{const win=detailFrame.contentWindow,doc=detailFrame.contentDocument;if(!win||!doc)return;const innerHeader=doc.querySelector('.header');if(innerHeader)innerHeader.style.display='none';const innerSite=doc.querySelector('.site');if(innerSite){innerSite.style.boxShadow='none';innerSite.style.margin='0 auto'}const large=document.documentElement.classList.contains('large');doc.documentElement.classList.toggle('font-step-up',large);if(!doc.documentElement.dataset.launcherBound){doc.documentElement.dataset.launcherBound='1';doc.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';if(href==='#home'){e.preventDefault();goHome();return}if(href.startsWith('./insurance-consultation')){e.preventDefault();window.location.href='insurance-consultation/'}},true);win.addEventListener('hashchange',()=>{if(!win.location.pathname.endsWith('/app.html'))return;const route=win.location.hash.slice(1);if(KNOWN_ROUTES.has(route)){detailFrame.dataset.route=route;history.replaceState(null,'',location.pathname+location.search+`#${route}`)}})}}catch(e){}}
+brandHome.addEventListener('click',goHome);homeBack.addEventListener('click',goHome);fontToggle.addEventListener('click',()=>{const next=!document.documentElement.classList.contains('large');try{localStorage.setItem('icchy-font-size',next?'large':'normal')}catch(e){}applyFontSize()});detailFrame.addEventListener('load',enhanceFrame);window.addEventListener('hashchange',renderRoute);applyFontSize();renderRoute();
+</script>
 </body>
 </html>
