@@ -13,6 +13,7 @@
 <meta property="og:description" content="スマホと保険。なんとなく払い続けるのをやめると、1年で20万円浮くことも。">
 <meta name="twitter:card" content="summary">
 <title>イッチー｜知らないまま、払いすぎない</title>
+<link rel="stylesheet" href="polish.css?v=20260812-1">
 <style>
 :root{
   --ink:#141820;
@@ -314,6 +315,7 @@ html.large .mobile-outcome{font-size:clamp(20px,5.6vw,25px)}
   </nav>
 </main>
 <section class="detail" id="detailView" hidden aria-label="詳細"><iframe id="detailFrame" title="イッチー 詳細ページ"></iframe></section>
+<script src="polish.js?v=20260812-1" defer></script>
 <script>
 const KNOWN_ROUTES=new Set(['mobile','mobile-100gb','yutai','insurance','insurance-compare','deals']);
 const homeView=document.getElementById('homeView'),detailView=document.getElementById('detailView'),detailFrame=document.getElementById('detailFrame'),brandHome=document.getElementById('brandHome'),homeBack=document.getElementById('homeBack'),fontToggle=document.getElementById('fontToggle');
@@ -321,7 +323,10 @@ function currentRoute(){const route=location.hash.slice(1);return KNOWN_ROUTES.h
 function goHome(){if(location.hash==='#home'||!location.hash){history.replaceState(null,'',location.pathname+location.search+'#home');renderRoute()}else location.hash='home'}
 function applyFontSize(){let large=false;try{large=localStorage.getItem('icchy-font-size')==='large'}catch(e){}document.documentElement.classList.toggle('large',large);fontToggle.setAttribute('aria-pressed',String(large));fontToggle.textContent=large?'元に戻す':'文字を大きく';try{detailFrame.contentDocument?.documentElement.classList.toggle('font-step-up',large)}catch(e){}}
 function renderRoute(){const route=currentRoute(),isHome=route==='home';homeView.hidden=!isHome;detailView.hidden=isHome;homeBack.hidden=isHome;document.body.style.overflow='hidden';if(isHome){document.title='イッチー｜知らないまま、払いすぎない';return}const target=route==='mobile'?'mobile.html':`app.html#${route}`;if(detailFrame.dataset.target!==target){detailFrame.dataset.target=target;detailFrame.dataset.route=route;detailFrame.src=target}document.title=route.startsWith('insurance')?'保険｜イッチー':'楽天モバイル｜イッチー'}
-function enhanceFrame(){try{const win=detailFrame.contentWindow,doc=detailFrame.contentDocument;if(!win||!doc)return;const innerHeader=doc.querySelector('.header');if(innerHeader)innerHeader.style.display='none';const innerSite=doc.querySelector('.site');if(innerSite){innerSite.style.boxShadow='none';innerSite.style.margin='0 auto'}const large=document.documentElement.classList.contains('large');doc.documentElement.classList.toggle('font-step-up',large);if(!doc.documentElement.dataset.launcherBound){doc.documentElement.dataset.launcherBound='1';doc.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';if(href==='#home'){e.preventDefault();goHome();return}if(href.startsWith('./insurance-consultation')){e.preventDefault();window.location.href='insurance-consultation/'}},true);win.addEventListener('hashchange',()=>{if(!win.location.pathname.endsWith('/app.html'))return;const route=win.location.hash.slice(1);if(KNOWN_ROUTES.has(route)){detailFrame.dataset.route=route;history.replaceState(null,'',location.pathname+location.search+`#${route}`)}})}}catch(e){}}
+function enhanceFrame(){try{const win=detailFrame.contentWindow,doc=detailFrame.contentDocument;if(!win||!doc)return;
+const loadPolishScript=()=>{if(doc.getElementById('icchyPolishScript'))return;const script=doc.createElement('script');script.id='icchyPolishScript';script.src='polish.js?v=20260812-1';script.async=false;doc.body.appendChild(script)};
+if(!doc.getElementById('icchyPolishStyle')){const link=doc.createElement('link');link.id='icchyPolishStyle';link.rel='stylesheet';link.href='polish.css?v=20260812-1';link.addEventListener('load',loadPolishScript,{once:true});doc.head.appendChild(link);win.setTimeout(loadPolishScript,1000)}else{loadPolishScript()}
+const innerHeader=doc.querySelector('.header');if(innerHeader)innerHeader.style.display='none';const innerSite=doc.querySelector('.site');if(innerSite){innerSite.style.boxShadow='none';innerSite.style.margin='0 auto'}const large=document.documentElement.classList.contains('large');doc.documentElement.classList.toggle('font-step-up',large);if(!doc.documentElement.dataset.launcherBound){doc.documentElement.dataset.launcherBound='1';doc.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';if(href==='#home'){e.preventDefault();goHome();return}if(href.startsWith('./insurance-consultation')){e.preventDefault();window.location.href='insurance-consultation/'}},true);win.addEventListener('hashchange',()=>{if(!win.location.pathname.endsWith('/app.html'))return;const route=win.location.hash.slice(1);if(KNOWN_ROUTES.has(route)){detailFrame.dataset.route=route;history.replaceState(null,'',location.pathname+location.search+`#${route}`)}})}}catch(e){}}
 brandHome.addEventListener('click',goHome);homeBack.addEventListener('click',goHome);fontToggle.addEventListener('click',()=>{const next=!document.documentElement.classList.contains('large');try{localStorage.setItem('icchy-font-size',next?'large':'normal')}catch(e){}applyFontSize()});detailFrame.addEventListener('load',enhanceFrame);window.addEventListener('hashchange',renderRoute);applyFontSize();renderRoute();
 </script>
 </body>
