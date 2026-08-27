@@ -1,0 +1,397 @@
+/* =========================================================
+   Insurance pages inside app.html
+   ========================================================= */
+html.retro-insurance body{font-size:16px!important;line-height:1.65!important}
+html.retro-insurance .site{background:#fff!important;box-shadow:none!important}
+html.retro-insurance main{width:min(100% - 24px,820px)!important;margin:0 auto!important;padding:8px 0 42px!important}
+html.retro-insurance .retro-page-top{
+  margin:0 0 8px;
+  padding:6px 8px;
+  border:2px solid var(--retro-blue);
+  background:var(--retro-blue);
+  color:#fff;
+  font-size:13px;
+  font-weight:700;
+}
+html.retro-insurance .insurance-journal-page,
+html.retro-insurance .insurance-compact-page,
+html.retro-insurance .insurance-page{gap:8px!important}
+html.retro-insurance .insurance-journal-hero,
+html.retro-insurance .insurance-compact-hero,
+html.retro-insurance .insurance-top{
+  padding:8px!important;
+  border:2px solid var(--retro-blue)!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-journal-hero::before,
+html.retro-insurance .insurance-compact-hero::before,
+html.retro-insurance .insurance-top::before{
+  content:"■■ 保険の見直し ■■";
+  display:block;
+  margin:-8px -8px 8px;
+  padding:5px 7px;
+  background:var(--retro-blue);
+  color:#fff;
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+}
+html.retro-insurance .insurance-journal-hero h1,
+html.retro-insurance .insurance-compact-hero h1,
+html.retro-insurance .insurance-top h1{
+  color:var(--retro-blue)!important;
+  font-size:clamp(28px,8vw,42px)!important;
+  line-height:1.15!important;
+  letter-spacing:0!important;
+}
+html.retro-insurance .insurance-journal-hero p,
+html.retro-insurance .insurance-compact-hero p,
+html.retro-insurance .insurance-top p{font-size:14px!important;line-height:1.55!important}
+html.retro-insurance .insurance-journal-hero strong,
+html.retro-insurance .insurance-compact-hero strong{color:var(--retro-red)!important}
+html.retro-insurance .insurance-eyebrow,.retro-insurance .first-kicker{color:var(--retro-red)!important}
+
+html.retro-insurance .insurance-priority,
+html.retro-insurance .insurance-minimum,
+html.retro-insurance .insurance-roadmap,
+html.retro-insurance .insurance-compact-priority,
+html.retro-insurance .insurance-compact-check,
+html.retro-insurance .insurance-what,
+html.retro-insurance .insurance-bottom-note{
+  padding:0!important;
+  border:2px solid var(--retro-blue)!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-priority>h2,
+html.retro-insurance .insurance-minimum>h2,
+html.retro-insurance .insurance-roadmap>h2,
+html.retro-insurance .insurance-compact-priority>h2,
+html.retro-insurance .insurance-compact-check>h2,
+html.retro-insurance .insurance-what>h2{
+  margin:0!important;
+  padding:5px 7px!important;
+  border-bottom:1px solid var(--retro-blue)!important;
+  background:var(--retro-pale-blue)!important;
+  color:var(--retro-blue)!important;
+  font-size:19px!important;
+}
+html.retro-insurance .insurance-position,
+html.retro-insurance .insurance-priority>p,
+html.retro-insurance .insurance-compact-priority>p{margin:0!important;padding:7px 8px!important;font-size:13px!important}
+html.retro-insurance .insurance-five,
+html.retro-insurance .insurance-roadmap ol,
+html.retro-insurance .insurance-compact-check ol,
+html.retro-insurance .compact-priority-list{margin:0!important;padding:0!important;gap:0!important}
+html.retro-insurance .insurance-five li,
+html.retro-insurance .insurance-roadmap li,
+html.retro-insurance .insurance-compact-check li,
+html.retro-insurance .compact-priority-list li{
+  padding:7px 8px!important;
+  display:grid!important;
+  grid-template-columns:34px minmax(0,1fr)!important;
+  gap:7px!important;
+  border-top:1px solid var(--retro-line)!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-five li:first-child,
+html.retro-insurance .insurance-roadmap li:first-child,
+html.retro-insurance .insurance-compact-check li:first-child,
+html.retro-insurance .compact-priority-list li:first-child{border-top:0!important}
+html.retro-insurance .insurance-five li>b,
+html.retro-insurance .insurance-roadmap li>span,
+html.retro-insurance .insurance-compact-check li>b,
+html.retro-insurance .compact-priority-list li>b{
+  width:27px!important;height:27px!important;
+  display:grid!important;place-items:center!important;
+  border-radius:0!important;
+  background:var(--retro-blue)!important;
+  color:#fff!important;
+  font-size:13px!important;
+}
+html.retro-insurance .insurance-five strong,
+html.retro-insurance .insurance-roadmap strong,
+html.retro-insurance .insurance-compact-check strong,
+html.retro-insurance .compact-priority-list strong{font-size:15px!important;line-height:1.4!important}
+html.retro-insurance .insurance-five small,
+html.retro-insurance .insurance-roadmap small,
+html.retro-insurance .insurance-compact-check small{font-size:12px!important;line-height:1.4!important}
+html.retro-insurance .insurance-copy-link{
+  min-height:42px!important;
+  margin:7px!important;
+  padding:6px 8px!important;
+  border-top:2px solid #fff!important;
+  border-left:2px solid #fff!important;
+  border-right:2px solid #555!important;
+  border-bottom:2px solid #555!important;
+  background:var(--retro-gray)!important;
+  color:var(--retro-link)!important;
+}
+html.retro-insurance .insurance-actions,
+html.retro-insurance .insurance-compact-actions{gap:7px!important}
+html.retro-insurance .insurance-action,
+html.retro-insurance .insurance-step-link,
+html.retro-insurance .insurance-next{
+  padding:8px!important;
+  border:2px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-action>span,
+html.retro-insurance .insurance-step-link>span,
+html.retro-insurance .insurance-next small{color:var(--retro-red)!important}
+html.retro-insurance .insurance-action h2{font-size:19px!important}
+html.retro-insurance .insurance-action p{font-size:13px!important}
+html.retro-insurance .insurance-action .primary,
+html.retro-insurance .insurance-top-actions .primary,
+html.retro-insurance .insurance-step-link{
+  min-height:48px!important;
+  border:3px double #fff!important;
+  border-radius:0!important;
+  background:var(--retro-blue)!important;
+  color:#fff!important;
+  text-decoration:underline!important;
+}
+html.retro-insurance .compare-action{border:3px double var(--retro-red)!important}
+html.retro-insurance .compare-action .primary{background:var(--retro-red)!important}
+html.retro-insurance .insurance-details{
+  border:1px solid var(--retro-line)!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-details+ .insurance-details{border-top:0!important}
+html.retro-insurance .insurance-details summary{
+  min-height:42px!important;
+  padding:7px 8px!important;
+  background:var(--retro-pale-blue)!important;
+  color:var(--retro-link)!important;
+  text-decoration:underline!important;
+}
+html.retro-insurance .insurance-details-body{padding:7px 8px!important}
+html.retro-insurance .insurance-bottom-note{padding:8px!important;border-color:var(--retro-red)!important;background:var(--retro-yellow)!important}
+html.retro-insurance .insurance-rule{border:1px solid var(--retro-line)!important;border-radius:0!important;background:var(--retro-yellow)!important}
+html.retro-insurance .insurance-rule b{color:var(--retro-red)!important}
+
+/* =========================================================
+   Current insurance story page in app.html
+   ========================================================= */
+html.retro-insurance .insurance-story-page{gap:8px!important}
+html.retro-insurance .insurance-story-hero{
+  padding:8px!important;
+  border:2px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-story-hero::before{
+  content:"■■ 保険の見直し ■■";
+  display:block;
+  margin:-8px -8px 8px;
+  padding:5px 7px;
+  background:var(--retro-blue);
+  color:#fff;
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+}
+html.retro-insurance .insurance-story-hero h1{
+  color:var(--retro-blue)!important;
+  font-size:clamp(30px,8.5vw,44px)!important;
+  line-height:1.12!important;
+  letter-spacing:0!important;
+}
+html.retro-insurance .insurance-story-hero p{
+  margin-top:7px!important;
+  color:#111!important;
+  font-size:14px!important;
+  line-height:1.55!important;
+}
+
+html.retro-insurance .premium-ladder,
+html.retro-insurance .priority-visual,
+html.retro-insurance .coverage-gap-section,
+html.retro-insurance .insurance-roadmap{
+  padding:0!important;
+  border:2px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html.retro-insurance .visual-copy{
+  padding:6px 8px!important;
+  border-bottom:1px solid var(--retro-blue)!important;
+  background:var(--retro-pale-blue)!important;
+}
+html.retro-insurance .visual-copy h2,
+html.retro-insurance .insurance-roadmap>h2{
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--retro-blue)!important;
+  font-size:19px!important;
+  line-height:1.35!important;
+  letter-spacing:0!important;
+}
+html.retro-insurance .visual-copy p{
+  margin:3px 0 0!important;
+  color:#222!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+html.retro-insurance .insurance-roadmap>h2{
+  padding:6px 8px!important;
+  border-bottom:1px solid var(--retro-blue)!important;
+  background:var(--retro-pale-blue)!important;
+}
+
+html.retro-insurance .ladder-track{
+  margin:0!important;
+  padding:8px!important;
+  gap:4px!important;
+  border:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .ladder-track div{
+  padding:8px 4px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .ladder-track .ladder-last{background:var(--retro-yellow)!important}
+html.retro-insurance .ladder-track strong{color:var(--retro-red)!important;font-size:17px!important}
+html.retro-insurance .ladder-track small{font-size:11px!important}
+html.retro-insurance .ladder-track i{background:var(--retro-line)!important}
+
+html.retro-insurance .priority-stack{
+  margin:0!important;
+  padding:8px!important;
+  gap:4px!important;
+}
+html.retro-insurance .priority-band{
+  padding:7px 8px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .priority-one{border:2px solid var(--retro-red)!important;background:var(--retro-yellow)!important}
+html.retro-insurance .priority-two{background:var(--retro-pale-blue)!important}
+html.retro-insurance .priority-three{background:#f2f2f2!important}
+html.retro-insurance .priority-band small{font-size:11px!important}
+html.retro-insurance .priority-band strong{font-size:16px!important}
+html.retro-insurance .priority-one strong{color:var(--retro-red)!important}
+html.retro-insurance .context-note{margin:0!important;padding:0 8px 8px!important;color:#444!important;font-size:11px!important;line-height:1.45!important}
+
+html.retro-insurance .coverage-gap{
+  margin:0!important;
+  padding:8px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .coverage-sources span{
+  padding:6px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:var(--retro-pale-blue)!important;
+  color:var(--retro-blue)!important;
+  font-weight:700!important;
+}
+html.retro-insurance .coverage-gap-box{
+  padding:7px!important;
+  border:2px solid var(--retro-red)!important;
+  border-radius:0!important;
+  background:var(--retro-yellow)!important;
+}
+html.retro-insurance .coverage-gap-box strong{color:var(--retro-red)!important}
+html.retro-insurance .coverage-insurance{
+  padding:7px!important;
+  border:2px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  color:var(--retro-blue)!important;
+}
+html.retro-insurance .coverage-gap i{background:var(--retro-line)!important}
+
+html.retro-insurance .insurance-roadmap ol{margin:0!important;padding:0!important}
+html.retro-insurance .insurance-roadmap li{margin:0!important}
+html.retro-insurance .insurance-copy-link{text-decoration:underline!important;font-weight:700!important}
+
+html.retro-insurance .insurance-actions-flow{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:7px!important;
+}
+html.retro-insurance .action-panel{
+  min-height:0!important;
+  padding:8px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 24px!important;
+  gap:4px 8px!important;
+  border:2px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html.retro-insurance .action-panel>span,
+html.retro-insurance .action-panel>strong,
+html.retro-insurance .action-panel>small{grid-column:1!important}
+html.retro-insurance .action-panel>b{grid-column:2!important;grid-row:1/4!important;align-self:center!important;color:var(--retro-link)!important;font-size:24px!important}
+html.retro-insurance .action-panel>span{color:var(--retro-red)!important;font-size:11px!important;font-weight:700!important}
+html.retro-insurance .action-panel>strong{color:var(--retro-blue)!important;font-size:17px!important;line-height:1.35!important;text-decoration:underline!important}
+html.retro-insurance .action-panel>small{color:#333!important;font-size:12px!important;line-height:1.4!important}
+html.retro-insurance .compare-panel{border:3px double var(--retro-red)!important;background:var(--retro-yellow)!important}
+html.retro-insurance .compare-panel>strong{color:var(--retro-red)!important}
+
+html.retro-insurance .insurance-small-details{
+  margin:0!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .insurance-small-details summary{
+  min-height:42px!important;
+  padding:7px 8px!important;
+  border-top:2px solid #fff!important;
+  border-left:2px solid #fff!important;
+  border-right:2px solid #555!important;
+  border-bottom:2px solid #555!important;
+  border-radius:0!important;
+  background:var(--retro-gray)!important;
+  color:var(--retro-link)!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  text-decoration:underline!important;
+}
+html.retro-insurance .insurance-small-details>div{padding:7px 8px!important}
+html.retro-insurance .insurance-small-details p{font-size:13px!important;line-height:1.55!important}
+html.retro-insurance .manager-mini-grid{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:0!important;
+  border:1px solid var(--retro-line)!important;
+}
+html.retro-insurance .manager-mini-grid>div{
+  padding:6px!important;
+  border:1px solid var(--retro-line)!important;
+  border-width:0 1px 1px 0!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-insurance .manager-mini-grid span{font-size:11px!important}
+html.retro-insurance .manager-mini-grid b{display:block!important;color:var(--retro-red)!important;font-size:15px!important}
+html.retro-insurance .insurance-compact-end{
+  margin:0!important;
+  padding:8px!important;
+  border:2px solid var(--retro-red)!important;
+  background:var(--retro-yellow)!important;
+  color:#000!important;
+  font-weight:700!important;
+}
+html.retro-insurance .back-link{color:var(--retro-link)!important;text-decoration:underline!important}
+
+@media(min-width:700px){
+  html.retro-insurance .insurance-actions-flow{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:719px){
+  .retro-choice-list{grid-template-rows:auto auto;align-content:start}
+  .retro-choice__body{min-height:0}
+  .retro-choice__go{margin-top:7px}
+}

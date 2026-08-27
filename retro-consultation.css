@@ -1,0 +1,120 @@
+/* =========================================================
+   Stand-alone insurance consultation
+   ========================================================= */
+body.retro-consultation{margin:0;font-size:17px;line-height:1.68}
+body.retro-consultation .site{width:min(100%,760px);margin:auto;background:#fff;box-shadow:none}
+body.retro-consultation .header{
+  position:sticky;top:0;z-index:20;
+  min-height:52px;
+  padding:6px 12px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  border-top:5px solid var(--retro-blue);
+  border-bottom:2px solid var(--retro-blue);
+  background:#fff;
+}
+body.retro-consultation .brand{color:var(--retro-blue);font-size:18px;font-weight:700}
+body.retro-consultation .back{min-height:40px;display:flex;align-items:center;font-size:13px;font-weight:700}
+body.retro-consultation main{width:min(100% - 24px,720px);margin:auto;padding:8px 0 38px}
+body.retro-consultation .hero{padding:0 0 9px;border:2px solid var(--retro-blue)}
+body.retro-consultation .hero::before{
+  content:"■■ 保険無料相談の使い方 ■■";
+  display:block;
+  padding:5px 7px;
+  background:var(--retro-blue);
+  color:#fff;
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+}
+body.retro-consultation .hero>*{margin-left:9px!important;margin-right:9px!important}
+body.retro-consultation .eyebrow{margin-top:8px!important;color:var(--retro-red);font-size:13px;font-weight:700}
+body.retro-consultation h1{margin-top:4px!important;color:var(--retro-blue);font-size:clamp(32px,9vw,48px);line-height:1.12;letter-spacing:0}
+body.retro-consultation .hero-lead{margin-top:7px!important;font-size:17px;line-height:1.5}
+body.retro-consultation .hero-lead strong{color:var(--retro-red)}
+body.retro-consultation .principle{
+  margin-top:8px!important;
+  padding:7px 8px!important;
+  border:2px solid var(--retro-red)!important;
+  border-radius:0!important;
+  background:var(--retro-yellow)!important;
+}
+body.retro-consultation .principle b{color:var(--retro-red);font-size:12px}
+body.retro-consultation .principle strong{margin-top:2px;font-size:19px;line-height:1.35}
+body.retro-consultation section.content{
+  margin-top:9px;
+  padding:0 0 8px!important;
+  border:2px solid var(--retro-blue)!important;
+}
+body.retro-consultation section.content h2{
+  margin:0!important;
+  padding:5px 7px;
+  border-bottom:1px solid var(--retro-blue);
+  background:var(--retro-pale-blue);
+  color:var(--retro-blue);
+  font-size:20px;
+  letter-spacing:0;
+}
+body.retro-consultation section.content>p{margin:7px 8px 0!important;font-size:14px;line-height:1.6}
+body.retro-consultation .short{color:var(--retro-red)!important}
+body.retro-consultation .flow{margin:0;padding:0;gap:0}
+body.retro-consultation .flow li{
+  padding:7px 8px!important;
+  display:grid;grid-template-columns:34px minmax(0,1fr);gap:7px;
+  border-top:1px solid var(--retro-line);
+}
+body.retro-consultation .flow li:first-child{border-top:0}
+body.retro-consultation .flow li::after{display:none!important}
+body.retro-consultation .flow span{
+  width:27px;height:27px;border-radius:0;background:var(--retro-blue);font-size:13px;
+}
+body.retro-consultation .flow strong{font-size:15px}
+body.retro-consultation .flow small{font-size:12px}
+body.retro-consultation .check-grid{margin:0;display:grid;grid-template-columns:1fr;gap:0}
+body.retro-consultation .check{
+  padding:7px 8px;border:0;border-top:1px solid var(--retro-line);border-radius:0;background:#fff;
+}
+body.retro-consultation .check:first-child{border-top:0}
+body.retro-consultation .check b{color:var(--retro-red);font-size:12px}
+body.retro-consultation .check strong{font-size:15px}
+body.retro-consultation .check small{font-size:12px}
+body.retro-consultation .quote,
+body.retro-consultation .answer{
+  margin:8px!important;
+  padding:8px!important;
+  border:2px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  font-size:15px!important;
+}
+body.retro-consultation .quote+.quote{border-color:var(--retro-red)!important;background:var(--retro-yellow)!important}
+body.retro-consultation .watch{margin:8px;gap:7px}
+body.retro-consultation .watch article{padding:7px 8px;border:1px solid var(--retro-line);border-left:5px solid var(--retro-blue);background:#fff}
+body.retro-consultation .watch b{color:var(--retro-blue);font-size:12px}
+body.retro-consultation .watch strong{font-size:15px}
+body.retro-consultation .watch p{font-size:13px}
+body.retro-consultation .answer span{font-size:12px;color:var(--retro-red)}
+body.retro-consultation .answer strong{font-size:16px;line-height:1.5}
+body.retro-consultation .answer small{font-size:12px}
+body.retro-consultation .cta{
+  margin-top:9px;
+  padding:8px;
+  border:3px double var(--retro-red);
+  border-radius:0;
+  background:#fff;
+}
+body.retro-consultation .cta>span{color:var(--retro-red);font-size:12px}
+body.retro-consultation .cta h2{margin-top:3px;font-size:22px}
+body.retro-consultation .cta p{font-size:14px}
+body.retro-consultation .cta-button{
+  min-height:52px;
+  margin-top:8px;
+  padding:8px;
+  border:3px double #fff;
+  border-radius:0;
+  background:var(--retro-red);
+  color:#fff!important;
+  font-size:16px;
+  text-decoration:underline!important;
+}
+body.retro-consultation .cta-note{font-size:11px}
+body.retro-consultation .footer-links{margin-top:10px;font-size:13px}

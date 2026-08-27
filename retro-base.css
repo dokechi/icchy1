@@ -1,0 +1,260 @@
+:root{
+  --retro-blue:#003399;
+  --retro-link:#0000ee;
+  --retro-visited:#551a8b;
+  --retro-red:#d40000;
+  --retro-yellow:#ffff99;
+  --retro-pale-blue:#e6f3ff;
+  --retro-gray:#d4d0c8;
+  --retro-line:#666;
+  --retro-ink:#000;
+  --retro-pink:#c72b56;
+}
+
+/* =========================================================
+   Common: intentionally old-looking, strictly readable
+   ========================================================= */
+html.retro-readable,
+html.retro-readable body,
+body.retro-launcher,
+body.retro-consultation{
+  background:#fff!important;
+  color:var(--retro-ink)!important;
+  font-family:"MS PGothic","MS Gothic",Meiryo,sans-serif!important;
+  -webkit-font-smoothing:auto!important;
+  font-feature-settings:normal!important;
+}
+
+html.retro-readable *,
+body.retro-launcher *,
+body.retro-consultation *{box-sizing:border-box}
+
+html.retro-readable a,
+body.retro-launcher a,
+body.retro-consultation a{
+  color:var(--retro-link)!important;
+  text-decoration:underline!important;
+  text-underline-offset:2px;
+}
+html.retro-readable a:visited,
+body.retro-launcher a:visited,
+body.retro-consultation a:visited{color:var(--retro-visited)!important}
+
+html.retro-readable a:focus-visible,
+html.retro-readable button:focus-visible,
+html.retro-readable summary:focus-visible,
+body.retro-launcher a:focus-visible,
+body.retro-launcher button:focus-visible,
+body.retro-consultation a:focus-visible{
+  outline:3px solid #ff0!important;
+  outline-offset:2px!important;
+}
+
+.retro-window-button{
+  border-top:2px solid #fff!important;
+  border-left:2px solid #fff!important;
+  border-right:2px solid #555!important;
+  border-bottom:2px solid #555!important;
+  border-radius:0!important;
+  background:var(--retro-gray)!important;
+  color:var(--retro-link)!important;
+  box-shadow:none!important;
+  text-decoration:underline!important;
+}
+.retro-window-button:active{
+  border-top-color:#555!important;
+  border-left-color:#555!important;
+  border-right-color:#fff!important;
+  border-bottom-color:#fff!important;
+}
+
+/* =========================================================
+   Launcher / TOP
+   ========================================================= */
+body.retro-launcher{margin:0;overflow-x:hidden}
+.retro-launcher-header{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:6px 12px;
+  border-top:5px solid var(--retro-blue);
+  border-bottom:2px solid var(--retro-blue);
+  background:#fff;
+}
+.retro-brand{
+  border:0;
+  padding:0;
+  background:transparent;
+  color:var(--retro-blue);
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+}
+.retro-header-actions{display:flex;align-items:center;gap:6px}
+.retro-font-toggle,.retro-home-back{
+  min-height:40px;
+  padding:6px 9px;
+  font:inherit;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+}
+.retro-home-back{min-width:42px}
+.retro-home{
+  width:min(100% - 24px,760px);
+  min-height:calc(100dvh - 59px);
+  margin:0 auto;
+  padding:10px 0 18px;
+  display:grid;
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+  gap:9px;
+}
+.retro-title-panel{border:2px solid var(--retro-blue);background:#fff}
+.retro-titlebar{
+  padding:5px 8px;
+  background:var(--retro-blue);
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  text-align:center;
+}
+.retro-title-body{padding:10px 9px}
+.retro-title-body h1{
+  margin:0;
+  color:var(--retro-blue);
+  font-size:clamp(28px,8.2vw,42px);
+  line-height:1.12;
+  letter-spacing:0;
+  text-align:center;
+}
+.retro-title-body p{margin:7px 0 0;text-align:center;font-size:14px;line-height:1.45}
+.retro-new{color:var(--retro-red);font-weight:700}
+
+.retro-savings{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  border:2px solid var(--retro-line);
+}
+.retro-savings th,.retro-savings td{
+  padding:6px 8px;
+  border:1px solid var(--retro-line);
+  vertical-align:middle;
+}
+.retro-savings th{
+  width:92px;
+  background:var(--retro-pale-blue);
+  color:var(--retro-blue);
+  font-size:13px;
+  text-align:left;
+}
+.retro-savings td{font-size:13px}
+.retro-savings strong{color:var(--retro-red);font-size:clamp(28px,8vw,40px);line-height:1}
+
+.retro-choice-list{min-height:0;display:grid;grid-template-columns:1fr;gap:8px}
+.retro-choice{
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  border:2px solid var(--retro-blue);
+  background:#fff;
+  color:#000!important;
+  text-decoration:none!important;
+}
+.retro-choice:visited{color:#000!important}
+.retro-choice__head{
+  padding:5px 8px;
+  border-bottom:1px solid var(--retro-blue);
+  background:var(--retro-pale-blue);
+  color:var(--retro-blue);
+  font-size:14px;
+  font-weight:700;
+}
+.retro-choice--mobile .retro-choice__head{
+  background:#fff0f5;
+  color:#a92149;
+  border-bottom-color:#a92149;
+}
+.retro-choice--mobile{border-color:#a92149}
+.retro-choice__body{padding:9px;display:flex;flex-direction:column}
+.retro-choice h2{margin:0;font-size:clamp(23px,6.8vw,31px);line-height:1.18}
+.retro-choice p{margin:6px 0 0;font-size:14px;line-height:1.45}
+.retro-choice__amount{display:block;margin-top:7px;color:var(--retro-red);font-size:clamp(29px,8.7vw,40px);font-weight:700;line-height:1}
+.retro-choice__go{
+  min-height:44px;
+  margin-top:auto;
+  padding:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:15px;
+  font-weight:700;
+}
+.retro-home-note{margin:0;padding:5px 2px;font-size:11px;line-height:1.45;color:#444}
+
+.retro-detail{height:calc(100dvh - 59px);overflow:hidden;background:#fff}
+.retro-detail iframe{width:100%;height:100%;display:block;border:0;background:#fff}
+html.large .retro-home{overflow-y:auto}
+html.large .retro-title-body h1{font-size:46px}
+html.large .retro-choice p,html.large .retro-title-body p{font-size:18px}
+html.large .retro-choice h2{font-size:36px}
+
+@media(min-width:720px){
+  .retro-home{width:min(100% - 40px,900px);padding-top:14px}
+  .retro-choice-list{grid-template-columns:1fr 1fr}
+  .retro-choice__body{min-height:250px}
+}
+@media(max-height:720px) and (max-width:719px){
+  .retro-home{padding-top:6px;gap:6px}
+  .retro-title-body{padding:6px 8px}
+  .retro-title-body h1{font-size:27px}
+  .retro-title-body p{margin-top:3px;font-size:11px}
+  .retro-savings th,.retro-savings td{padding:3px 6px}
+  .retro-savings strong{font-size:27px}
+  .retro-choice__body{padding:6px 7px}
+  .retro-choice h2{font-size:21px}
+  .retro-choice p{margin-top:3px;font-size:11.5px;line-height:1.3}
+  .retro-choice__amount{font-size:27px;margin-top:4px}
+  .retro-choice__go{min-height:38px;padding:5px;margin-top:5px;font-size:13px}
+  .retro-home-note{font-size:9.5px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* =========================================================
+   Accessibility and compact launcher corrections
+   ========================================================= */
+body.retro-launcher .skip-link,
+body.retro-consultation .skip-link{
+  position:fixed;
+  top:5px;
+  left:5px;
+  z-index:100;
+  padding:8px 10px;
+  border:2px solid #000;
+  background:#fff;
+  color:#000!important;
+  font-weight:700;
+  transform:translateY(-180%);
+}
+body.retro-launcher .skip-link:focus,
+body.retro-consultation .skip-link:focus{transform:none}
+
+@media(max-height:860px) and (max-width:719px){
+  .retro-home{height:calc(100dvh - 59px);min-height:0;padding-top:6px;padding-bottom:3px;gap:5px;overflow:hidden}
+  .retro-title-body{padding:7px 8px}
+  .retro-title-body h1{font-size:clamp(27px,7.6vw,35px)}
+  .retro-title-body p{margin-top:4px;font-size:12px}
+  .retro-savings th,.retro-savings td{padding:4px 7px}
+  .retro-savings strong{font-size:clamp(27px,7.5vw,34px)}
+  .retro-choice__body{padding:7px 8px}
+  .retro-choice h2{font-size:clamp(21px,6vw,27px)}
+  .retro-choice p{margin-top:4px;font-size:12px;line-height:1.35}
+  .retro-choice__amount{margin-top:4px;font-size:clamp(27px,7.8vw,34px)}
+  .retro-choice__go{min-height:40px;margin-top:6px;padding:5px;font-size:13px}
+  .retro-home-note{padding-top:1px;padding-bottom:0;font-size:9px;line-height:1.25}
+}

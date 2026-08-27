@@ -1,218 +1,128 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="保険の無料相談を、営業だと理解したうえで使う方法。保険証券の準備、最初に伝える言葉、提案の見方、その場で契約しない断り方を整理します。">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#f6f8fa">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="イッチー">
-  <meta property="og:title" content="保険の無料相談は、営業です。｜イッチー">
-  <meta property="og:description" content="提案は出してもらう。その場では契約しない。無料相談の使い方を整理します。">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="保険の無料相談は、営業です。｜イッチー">
-  <meta name="twitter:description" content="提案は出してもらう。その場では契約しない。無料相談の使い方を整理します。">
-  <title>保険の無料相談は、営業です。｜イッチー</title>
-  <style>
-    :root{
-      --ink:#151a21;
-      --text:#30363d;
-      --muted:#59636e;
-      --line:#d8dee5;
-      --paper:#f6f8fa;
-      --surface:#fff;
-      --red:#97433d;
-      --red-soft:#f7ecea;
-      --blue:#285f7e;
-      --blue-soft:#eaf1f5;
-      --side:18px;
-      --radius:16px;
-      --control:11px;
-      font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,system-ui,sans-serif;
-      font-feature-settings:"palt" 1;
-      color-scheme:light;
-    }
-    *{box-sizing:border-box}
-    html{background:var(--paper);color:var(--ink);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-    body{margin:0;background:var(--paper);color:var(--text);font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    .skip-link{position:fixed;left:12px;top:8px;z-index:100;padding:9px 12px;border-radius:8px;background:var(--ink);color:#fff;font-weight:800;transform:translateY(-160%)}
-    .skip-link:focus{transform:translateY(0)}
-    .site{width:min(720px,100%);min-height:100dvh;margin:auto;background:var(--paper);box-shadow:0 0 46px rgb(34 58 78 / .08)}
-    .header{position:sticky;top:0;z-index:20;min-height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--side);border-bottom:1px solid var(--line);background:rgb(246 248 250 / .9);backdrop-filter:blur(16px) saturate(140%)}
-    .header::after{content:"";position:absolute;left:var(--side);bottom:-1px;width:32px;height:2px;background:var(--red)}
-    .brand{font-size:19px;font-weight:900;letter-spacing:-.04em}
-    .back{min-height:44px;display:flex;align-items:center;color:var(--red);font-size:15px;font-weight:850}
-    main{padding:20px var(--side) 46px}
-    .hero{padding:8px 0 24px;border-bottom:1px solid var(--line)}
-    .eyebrow{margin:0;color:var(--red);font-size:15px;font-weight:900;letter-spacing:.08em}
-    h1{margin:8px 0 0;color:var(--ink);font-size:clamp(42px,11vw,56px);line-height:1.04;letter-spacing:-.06em;text-wrap:balance}
-    .hero-lead{margin:14px 0 0;max-width:34rem;font-size:21px;font-weight:800;line-height:1.55;color:var(--ink)}
-    .hero-lead strong{color:var(--red)}
-    .principle{margin-top:18px;padding:16px 17px;border-left:4px solid var(--red);border-radius:0 var(--control) var(--control) 0;background:var(--red-soft)}
-    .principle b{display:block;color:var(--red);font-size:15px}
-    .principle strong{display:block;margin-top:4px;color:var(--ink);font-size:23px;line-height:1.4}
-    section.content{padding:25px 0;border-bottom:1px solid var(--line)}
-    section.content h2{margin:0;color:var(--ink);font-size:27px;line-height:1.38;letter-spacing:-.035em;text-wrap:balance}
-    section.content p{margin:10px 0 0;max-width:43rem}
-    .short{font-weight:850;color:var(--ink)}
-    .flow{display:grid;gap:0;margin-top:17px;padding:0;list-style:none}
-    .flow li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:13px;padding:0 0 18px}
-    .flow li:last-child{padding-bottom:0}
-    .flow li:not(:last-child)::after{content:"";position:absolute;left:19px;top:40px;bottom:0;width:1px;background:var(--line)}
-    .flow span{z-index:1;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:var(--red);color:#fff;font-weight:900}
-    .flow strong{display:block;color:var(--ink);font-size:20px;line-height:1.45}
-    .flow small{display:block;margin-top:3px;color:var(--muted);font-size:16px;line-height:1.55}
-    .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-    .check{padding:15px;border:1px solid var(--line);border-radius:var(--control);background:var(--surface)}
-    .check b{display:block;color:var(--red);font-size:15px}
-    .check strong{display:block;margin-top:4px;color:var(--ink);font-size:19px;line-height:1.42}
-    .check small{display:block;margin-top:5px;color:var(--muted);font-size:15px;line-height:1.55}
-    .quote{margin-top:16px;padding:18px;border:2px solid var(--ink);border-radius:var(--radius);background:var(--surface);color:var(--ink);font-size:21px;font-weight:850;line-height:1.65}
-    .quote+.quote{margin-top:10px;border-color:var(--red);background:var(--red-soft)}
-    .watch{margin-top:16px;display:grid;gap:10px}
-    .watch article{padding:15px 16px;border-left:4px solid var(--blue);background:var(--blue-soft)}
-    .watch b{display:block;color:var(--blue);font-size:15px}
-    .watch strong{display:block;margin-top:3px;color:var(--ink);font-size:20px;line-height:1.45}
-    .watch p{margin-top:5px;color:#3f4b57}
-    .answer{margin-top:16px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
-    .answer span{display:block;color:var(--muted);font-size:15px;font-weight:800}
-    .answer strong{display:block;margin-top:6px;color:var(--ink);font-size:21px;line-height:1.6}
-    .answer small{display:block;margin-top:8px;color:var(--muted);font-size:15px;line-height:1.55}
-    .cta{margin-top:26px;padding:21px;border:1px solid color-mix(in srgb,var(--red) 35%,var(--line));border-radius:var(--radius);background:var(--red-soft)}
-    .cta span{display:block;color:var(--red);font-size:15px;font-weight:900;letter-spacing:.06em}
-    .cta h2{margin:6px 0 0;color:var(--ink);font-size:29px;line-height:1.38}
-    .cta p{margin:9px 0 0}
-    .cta-button{min-height:60px;margin-top:17px;padding:13px 18px;display:flex;align-items:center;justify-content:center;border-radius:var(--control);background:var(--red);color:#fff;font-size:18px;font-weight:900;text-align:center}
-    .cta-button:hover{filter:brightness(.97)}
-    .cta-note{display:block;margin-top:9px;color:var(--muted);font-size:15px;line-height:1.55;text-align:center}
-    .footer-links{display:flex;justify-content:space-between;gap:14px;margin-top:22px;font-size:16px;font-weight:850}
-    .footer-links a{color:var(--red)}
-    a:focus-visible{outline:3px solid color-mix(in srgb,var(--red) 45%,transparent);outline-offset:3px}
-    @media(max-width:520px){
-      .site{box-shadow:none}
-      .check-grid{grid-template-columns:1fr}
-      .quote{font-size:19px}
-      .footer-links{flex-direction:column}
-    }
-    @media(max-width:360px){
-      :root{--side:16px}
-      body{font-size:17px}
-      h1{font-size:40px}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"保険の無料相談は、営業です。",
-    "description":"提案は出してもらう。その場では契約しない。保険無料相談の使い方を整理します。",
-    "inLanguage":"ja-JP",
-    "isPartOf":{"@type":"WebSite","name":"イッチー"}
-  }
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="保険の無料相談を、営業だと理解したうえで使う方法。保険証券の準備、最初に伝える言葉、提案の見方、その場で契約しない断り方を整理します。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#003399">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="イッチー">
+<meta property="og:title" content="保険の無料相談は、営業です。｜イッチー">
+<meta property="og:description" content="提案は出してもらう。その場では契約しない。無料相談の使い方を整理します。">
+<meta name="twitter:card" content="summary">
+<title>保険の無料相談は、営業です。｜イッチー</title>
+<link rel="stylesheet" href="../retro-icchy.css?v=20260827-1">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"保険の無料相談は、営業です。",
+  "description":"提案は出してもらう。その場では契約しない。保険無料相談の使い方を整理します。",
+  "inLanguage":"ja-JP",
+  "isPartOf":{"@type":"WebSite","name":"イッチー"}
+}
+</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">本文へ移動</a>
-  <div class="site">
-    <header class="header">
-      <a class="brand" href="../#home">イッチー</a>
-      <a class="back" href="../#insurance">保険ページへ戻る</a>
-    </header>
+<body class="retro-consultation">
+<a class="skip-link" href="#main">本文へ移動</a>
+<div class="site">
+  <header class="header">
+    <a class="brand" href="../#home">イッチー</a>
+    <a class="back" href="../#insurance">&lt;&lt; 保険ページへ戻る</a>
+  </header>
 
-    <main id="main">
-      <section class="hero">
-        <p class="eyebrow">保険相談の使い方</p>
-        <h1>無料相談は、<br>営業です。</h1>
-        <p class="hero-lead">でも、だから使わないはもったいない。<br><strong>提案は出してもらう。その場では契約しない。</strong></p>
-        <div class="principle">
-          <b>このページの結論</b>
-          <strong>営業の調査力は使う。判断は渡さない。</strong>
-        </div>
-      </section>
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">保険相談の使い方</p>
+      <h1>無料相談は、<br>営業です。</h1>
+      <p class="hero-lead">でも、だから使わないはもったいない。<br><strong>提案は出してもらう。その場では契約しない。</strong></p>
+      <div class="principle">
+        <b>【このページの結論】</b>
+        <strong>営業の調査力は使う。判断は渡さない。</strong>
+      </div>
+    </section>
 
-      <section class="content">
-        <h2>なぜ無料で相談できるのか。</h2>
-        <p>保険代理店は、契約が成立すると保険会社から手数料を受け取る仕組みが一般的です。だから、相談する側が相談料を払わなくても成り立ちます。</p>
-        <p>つまり、完全に中立な第三者というより、保険を販売する営業担当者です。</p>
-        <p class="short">そこは最初から分かったうえで使います。</p>
-      </section>
+    <section class="content">
+      <h2>■ なぜ無料で相談できるのか</h2>
+      <p>保険代理店は、契約が成立すると保険会社から手数料を受け取る仕組みが一般的です。だから、相談する側が相談料を払わなくても成り立ちます。</p>
+      <p>完全に中立な第三者というより、保険を販売する営業担当者です。</p>
+      <p class="short">そこは最初から分かったうえで使います。</p>
+    </section>
 
-      <section class="content">
-        <h2>それでも相談する理由。</h2>
-        <p>相手は契約につなげたい。だから、今入っている保険証券を確認し、自社で扱える商品の中から代わりになる提案を探します。</p>
-        <p>自分一人で何十社もの商品を調べるのは大変です。提案を出してもらうところまでは、営業の力を使えばいい。</p>
-        <p class="short">実際に今より良い条件があるかは、提案を見てから決めます。</p>
-      </section>
+    <section class="content">
+      <h2>■ それでも相談する理由</h2>
+      <p>相手は契約につなげたい。だから、今入っている保険証券を確認し、自社で扱える商品の中から代わりになる提案を探します。</p>
+      <p>自分一人で何十社もの商品を調べるのは大変です。提案を出してもらうところまでは、営業の力を使えばいい。</p>
+      <p class="short">実際に今より良い条件があるかは、提案を見てから決めます。</p>
+    </section>
 
-      <section class="content">
-        <h2>申し込んだ後の流れ。</h2>
-        <ol class="flow">
-          <li><span>1</span><div><strong>日程調整の連絡</strong><small>申込み後、まず相談日時を決めます。</small></div></li>
-          <li><span>2</span><div><strong>保険証券を確認</strong><small>今入っている保険は、できれば全部見てもらいます。</small></div></li>
-          <li><span>3</span><div><strong>希望を聞かれる</strong><small>何を「良い」と考えるかを整理します。</small></div></li>
-          <li><span>4</span><div><strong>提案を受ける</strong><small>現在の契約と比べられる形で出してもらいます。</small></div></li>
-          <li><span>5</span><div><strong>持ち帰る</strong><small>その場では契約しません。</small></div></li>
-        </ol>
-        <p>流れはサービスや担当者によって異なりますが、保険証券を見ながら現状を確認し、提案を受けるのが基本です。</p>
-      </section>
+    <section class="content">
+      <h2>■ 申し込んだ後の流れ</h2>
+      <ol class="flow">
+        <li><span>1</span><div><strong>日程調整の連絡</strong><small>申込み後、まず相談日時を決めます。</small></div></li>
+        <li><span>2</span><div><strong>保険証券を確認</strong><small>今入っている保険は、できれば全部見てもらいます。</small></div></li>
+        <li><span>3</span><div><strong>希望を伝える</strong><small>同じくらいの保障なら、保険料が安い方を優先する。</small></div></li>
+        <li><span>4</span><div><strong>提案を受ける</strong><small>現在の契約と比べられる形で出してもらいます。</small></div></li>
+        <li><span>5</span><div><strong>持ち帰る</strong><small>その場では契約しません。</small></div></li>
+      </ol>
+      <p>流れはサービスや担当者によって異なりますが、保険証券を見ながら現状を確認し、提案を受けるのが基本です。</p>
+    </section>
 
-      <section class="content">
-        <h2>持っていくもの。</h2>
-        <div class="check-grid">
-          <div class="check"><b>最優先</b><strong>加入中の保険証券を全部</strong><small>一部だけより、重複や不足まで見てもらいやすい。</small></div>
-          <div class="check"><b>ざっくりでいい</b><strong>おおよその年収</strong><small>細かい家計表を作る必要はありません。</small></div>
-          <div class="check"><b>ざっくりでいい</b><strong>毎月いくら出ていくか</strong><small>生活費と固定費の大まかな金額で十分です。</small></div>
-          <div class="check"><b>言える範囲で</b><strong>貯金のおおよその額</strong><small>正確な残高ではなく、家計の余力を見るための概算。</small></div>
-        </div>
-        <p>将来の支出を完璧に予測することはできません。不測の事態は起きるので、細かすぎる計画より、家計の大枠を把握しておけば十分です。</p>
-      </section>
+    <section class="content">
+      <h2>■ 持っていくもの</h2>
+      <div class="check-grid">
+        <div class="check"><b>最優先</b><strong>加入中の保険証券を全部</strong><small>一部だけより、重複や不足まで見てもらいやすい。</small></div>
+        <div class="check"><b>概算でいい</b><strong>おおよその年収</strong><small>細かい家計表を作る必要はありません。</small></div>
+        <div class="check"><b>概算でいい</b><strong>毎月いくら出ていくか</strong><small>生活費と固定費の大まかな金額で十分です。</small></div>
+        <div class="check"><b>言える範囲で</b><strong>貯金のおおよその額</strong><small>家計の余力を見るための概算です。</small></div>
+      </div>
+      <p>将来の支出を完璧に予測することはできません。細かすぎる計画より、家計の大枠を把握しておけば十分です。</p>
+    </section>
 
-      <section class="content">
-        <h2>最初に、こう伝える。</h2>
-        <div class="quote">今入っている保険証券を全部持ってきました。<br>これより良いものがあればと思って相談に来ました。</div>
-        <div class="quote">同じくらいの保障内容なら、より保険料が安いものを優先したいです。</div>
-        <p>「良い保険」の定義は人によって違います。だから、同程度の保障なら安い方がいい、という自分の基準まで先に伝えます。</p>
-      </section>
+    <section class="content">
+      <h2>■ 最初に、こう伝える</h2>
+      <div class="quote">今入っている保険証券を全部持ってきました。<br>これより良いものがあればと思って相談に来ました。</div>
+      <div class="quote">同じくらいの保障内容なら、より保険料が安いものを優先したいです。</div>
+      <p>「良い保険」の定義は人によって違います。自分の比較基準まで先に伝えます。</p>
+    </section>
 
-      <section class="content">
-        <h2>こちらから、答えを全部教えない。</h2>
-        <p>最初から公的保障の話をこちらが全部説明する必要はありません。保険証券、家族構成、収入などを見た担当者が、公的保障や勤務先保障をどう扱うかを見ます。</p>
-        <div class="watch">
-          <article><b>見るところ</b><strong>国や会社から出るお金を、提案に入れているか。</strong><p>民間保険だけで全部を埋める提案になっていないかを確認します。</p></article>
-          <article><b>即断はしない</b><strong>説明がなかっただけで、知識不足とは決めない。</strong><p>提案書にどう反映されているかまで見て、分からなければ根拠を聞きます。</p></article>
-        </div>
-      </section>
+    <section class="content">
+      <h2>■ こちらから、答えを全部教えない</h2>
+      <p>保険証券、家族構成、収入などを見た担当者が、公的保障や勤務先保障をどう扱うかを確認します。</p>
+      <div class="watch">
+        <article><b>見るところ</b><strong>国や会社から出るお金を、提案に入れているか。</strong><p>民間保険だけで全部を埋める提案になっていないかを確認します。</p></article>
+        <article><b>即断はしない</b><strong>説明がなかっただけで、知識不足とは決めない。</strong><p>提案書にどう反映されているかまで見て、分からなければ根拠を聞きます。</p></article>
+      </div>
+    </section>
 
-      <section class="content">
-        <h2>その場で契約を勧められたら。</h2>
-        <div class="answer">
-          <span>このまま言えばいい</span>
-          <strong>大きなお金が動くので、今日は契約しません。提案書を持ち帰り、1週間後も必要だと思ったら、こちらから連絡します。</strong>
-        </div>
-        <div class="answer">
-          <span>「誰に相談しますか」と聞かれたら</span>
-          <strong>誰かに相談するというより、大きなお金が動くものをその場では決めないと決めています。</strong>
-          <small>家族を理由にすると話が続くことがあります。自分の決め事として伝えます。</small>
-        </div>
-      </section>
+    <section class="content">
+      <h2>■ その場で契約を勧められたら</h2>
+      <div class="answer">
+        <span>このまま言えばいい</span>
+        <strong>大きなお金が動くので、今日は契約しません。提案書を持ち帰り、1週間後も必要だと思ったら、こちらから連絡します。</strong>
+      </div>
+      <div class="answer">
+        <span>「誰に相談しますか」と聞かれたら</span>
+        <strong>誰かに相談するというより、大きなお金が動くものをその場では決めないと決めています。</strong>
+        <small>家族を理由にすると話が続くことがあります。自分の決め事として伝えます。</small>
+      </div>
+    </section>
 
-      <section class="cta">
-        <span>PR</span>
-        <h2>今の保険より良い条件があるか、見てもらう。</h2>
-        <p>保険証券は全部見せる。提案は持ち帰る。その場では契約しない。この前提で使います。</p>
-        <a class="cta-button" href="https://h.accesstrade.net/sp/cc?rk=0100pflv00op03" target="_blank" rel="nofollow sponsored noopener">保険の無料相談を確認する（PR）</a>
-        <small class="cta-note">提案内容を現在の契約と比べ、必要だと思った場合だけ判断します。</small>
-      </section>
+    <section class="cta">
+      <span>PR</span>
+      <h2>今の保険より良い条件があるか、見てもらう。</h2>
+      <p>保険証券は全部見せる。提案は持ち帰る。その場では契約しない。この前提で使います。</p>
+      <a class="cta-button" href="https://h.accesstrade.net/sp/cc?rk=0100pflv00op03" target="_blank" rel="nofollow sponsored noopener">&gt;&gt; 保険の無料相談を確認する【PR】</a>
+      <small class="cta-note">提案内容を現在の契約と比べ、必要だと思った場合だけ判断します。</small>
+    </section>
 
-      <nav class="footer-links" aria-label="関連ページ">
-        <a href="../#insurance">← 保険の考え方へ戻る</a>
-        <a href="../#home">最初の4択へ戻る</a>
-      </nav>
-    </main>
-  </div>
+    <nav class="footer-links" aria-label="関連ページ">
+      <a href="../#insurance">&lt;&lt; 保険の考え方へ戻る</a>
+      <a href="../#home">最初の2択へ戻る &gt;&gt;</a>
+    </nav>
+  </main>
+</div>
 </body>
 </html>
