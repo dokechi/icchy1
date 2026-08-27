@@ -1,0 +1,361 @@
+/* =========================================================
+   Mobile comparison page — 2003 price-comparison site
+   ========================================================= */
+html.retro-mobile body{font-size:17px!important;line-height:1.65!important}
+html.retro-mobile main{width:min(100% - 24px,820px)!important;padding:8px 0 44px!important}
+html.retro-mobile h1,html.retro-mobile h2,html.retro-mobile h3{letter-spacing:0!important;text-wrap:pretty!important}
+html.retro-mobile .icchy-topline,
+html.retro-mobile .retro-page-top{
+  margin:0 0 8px!important;
+  padding:6px 8px!important;
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  border:2px solid var(--retro-blue)!important;
+  background:var(--retro-blue)!important;
+  color:#fff!important;
+  font-size:13px!important;
+  font-weight:700!important;
+}
+html.retro-mobile .icchy-topline .topline-sub{color:#fff!important}
+html.retro-mobile .hero{
+  padding:0 0 12px!important;
+  border:2px solid var(--retro-blue)!important;
+  background:#fff!important;
+}
+html.retro-mobile .hero>.eyebrow,
+html.retro-mobile .hero>h1,
+html.retro-mobile .hero>.hero-promise,
+html.retro-mobile .hero>.hero-note,
+html.retro-mobile .hero>.detail-meta,
+html.retro-mobile .hero>.live-note{margin-left:9px!important;margin-right:9px!important}
+html.retro-mobile .eyebrow,html.retro-mobile .kicker{
+  color:var(--retro-red)!important;
+  font-size:13px!important;
+  font-weight:700!important;
+}
+html.retro-mobile .hero h1{
+  margin-top:5px!important;
+  max-width:none!important;
+  color:var(--retro-blue)!important;
+  font-size:clamp(27px,7.5vw,39px)!important;
+  line-height:1.22!important;
+}
+html.retro-mobile .hero h1 em{color:var(--retro-red)!important}
+html.retro-mobile .hero-promise{
+  margin-top:9px!important;
+  padding:8px!important;
+  border:2px solid var(--retro-red)!important;
+  background:var(--retro-yellow)!important;
+}
+html.retro-mobile .hero-promise-main{display:block!important}
+html.retro-mobile .hero-usage-line,html.retro-mobile .hero-price-line{display:flex!important;align-items:baseline;flex-wrap:wrap;gap:6px}
+html.retro-mobile .hero-price-line{margin-top:4px!important}
+html.retro-mobile .hero-number{
+  color:var(--retro-red)!important;
+  font-family:"MS PGothic",Meiryo,sans-serif!important;
+  font-size:clamp(46px,13vw,66px)!important;
+  letter-spacing:-.04em!important;
+  line-height:.95!important;
+}
+html.retro-mobile .hero-connector,html.retro-mobile .hero-period{font-size:18px!important;font-weight:700!important}
+html.retro-mobile .hero-promise-sub{margin-top:7px!important;font-size:20px!important;line-height:1.35!important}
+html.retro-mobile .hero-wifi-outcome{color:var(--retro-red)!important;white-space:normal!important}
+html.retro-mobile .hero-note{margin-top:8px!important;color:#333!important;font-size:12px!important;line-height:1.5!important}
+html.retro-mobile .detail-meta{
+  margin-top:9px!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  border:1px solid var(--retro-line)!important;
+  background:#fff!important;
+}
+html.retro-mobile .detail-meta>span{padding:5px!important;border-left:1px solid var(--retro-line)!important;font-size:11px!important;line-height:1.3!important}
+html.retro-mobile .detail-meta>span:first-child{border-left:0!important}
+html.retro-mobile .detail-meta b{font-size:14px!important}
+html.retro-mobile .meta-value{font-family:inherit!important;font-size:17px!important}
+html.retro-mobile .live-note{
+  margin-top:7px!important;
+  padding:7px 8px!important;
+  border:1px dashed var(--retro-red)!important;
+  border-left:5px solid var(--retro-red)!important;
+  background:#fff!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+
+html.retro-mobile .section{
+  margin-top:10px!important;
+  padding:0 0 12px!important;
+  border:2px solid var(--retro-blue)!important;
+  background:#fff!important;
+}
+html.retro-mobile .section::before{display:none!important}
+html.retro-mobile #comparison{margin-inline:0!important;padding-inline:0!important;background:#fff!important}
+html.retro-mobile .section-head{
+  min-height:0!important;
+  padding:7px 8px!important;
+  border-bottom:1px solid var(--retro-blue)!important;
+  background:var(--retro-pale-blue)!important;
+}
+html.retro-mobile .chapter-tab{
+  margin:0 5px 0 0!important;
+  padding:2px 4px!important;
+  display:inline-block!important;
+  background:var(--retro-blue)!important;
+  color:#fff!important;
+  font-size:11px!important;
+}
+html.retro-mobile .section-index{display:none!important}
+html.retro-mobile .section h2{
+  margin-top:3px!important;
+  max-width:none!important;
+  color:#000!important;
+  font-size:22px!important;
+  line-height:1.3!important;
+}
+html.retro-mobile .section-lead,html.retro-mobile .compare-intro{
+  margin:8px 9px 0!important;
+  color:#111!important;
+  font-size:15px!important;
+  line-height:1.65!important;
+}
+html.retro-mobile .tether-map{
+  margin:9px!important;
+  padding:7px!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:6px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#f2f2f2!important;
+}
+html.retro-mobile .tether-source,html.retro-mobile .tether-targets>div{
+  padding:8px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+html.retro-mobile .tether-source{border:2px solid var(--retro-red)!important;background:var(--retro-yellow)!important}
+html.retro-mobile .tether-source strong,html.retro-mobile .tether-targets strong{font-size:16px!important}
+html.retro-mobile .tether-source small,html.retro-mobile .tether-targets small{font-size:12px!important}
+html.retro-mobile .tether-arrow{font-size:22px!important;color:var(--retro-red)!important}
+html.retro-mobile .tether-targets{grid-template-columns:1fr 1fr!important;gap:6px!important}
+html.retro-mobile .image-slot{
+  min-height:110px!important;
+  margin:9px!important;
+  padding:12px!important;
+  border:1px dashed var(--retro-red)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  color:var(--retro-red)!important;
+  font-size:13px!important;
+}
+html.retro-mobile .proof-line{
+  margin:9px!important;
+  padding:7px 8px!important;
+  border:1px solid var(--retro-line)!important;
+  border-left:5px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:var(--retro-pale-blue)!important;
+  font-size:14px!important;
+}
+html.retro-mobile .evidence-strip{margin:9px 9px -3px!important;font-size:12px!important}
+html.retro-mobile .stat-pair{
+  margin:9px!important;
+  border:2px solid var(--retro-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+html.retro-mobile .stat-pair>div{padding:10px!important;background:#fff!important}
+html.retro-mobile .stat-pair .accent{background:var(--retro-yellow)!important}
+html.retro-mobile .stat-pair span{font-size:12px!important}
+html.retro-mobile .stat-pair strong{font-family:inherit!important;font-size:28px!important;color:var(--retro-red)!important}
+
+html.retro-mobile .compare-strap{
+  margin:9px!important;
+  padding:5px 7px!important;
+  border:1px solid var(--retro-line)!important;
+  background:#f2f2f2!important;
+  color:#000!important;
+  font-size:12px!important;
+}
+html.retro-mobile .compare-strap span:last-child{color:#333!important}
+html.retro-mobile .compare-builder{
+  margin:9px!important;
+  padding:8px!important;
+  border:2px solid var(--retro-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+html.retro-mobile .compare-control{margin-top:10px!important}
+html.retro-mobile .compare-control:first-child{margin-top:0!important}
+html.retro-mobile .control-label{font-size:14px!important}
+html.retro-mobile .segmented{
+  padding:4px!important;
+  gap:4px!important;
+  border:1px solid #777!important;
+  border-radius:0!important;
+  background:var(--retro-gray)!important;
+}
+html.retro-mobile .segmented button{
+  min-height:46px!important;
+  padding:6px!important;
+  border-top:2px solid #fff!important;
+  border-left:2px solid #fff!important;
+  border-right:2px solid #555!important;
+  border-bottom:2px solid #555!important;
+  border-radius:0!important;
+  background:var(--retro-gray)!important;
+  color:#000!important;
+  box-shadow:none!important;
+  font-size:13px!important;
+}
+html.retro-mobile .segmented button.on,html.retro-mobile .segmented button[aria-selected="true"]{
+  border-top-color:#555!important;
+  border-left-color:#555!important;
+  border-right-color:#fff!important;
+  border-bottom-color:#fff!important;
+  background:var(--retro-blue)!important;
+  color:#fff!important;
+}
+html.retro-mobile .mode-explain{
+  margin-top:7px!important;
+  padding:6px 7px!important;
+  border-left:4px solid var(--retro-blue)!important;
+  border-radius:0!important;
+  background:var(--retro-pale-blue)!important;
+  color:#111!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+html.retro-mobile .result-head{
+  margin:9px 9px 0!important;
+  padding:5px 7px!important;
+  border:0!important;
+  background:var(--retro-blue)!important;
+  color:#fff!important;
+}
+html.retro-mobile .result-head strong{font-size:18px!important}
+html.retro-mobile .result-head span{color:#fff!important;font-size:11px!important}
+html.retro-mobile .retro-price-head{
+  margin:0 9px;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  gap:7px;
+  padding:4px 6px;
+  border:1px solid var(--retro-line);
+  border-bottom:0;
+  background:var(--retro-pale-blue);
+  color:var(--retro-blue);
+  font-size:11px;
+  font-weight:700;
+}
+html.retro-mobile .price-table{
+  margin:0 9px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  overflow:visible!important;
+}
+html.retro-mobile .price-row{
+  min-height:0!important;
+  grid-template-columns:42px minmax(0,1fr) auto!important;
+  gap:7px!important;
+  padding:7px 6px!important;
+  border-top:1px solid var(--retro-line)!important;
+}
+html.retro-mobile .price-row:first-child{border-top:0!important}
+html.retro-mobile .price-row:nth-child(even){background:#f7f7f7!important}
+html.retro-mobile .price-row.rakuten{background:var(--retro-yellow)!important;box-shadow:inset 5px 0 0 var(--retro-red)!important}
+html.retro-mobile .rank{
+  width:32px!important;height:32px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  font-size:13px!important;
+}
+html.retro-mobile .price-row.rakuten .rank{background:var(--retro-red)!important;color:#fff!important}
+html.retro-mobile .plan strong{font-size:15px!important}
+html.retro-mobile .plan small{margin-top:2px!important;font-size:11px!important;line-height:1.35!important}
+html.retro-mobile .price{font-family:inherit!important;font-size:23px!important;color:#000!important}
+html.retro-mobile .price-row.rakuten .price,html.retro-mobile .price-row.rakuten .plan strong{color:var(--retro-red)!important}
+html.retro-mobile .compare-truth{
+  margin:9px!important;
+  padding:8px!important;
+  border:2px solid var(--retro-red)!important;
+  border-left-width:7px!important;
+  border-radius:0!important;
+  background:var(--retro-yellow)!important;
+}
+html.retro-mobile .compare-truth strong{font-size:18px!important}
+html.retro-mobile .compare-truth p{margin-top:4px!important;font-size:13px!important;line-height:1.5!important}
+html.retro-mobile .condition-details{
+  margin:9px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+}
+html.retro-mobile .condition-details summary{
+  min-height:42px!important;
+  padding:7px 8px!important;
+  border-top:2px solid #fff!important;
+  border-left:2px solid #fff!important;
+  border-right:2px solid #555!important;
+  border-bottom:2px solid #555!important;
+  background:var(--retro-gray)!important;
+  color:var(--retro-link)!important;
+  font-size:13px!important;
+  text-decoration:underline!important;
+}
+html.retro-mobile .condition-list{padding:0 8px 7px!important}
+html.retro-mobile .condition-item{padding:7px 0!important;border-top:1px dotted #777!important}
+html.retro-mobile .condition-item strong{font-size:13px!important}
+html.retro-mobile .condition-item p{font-size:11px!important;line-height:1.45!important}
+html.retro-mobile .no-match{margin:9px!important;padding-left:7px!important;border-left:3px solid #777!important;font-size:11px!important}
+
+html.retro-mobile .judgment,html.retro-mobile .wifi-decision{margin:9px!important;gap:7px!important}
+html.retro-mobile .judge-card,html.retro-mobile .decision-card{
+  padding:8px!important;
+  border:1px solid var(--retro-line)!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:#fff!important;
+}
+html.retro-mobile .judge-card.rakuten,html.retro-mobile .decision-card.go{border:2px solid var(--retro-red)!important;background:var(--retro-yellow)!important}
+html.retro-mobile .judge-card span{
+  padding:2px 4px!important;
+  border-radius:0!important;
+  background:var(--retro-pale-blue)!important;
+  color:var(--retro-blue)!important;
+  font-size:11px!important;
+}
+html.retro-mobile .judge-card h3,html.retro-mobile .decision-card h3{margin-top:4px!important;font-size:18px!important;line-height:1.35!important}
+html.retro-mobile .judge-card p,html.retro-mobile .decision-card li{font-size:13px!important;line-height:1.5!important}
+html.retro-mobile .decision-answer{margin-top:7px!important;padding-top:6px!important;font-size:17px!important;color:var(--retro-red)!important}
+
+html.retro-mobile .cta-section{padding:10px 0 0!important}
+html.retro-mobile .cta-box{
+  margin:0!important;
+  padding:9px!important;
+  border:3px double var(--retro-red)!important;
+  border-radius:0!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html.retro-mobile .cta-box h2{font-size:24px!important;line-height:1.35!important}
+html.retro-mobile .cta-box p,html.retro-mobile .cta-points span{font-size:13px!important;line-height:1.55!important}
+html.retro-mobile .cta-points{margin-top:8px!important}
+html.retro-mobile .cta-points span{padding:6px 0!important}
+html.retro-mobile .primary{
+  min-height:52px!important;
+  margin-top:9px!important;
+  border:3px double #fff!important;
+  border-radius:0!important;
+  background:var(--retro-pink)!important;
+  color:#fff!important;
+  box-shadow:none!important;
+  font-size:16px!important;
+  text-decoration:underline!important;
+}
+html.retro-mobile .cta-note{font-size:11px!important}
+html.retro-mobile .sources{margin:12px 0 0!important;padding-top:8px!important}
+html.retro-mobile .sources summary,html.retro-mobile .sources a,html.retro-mobile .back{font-size:12px!important}
+html.retro-mobile .sources a{border-radius:0!important}
