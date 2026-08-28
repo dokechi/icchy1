@@ -13,7 +13,8 @@
 <meta property="og:description" content="スマホと保険。数字と条件を先に見て、固定費を払いすぎないための2択サイト。">
 <meta name="twitter:card" content="summary">
 <title>イッチー｜知らないまま、払いすぎない</title>
-<link rel="stylesheet" href="retro-icchy.css?v=20260827-1">
+<link rel="stylesheet" href="retro-icchy.css?v=20260828-2">
+<style>[hidden]{display:none!important}</style>
 </head>
 <body class="retro-launcher">
 <a class="skip-link" href="#homeView">本文へ移動</a>
@@ -42,7 +43,7 @@
   </table>
 
   <nav class="retro-choice-list" aria-label="見る内容を選ぶ">
-    <a class="retro-choice retro-choice--mobile" href="#mobile">
+    <a class="retro-choice retro-choice--mobile" href="#mobile" data-route="mobile">
       <span class="retro-choice__head">■ スマホ代を比べる</span>
       <span class="retro-choice__body">
         <h2>100GB使うなら、月いくら？</h2>
@@ -52,7 +53,7 @@
       </span>
     </a>
 
-    <a class="retro-choice" href="#insurance">
+    <a class="retro-choice" href="#insurance" data-route="insurance">
       <span class="retro-choice__head">■ 保険料を見直す</span>
       <span class="retro-choice__body">
         <h2>民間保険の前に、何を見る？</h2>
@@ -89,7 +90,16 @@ function goHome(){
     renderRoute();
   }else{
     location.hash='home';
+    renderRoute();
   }
+}
+function goRoute(route){
+  if(!KNOWN_ROUTES.has(route))return;
+  const nextHash=`#${route}`;
+  if(location.hash!==nextHash){
+    history.pushState(null,'',location.pathname+location.search+nextHash);
+  }
+  renderRoute();
 }
 function applyFontSize(){
   let large=false;
@@ -128,7 +138,7 @@ function enhanceFrame(){
       if(doc.getElementById('retroIcchyScript'))return;
       const script=doc.createElement('script');
       script.id='retroIcchyScript';
-      script.src='retro-icchy.js?v=20260827-1';
+      script.src='retro-icchy.js?v=20260828-2';
       doc.body.appendChild(script);
     };
     const loadPolishScript=()=>{
@@ -158,7 +168,7 @@ function enhanceFrame(){
       const link=doc.createElement('link');
       link.id='retroIcchyStyle';
       link.rel='stylesheet';
-      link.href='retro-icchy.css?v=20260827-1';
+      link.href='retro-icchy.css?v=20260828-2';
       doc.head.appendChild(link);
     }
 
@@ -200,6 +210,12 @@ function enhanceFrame(){
 
 brandHome.addEventListener('click',goHome);
 homeBack.addEventListener('click',goHome);
+document.querySelectorAll('.retro-choice[data-route]').forEach(link=>{
+  link.addEventListener('click',event=>{
+    event.preventDefault();
+    goRoute(link.dataset.route);
+  });
+});
 fontToggle.addEventListener('click',()=>{
   const next=!document.documentElement.classList.contains('large');
   try{localStorage.setItem('icchy-font-size',next?'large':'normal')}catch(error){}
@@ -207,6 +223,7 @@ fontToggle.addEventListener('click',()=>{
 });
 detailFrame.addEventListener('load',enhanceFrame);
 window.addEventListener('hashchange',renderRoute);
+window.addEventListener('popstate',renderRoute);
 applyFontSize();
 renderRoute();
 </script>
