@@ -13,7 +13,7 @@
 <meta property="og:description" content="スマホと保険。数字と条件を先に見て、固定費を払いすぎないための2択サイト。">
 <meta name="twitter:card" content="summary">
 <title>イッチー｜知らないまま、払いすぎない</title>
-<link rel="stylesheet" href="retro-icchy.css?v=20260828-2">
+<link rel="stylesheet" href="retro-icchy.css?v=20260828-3">
 <style>[hidden]{display:none!important}</style>
 </head>
 <body class="retro-launcher">
@@ -27,44 +27,91 @@
 </header>
 
 <main class="retro-home" id="homeView">
+  <div class="retro-ticker" aria-label="更新情報">
+    <div class="retro-ticker__inner">【更新】楽天が毎回1位とは書きません。20GB前後・条件次第ではY!mobileが安い場合あり。　★ 保険は民間保険より先に「国・会社・貯金」を確認 ★</div>
+  </div>
+
   <section class="retro-title-panel" aria-labelledby="pageTitle">
-    <div class="retro-titlebar">■■ 固定費を比べるサイト ■■</div>
+    <div class="retro-titlebar">■■ 個人運営・固定費比較サイト ■■</div>
     <div class="retro-title-body">
-      <h1 id="pageTitle">★ 知らないまま、払いすぎない。★</h1>
-      <p><span class="retro-new">NEW!!</span>スマホと保険。まず数字と条件を見る。</p>
+      <p class="retro-welcome">★ ようこそ イッチーへ ★</p>
+      <h1 id="pageTitle">知らないまま、<br>払いすぎない。</h1>
+      <div class="retro-status-line"><span class="retro-new">NEW!!</span><span>最終更新：2026/08/28</span><span>スマホ対応</span><span>PRリンクあり</span></div>
     </div>
   </section>
 
-  <table class="retro-savings" aria-label="固定費差額の単純計算">
-    <tbody>
-      <tr><th>1年なら</th><td><strong>20万円</strong> 浮くことも。</td></tr>
-      <tr><th>50年なら</th><td><strong>1,000万円</strong> の差になる。</td></tr>
-    </tbody>
-  </table>
+  <div class="retro-home-shell">
+    <aside class="retro-side" aria-label="サイト情報">
+      <section class="retro-mini-panel retro-mini-panel--update">
+        <h2>■ 更新情報</h2>
+        <ul>
+          <li><b>08/28</b> TOPを平成比較サイト風に更新</li>
+          <li><b>08/11</b> 楽天の料金比較を更新</li>
+          <li><b>08/06</b> 100GB利用記事を追加</li>
+        </ul>
+      </section>
 
-  <nav class="retro-choice-list" aria-label="見る内容を選ぶ">
-    <a class="retro-choice retro-choice--mobile" href="#mobile" data-route="mobile">
-      <span class="retro-choice__head">■ スマホ代を比べる</span>
-      <span class="retro-choice__body">
-        <h2>100GB使うなら、月いくら？</h2>
-        <span class="retro-choice__amount">3,168円</span>
-        <p>最強家族割後。通常3,278円。俺はテザリングで家のWi-Fiもやめた。他社が安い条件も隠さず比べます。</p>
-        <span class="retro-choice__go retro-window-button">&gt;&gt; 実際の料金比較を見る</span>
-      </span>
-    </a>
+      <section class="retro-mini-panel retro-mini-panel--memo">
+        <h2>★ 管理人メモ</h2>
+        <p><strong>月100GB超</strong>使う月あり。</p>
+        <p>テザリングで家の<strong>Wi-Fi代0円</strong>。</p>
+        <a href="#mobile" data-route="mobile">&gt;&gt; 実際の使い方</a>
+      </section>
 
-    <a class="retro-choice" href="#insurance" data-route="insurance">
-      <span class="retro-choice__head">■ 保険料を見直す</span>
-      <span class="retro-choice__body">
-        <h2>民間保険の前に、何を見る？</h2>
-        <span class="retro-choice__amount">国・会社・貯金</span>
-        <p>先に使える保障を確認。それでも足りない金額だけ、民間保険で考えます。</p>
-        <span class="retro-choice__go retro-window-button">&gt;&gt; 今の保険が必要か見る</span>
-      </span>
-    </a>
-  </nav>
+      <section class="retro-mini-panel retro-mini-panel--rule">
+        <h2>■ このサイトの約束</h2>
+        <p>楽天が負ける条件も書く。</p>
+        <p>保険は国・会社を先に見る。</p>
+        <p>広告は<strong>PR</strong>と書く。</p>
+      </section>
+    </aside>
 
-  <p class="retro-home-note">※20万円×50年の単純計算です。実際の差額は契約・利用状況で変わります。料金や制度の最新条件は各公式情報で確認してください。</p>
+    <div class="retro-home-main">
+      <table class="retro-savings" aria-label="固定費差額の単純計算">
+        <tbody>
+          <tr><th>1年なら</th><td><strong>20万円</strong> 浮くことも。</td></tr>
+          <tr><th>50年なら</th><td><strong>1,000万円</strong> の差になる。</td></tr>
+        </tbody>
+      </table>
+
+      <div class="retro-select-title">▼▼▼　まず、どっちを見る？　▼▼▼</div>
+
+      <nav class="retro-choice-list" aria-label="見る内容を選ぶ">
+        <a class="retro-choice retro-choice--mobile" href="#mobile" data-route="mobile">
+          <span class="retro-choice__head">■ スマホ代を比べる</span>
+          <span class="retro-choice__body">
+            <span class="retro-choice__tiny">楽天モバイルだけを褒めるページではありません</span>
+            <h2>100GB使うなら、月いくら？</h2>
+            <span class="retro-choice__amount">3,168円</span>
+            <p>最強家族割後。通常3,278円。俺はテザリングで家のWi-Fiもやめた。他社が安い条件も比較します。</p>
+            <span class="retro-choice__go retro-window-button">&gt;&gt; 実際の料金比較を見る</span>
+          </span>
+        </a>
+
+        <a class="retro-choice" href="#insurance" data-route="insurance">
+          <span class="retro-choice__head">■ 保険料を見直す</span>
+          <span class="retro-choice__body">
+            <span class="retro-choice__tiny">いきなり保険商品は選びません</span>
+            <h2>民間保険の前に、何を見る？</h2>
+            <span class="retro-choice__amount">国・会社・貯金</span>
+            <p>先に使える保障を確認。それでも足りない金額だけ、民間保険で考えます。</p>
+            <span class="retro-choice__go retro-window-button">&gt;&gt; 今の保険が必要か見る</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="retro-quick-links" aria-label="すぐ見る">
+        <span>【すぐ見る】</span>
+        <a href="#mobile" data-route="mobile">100GB料金比較</a>
+        <span>｜</span>
+        <a href="#insurance" data-route="insurance">公的保障から見る</a>
+        <span>｜</span>
+        <a href="insurance-consultation/">無料相談は営業です</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="retro-home-note">※20万円×50年の単純計算です。実際の差額は契約・利用状況で変わります。料金・制度・キャンペーンは申込前に公式情報を確認してください。</p>
 </main>
 
 <section class="retro-detail" id="detailView" hidden aria-label="詳細">
@@ -138,7 +185,7 @@ function enhanceFrame(){
       if(doc.getElementById('retroIcchyScript'))return;
       const script=doc.createElement('script');
       script.id='retroIcchyScript';
-      script.src='retro-icchy.js?v=20260828-2';
+      script.src='retro-icchy.js?v=20260828-3';
       doc.body.appendChild(script);
     };
     const loadPolishScript=()=>{
@@ -168,7 +215,7 @@ function enhanceFrame(){
       const link=doc.createElement('link');
       link.id='retroIcchyStyle';
       link.rel='stylesheet';
-      link.href='retro-icchy.css?v=20260828-2';
+      link.href='retro-icchy.css?v=20260828-3';
       doc.head.appendChild(link);
     }
 
@@ -210,7 +257,7 @@ function enhanceFrame(){
 
 brandHome.addEventListener('click',goHome);
 homeBack.addEventListener('click',goHome);
-document.querySelectorAll('.retro-choice[data-route]').forEach(link=>{
+document.querySelectorAll('[data-route]').forEach(link=>{
   link.addEventListener('click',event=>{
     event.preventDefault();
     goRoute(link.dataset.route);
